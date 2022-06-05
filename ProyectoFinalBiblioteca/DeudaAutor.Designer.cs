@@ -79,6 +79,8 @@ namespace ProyectoFinalBiblioteca
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(70, 20);
             this.txtbusqueda.TabIndex = 22;
+            this.txtbusqueda.TextChanged += new System.EventHandler(this.txtbusqueda_TextChanged);
+            this.txtbusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbusqueda_KeyPress);
             // 
             // dgvLector
             // 
@@ -121,6 +123,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.Label1);
             this.Name = "DeudaAutor";
             this.Text = "DeudaAutor";
+            this.Load += new System.EventHandler(this.DeudaAutor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

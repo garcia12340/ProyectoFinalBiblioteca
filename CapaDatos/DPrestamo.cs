@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class DPrestamo
+    public class DPrestamo
     {
         private DConexion Conexion = new DConexion();
         private SqlCommand Comando = new SqlCommand();
@@ -42,20 +42,43 @@ namespace CapaDatos
             return tablaprestamo;
         }
 
-        public DataTable MostrarPrestamoDeuda(LPrestamo lprestamo)
+        public static bool MostrarPrestamoDeuda(int CodLector)
         {
-            DataTable tabladeuda = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "MostrarPrestamoDeudaLecor";
-            Comando.CommandType = CommandType.StoredProcedure;
-            Comando.Parameters.AddWithValue("@codlector", lprestamo._CodLector);
-            Comando.ExecuteNonQuery();//Pendiente
-            LeerFilas = Comando.ExecuteReader();
-            tabladeuda.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return tabladeuda;
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            {
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", oConexion);
+                    Comando.Parameters.AddWithValue("codlector",CodLector);
+                    Comando.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+            }
+
+            return res;
         }
+        //public DataTable MostrarPrestamoDeuda(LPrestamo lprestamo)
+        //{
+        //    DataTable tabladeuda = new DataTable();
+        //    Comando.Connection = Conexion.AbrirConexion();
+        //    Comando.CommandText = "MostrarPrestamoDeudaLecor";
+        //    Comando.CommandType = CommandType.StoredProcedure;
+        //    Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
+        //    Comando.ExecuteNonQuery();//Pendiente
+        //    LeerFilas = Comando.ExecuteReader();
+        //    tabladeuda.Load(LeerFilas);
+        //    LeerFilas.Close();
+        //    Conexion.CerrarConexion();
+        //    return tabladeuda;
+        //}
 
         public bool AgregarPrestamo(LPrestamo lprestamo)
         {
@@ -64,9 +87,9 @@ namespace CapaDatos
                 Comando.Connection = Conexion.AbrirConexion();
                 Comando.CommandText = "AgregarPrestamo";
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codlector", lprestamo._CodLector);
-                Comando.Parameters.AddWithValue("@codlibro", lprestamo._CodLibro);
-                Comando.Parameters.AddWithValue("@fec_devolucion", lprestamo._Fec_Devolucion);
+                Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
+                Comando.Parameters.AddWithValue("@codlibro", lprestamo.CodLibro);
+                Comando.Parameters.AddWithValue("@fec_devolucion", lprestamo.Fec_Devolucion);
                 Comando.ExecuteNonQuery();
                 dr = Comando.ExecuteReader();
 
@@ -93,7 +116,7 @@ namespace CapaDatos
                 Comando.Connection = Conexion.AbrirConexion();
                 Comando.CommandText = "ModificarPrestamoRetorno";
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codprestamo", lprestamo._CodPrestamo);
+                Comando.Parameters.AddWithValue("@codprestamo", lprestamo.CodPrestamo);
                 Comando.ExecuteNonQuery();
                 dr = Comando.ExecuteReader();
 

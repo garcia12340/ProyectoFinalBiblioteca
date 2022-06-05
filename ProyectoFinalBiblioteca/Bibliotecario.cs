@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDatos;
+using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,33 @@ namespace ProyectoFinalBiblioteca
         public Bibliotecario()
         {
             InitializeComponent();
+        }
+
+        private void Bibliotecario_Load(object sender, EventArgs e)
+        {
+            CargarListaBibliotecario();
+        }
+
+        public void CargarListaBibliotecario()
+        {
+            //{
+                int CantRegistros;
+                try
+                {
+                    dgvBibliotecario.DataSource = DBibliotecario.MostrarBibliotecarios();
+                    //dgvBibliotecario.SelectedColumns(0).Visible = false;
+                    CantRegistros = dgvBibliotecario.RowCount;
+                    lblRegistros.Text = Convert.ToString(CantRegistros);
+                }
+                catch (Exception ex)
+                {
+                    Interaction.MsgBox(ex.Message);
+                }
+                finally
+                {
+                    dgvBibliotecario.ClearSelection();
+                }
+            //}
         }
     }
 }

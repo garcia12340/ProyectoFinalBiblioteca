@@ -32,9 +32,9 @@ namespace ProyectoFinalBiblioteca
             this.Label1 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgvLector = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.BtnNuevo = new System.Windows.Forms.Button();
+            this.BtnModificar = new System.Windows.Forms.Button();
+            this.BtnEliminar = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
@@ -81,47 +81,50 @@ namespace ProyectoFinalBiblioteca
             this.dgvLector.Size = new System.Drawing.Size(745, 290);
             this.dgvLector.TabIndex = 20;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(43, 399);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 46);
-            this.btnNuevo.TabIndex = 21;
-            this.btnNuevo.Text = "&Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.BtnNuevo.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNuevo.ForeColor = System.Drawing.Color.White;
+            this.BtnNuevo.Location = new System.Drawing.Point(43, 399);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(105, 46);
+            this.BtnNuevo.TabIndex = 21;
+            this.BtnNuevo.Text = "&Nuevo";
+            this.BtnNuevo.UseVisualStyleBackColor = false;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
-            // btnModificar
+            // BtnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(565, 399);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(105, 46);
-            this.btnModificar.TabIndex = 22;
-            this.btnModificar.Text = "&Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificar.ForeColor = System.Drawing.Color.White;
+            this.BtnModificar.Location = new System.Drawing.Point(565, 399);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(105, 46);
+            this.BtnModificar.TabIndex = 22;
+            this.BtnModificar.Text = "&Modificar";
+            this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(686, 399);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(105, 46);
-            this.btnEliminar.TabIndex = 23;
-            this.btnEliminar.Text = "&Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminar.Location = new System.Drawing.Point(686, 399);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(105, 46);
+            this.BtnEliminar.TabIndex = 23;
+            this.BtnEliminar.Text = "&Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // Label3
             // 
@@ -158,14 +161,15 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label3);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnModificar);
+            this.Controls.Add(this.BtnNuevo);
             this.Controls.Add(this.dgvLector);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
             this.Name = "Lector";
             this.Text = "Lector";
+            this.Load += new System.EventHandler(this.Lector_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,9 +181,9 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.DataGridView dgvLector;
-        internal System.Windows.Forms.Button btnNuevo;
-        internal System.Windows.Forms.Button btnModificar;
-        internal System.Windows.Forms.Button btnEliminar;
+        internal System.Windows.Forms.Button BtnNuevo;
+        internal System.Windows.Forms.Button BtnModificar;
+        internal System.Windows.Forms.Button BtnEliminar;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label lblRegistros;

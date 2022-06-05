@@ -8,33 +8,35 @@ namespace CapaModelo
 {
     public class LPrestamo
     {
-        public int CodPrestamo;
-        public int CodLector;
-        public int CodLibro;
-        public DateTime Fec_Devolucion;
+        public int CodPrestamo { get; set; }
+        public int CodLector { get; set; }
+        public int CodLibro { get; set; }
+        public DateTime Fec_Devolucion { get; set; }
 
-        public int _CodPrestamo
-        {
-            get { return CodPrestamo; }
-            set { CodPrestamo = value; }
+    //    public int _CodPrestamo
+    //    {
+    //        get { return CodPrestamo; }
+    //        set { CodPrestamo = value; }
 
-        }
-        public int _CodLector
-        {
-            get { return CodLector; }
-            set { CodLector = value; }
+    //    }
+    //    public int _CodLector
+    //    {
+    //        get { return CodLector; }
+    //        set { CodLector = value; }
 
-        }
-        public int _CodLibro
-        {
-            get { return CodLibro; }
-            set { CodLibro = value; }
+    //    }
+    //    public int _CodLibro
+    //    {
+    //        get { return CodLibro; }
+    //        set { CodLibro = value; }
 
-        }
-        public DateTime _Fec_Devolucion
-        {
-            get { return Fec_Devolucion; }
-            set { Fec_Devolucion = value; }
-        }
+    //    }
+    //    public DateTime _Fec_Devolucion
+    //    {
+    //        get { return Fec_Devolucion; }
+    //        set { Fec_Devolucion = value; }
+    //    }
     }
 }
+
+

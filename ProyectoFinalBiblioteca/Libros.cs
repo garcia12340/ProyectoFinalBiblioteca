@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,42 @@ namespace ProyectoFinalBiblioteca
         public Libros()
         {
             InitializeComponent();
+        }
+
+        private void Libros_Load(object sender, EventArgs e)
+        {
+            CargarListaLibro();
+        }
+        private void btnAutor_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnGenero_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnEditorial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarListaLibro()
+        {
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

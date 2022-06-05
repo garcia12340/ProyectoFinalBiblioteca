@@ -110,7 +110,7 @@ namespace ProyectoFinalBiblioteca
             this.TSMINuevoPrestamo.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMINuevoPrestamo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMINuevoPrestamo.Name = "TSMINuevoPrestamo";
-            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(180, 22);
+            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(176, 22);
             this.TSMINuevoPrestamo.Text = "Nuevo Prestamo";
             // 
             // TSMILibrosPrestados
@@ -118,7 +118,7 @@ namespace ProyectoFinalBiblioteca
             this.TSMILibrosPrestados.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMILibrosPrestados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosPrestados.Name = "TSMILibrosPrestados";
-            this.TSMILibrosPrestados.Size = new System.Drawing.Size(180, 22);
+            this.TSMILibrosPrestados.Size = new System.Drawing.Size(176, 22);
             this.TSMILibrosPrestados.Text = "Libros Prestados";
             // 
             // TSMILibrosDevueltos
@@ -126,7 +126,7 @@ namespace ProyectoFinalBiblioteca
             this.TSMILibrosDevueltos.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMILibrosDevueltos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosDevueltos.Name = "TSMILibrosDevueltos";
-            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(180, 22);
+            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(176, 22);
             this.TSMILibrosDevueltos.Text = "Libros Devueltos";
             // 
             // TSBlibros
@@ -137,6 +137,7 @@ namespace ProyectoFinalBiblioteca
             this.TSBlibros.Name = "TSBlibros";
             this.TSBlibros.Size = new System.Drawing.Size(73, 25);
             this.TSBlibros.Text = "Libros";
+            this.TSBlibros.Click += new System.EventHandler(this.TSBlibros_Click);
             // 
             // TSBLectores
             // 
@@ -146,6 +147,7 @@ namespace ProyectoFinalBiblioteca
             this.TSBLectores.Name = "TSBLectores";
             this.TSBLectores.Size = new System.Drawing.Size(88, 25);
             this.TSBLectores.Text = "Lectores";
+            this.TSBLectores.Click += new System.EventHandler(this.TSBLectores_Click);
             // 
             // lblSalir
             // 
@@ -159,6 +161,7 @@ namespace ProyectoFinalBiblioteca
             this.lblSalir.Size = new System.Drawing.Size(40, 20);
             this.lblSalir.TabIndex = 6;
             this.lblSalir.Text = "Salir";
+            this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
             // 
             // MenuPrincipal
             // 

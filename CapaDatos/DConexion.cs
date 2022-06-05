@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class DConexion
+    public class DConexion
     {
         static public string CadenaConexion = "Server=LAPTOP-GK4LE9BQ;DataBase=dbbiblioteca;Integrated Security=true";
         public SqlConnection Conexion = new SqlConnection(CadenaConexion);

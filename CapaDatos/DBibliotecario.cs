@@ -25,8 +25,8 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("AccederBibliotecario", oConexion);
-                    Comando.Parameters.AddWithValue("@user", lbibliotecario._Nro_Carnet);
-                    Comando.Parameters.AddWithValue("@clave", lbibliotecario._Contrasena);
+                    Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
+                    Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -101,19 +101,19 @@ namespace CapaDatos
                 }
             }
         }
-            //public DataTable GenerarCarnet() 
-            //{
-            //  DataTable tablagenerada = new DataTable();
-            //  Comando.Connection = Conexion.AbrirConexion();
-            //  Comando.CommandText = "NroCarnetBibliotecario";
-            //  Comando.CommandType = CommandType.StoredProcedure;
-            //  LeerFilas = Comando.ExecuteReader();
-            //  tablagenerada.Load(LeerFilas);
-            //  LeerFilas.Close();
-            //  Conexion.CerrarConexion();
-            // return tablagenerada;
+        //public DataTable GenerarCarnet() 
+        //{
+        //  DataTable tablagenerada = new DataTable();
+        //  Comando.Connection = Conexion.AbrirConexion();
+        //  Comando.CommandText = "NroCarnetBibliotecario";
+        //  Comando.CommandType = CommandType.StoredProcedure;
+        //  LeerFilas = Comando.ExecuteReader();
+        //  tablagenerada.Load(LeerFilas);
+        //  LeerFilas.Close();
+        //  Conexion.CerrarConexion();
+        // return tablagenerada;
 
-            //}
+        //}
 
         public static List<LBibliotecario> MostrarBibliotecarios()
         {
@@ -137,7 +137,8 @@ namespace CapaDatos
                             Email = dr["Email"].ToString(),
                             Telefono = Convert.ToInt32(dr["Telefono"].ToString()),
                             Dni = Convert.ToInt32(dr["Dni"].ToString()),
-                            Nro_Carnet = dr["Nro_Carnet"].ToString()
+                            Nro_Carnet = dr["Nro_Carnet"].ToString(),
+                            Contrasena = dr["Clave"].ToString()
                         });
                     }
                     dr.Close();
@@ -152,19 +153,6 @@ namespace CapaDatos
             }
         }
 
-        //public DataTable MostrarBibliotecarios()
-        //{
-        //    DataTable tablabibliotecarios = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "MostrarBibliotecarios";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tablabibliotecarios.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tablabibliotecarios;
-        //}
-
         public static bool AgregarBibliotecario(LBibliotecario lbibliotecario)
         {
             bool res = true;
@@ -173,14 +161,14 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("AgregarBibliotecario", oConexion);
-                    Comando.Parameters.AddWithValue("@nombres", lbibliotecario._Nombres);
-                    Comando.Parameters.AddWithValue("@apellidos", lbibliotecario._Apellidos);
-                    Comando.Parameters.AddWithValue("@direccion", lbibliotecario._Direccion);
-                    Comando.Parameters.AddWithValue("@email", lbibliotecario._Email);
-                    Comando.Parameters.AddWithValue("@telefono", lbibliotecario._Telefono);
-                    Comando.Parameters.AddWithValue("@dni", lbibliotecario._Dni);
-                    Comando.Parameters.AddWithValue("@nro_carnet", lbibliotecario._Nro_Carnet);
-                    Comando.Parameters.AddWithValue("@contrasena", lbibliotecario._Contrasena);
+                    Comando.Parameters.AddWithValue("@nombres", lbibliotecario.Nombres);
+                    Comando.Parameters.AddWithValue("@apellidos", lbibliotecario.Apellidos);
+                    Comando.Parameters.AddWithValue("@direccion", lbibliotecario.Direccion);
+                    Comando.Parameters.AddWithValue("@email", lbibliotecario.Email);
+                    Comando.Parameters.AddWithValue("@telefono", lbibliotecario.Telefono);
+                    Comando.Parameters.AddWithValue("@dni", lbibliotecario.Dni);
+                    Comando.Parameters.AddWithValue("@nro_carnet", lbibliotecario.Nro_Carnet);
+                    Comando.Parameters.AddWithValue("@contrasena", lbibliotecario.Contrasena);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -236,13 +224,13 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("ModificarBibliotecario", oConexion);
-                    Comando.Parameters.AddWithValue("@codbibliotecario", lbibliotecario._CodBibliotecario);
-                    Comando.Parameters.AddWithValue("@nombres", lbibliotecario._Nombres);
-                    Comando.Parameters.AddWithValue("@apellidos", lbibliotecario._Apellidos);
-                    Comando.Parameters.AddWithValue("@direccion", lbibliotecario._Direccion);
-                    Comando.Parameters.AddWithValue("@email", lbibliotecario._Email);
-                    Comando.Parameters.AddWithValue("@telefono", lbibliotecario._Telefono);
-                    Comando.Parameters.AddWithValue("@dni", lbibliotecario._Dni);
+                    Comando.Parameters.AddWithValue("@codbibliotecario", lbibliotecario.CodBibliotecario);
+                    Comando.Parameters.AddWithValue("@nombres", lbibliotecario.Nombres);
+                    Comando.Parameters.AddWithValue("@apellidos", lbibliotecario.Apellidos);
+                    Comando.Parameters.AddWithValue("@direccion", lbibliotecario.Direccion);
+                    Comando.Parameters.AddWithValue("@email", lbibliotecario.Email);
+                    Comando.Parameters.AddWithValue("@telefono", lbibliotecario.Telefono);
+                    Comando.Parameters.AddWithValue("@dni", lbibliotecario.Dni);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -298,7 +286,7 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("EliminarBibliotecario", oConexion);
-                    Comando.Parameters.AddWithValue("@codbibliotecario", lbibliotecario._CodBibliotecario);
+                    Comando.Parameters.AddWithValue("@codbibliotecario", lbibliotecario.CodBibliotecario);
 
                     Comando.CommandType = CommandType.StoredProcedure;
 

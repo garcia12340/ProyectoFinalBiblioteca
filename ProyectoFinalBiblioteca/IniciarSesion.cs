@@ -15,6 +15,8 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class IniciarSesion : Form
     {
+        LBibliotecario lb1 = new LBibliotecario();
+        DBibliotecario db1 = new DBibliotecario();
         public IniciarSesion()
         {
             InitializeComponent();
@@ -22,40 +24,26 @@ namespace ProyectoFinalBiblioteca
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            //Se manda a llamar a los get y set
-            bool eseditar = true;
-            LBibliotecario obibliotecario = new LBibliotecario()
-            {
-                Nro_Carnet = Convert.ToString(txtuser.Text),
-                Contrasena = Convert.ToString(txtclave.Text),
-            };
-            int respuesta;
-            //string msgOk = "";
-            //string msgError = "";
-
             try
             {
                 if (txtclave.Text == "")
                 {
-                    //MessageBox.Show("Complete los datos por favor", "Iniciar Sesion",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     Interaction.MsgBox("Complete los datos porfavor", MsgBoxStyle.Information, "Mensaje del Sistema");
                     return;
                 }
 
-                if (DBibliotecario.AccederBibliotecario(obibliotecario))
+                lb1.Nro_Carnet = Convert.ToString(txtuser.Text);
+                lb1.Contrasena = Convert.ToString(txtclave.Text);
+
+                if (DBibliotecario.AccederBibliotecario(lb1))
                 {
                     this.Hide();
                     Interaction.MsgBox("Bienvenido al Sistema", MsgBoxStyle.Information, "Mensaje del Sistema");
-
                     MenuPrincipal n = new MenuPrincipal();
                     n.ShowDialog();
-                    //msgOk = "Bienvenido al Sistema";
-                    //msgError = "Carnet o contraseña incorrecta";
                 }
                 else
-                    //respuesta = DBibliotecario.AccederBibliotecario(obibliotecario);
                     Interaction.MsgBox("Carnet o contraseña incorrecta", MsgBoxStyle.Critical, "Mensaje del Sistema");
-                
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,24 @@ namespace ProyectoFinalBiblioteca
             Bibliotecario a = new Bibliotecario();
             //Bibliotecario.CargarListaBibliotecario();
             a.ShowDialog();
+        }
+
+        private void TSBLectores_Click(object sender, EventArgs e)
+        {
+            Lector c = new Lector();
+            c.ShowDialog();
+        }
+
+        private void TSBlibros_Click(object sender, EventArgs e)
+        {
+            Libros x = new Libros();
+            x.ShowDialog();
+        }
+
+        private void lblSalir_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("¿Desea Salir Del Sistema ? ", "Saliendo...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Application.Exit();
         }
     }
 }

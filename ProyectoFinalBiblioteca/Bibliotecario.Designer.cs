@@ -31,13 +31,13 @@ namespace ProyectoFinalBiblioteca
         {
             this.Label1 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
-            this.dgvBibliotecario = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
+            this.dgvBibliotecario = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBibliotecario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,24 +62,6 @@ namespace ProyectoFinalBiblioteca
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(751, 296);
             this.Label2.TabIndex = 10;
-            // 
-            // dgvBibliotecario
-            // 
-            this.dgvBibliotecario.AllowUserToAddRows = false;
-            this.dgvBibliotecario.AllowUserToDeleteRows = false;
-            this.dgvBibliotecario.AllowUserToResizeColumns = false;
-            this.dgvBibliotecario.AllowUserToResizeRows = false;
-            this.dgvBibliotecario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBibliotecario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBibliotecario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBibliotecario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvBibliotecario.Location = new System.Drawing.Point(43, 97);
-            this.dgvBibliotecario.MultiSelect = false;
-            this.dgvBibliotecario.Name = "dgvBibliotecario";
-            this.dgvBibliotecario.ReadOnly = true;
-            this.dgvBibliotecario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBibliotecario.Size = new System.Drawing.Size(745, 290);
-            this.dgvBibliotecario.TabIndex = 11;
             // 
             // btnNuevo
             // 
@@ -150,22 +132,41 @@ namespace ProyectoFinalBiblioteca
             this.lblRegistros.TabIndex = 17;
             this.lblRegistros.Text = "0";
             // 
+            // dgvBibliotecario
+            // 
+            this.dgvBibliotecario.AllowUserToAddRows = false;
+            this.dgvBibliotecario.AllowUserToDeleteRows = false;
+            this.dgvBibliotecario.AllowUserToResizeColumns = false;
+            this.dgvBibliotecario.AllowUserToResizeRows = false;
+            this.dgvBibliotecario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBibliotecario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBibliotecario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBibliotecario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvBibliotecario.Location = new System.Drawing.Point(43, 97);
+            this.dgvBibliotecario.MultiSelect = false;
+            this.dgvBibliotecario.Name = "dgvBibliotecario";
+            this.dgvBibliotecario.ReadOnly = true;
+            this.dgvBibliotecario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBibliotecario.Size = new System.Drawing.Size(745, 290);
+            this.dgvBibliotecario.TabIndex = 18;
+            // 
             // Bibliotecario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 453);
+            this.Controls.Add(this.dgvBibliotecario);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dgvBibliotecario);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
             this.Name = "Bibliotecario";
             this.Text = "Bibliotecario";
+            this.Load += new System.EventHandler(this.Bibliotecario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBibliotecario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,12 +177,12 @@ namespace ProyectoFinalBiblioteca
 
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.DataGridView dgvBibliotecario;
         internal System.Windows.Forms.Button btnNuevo;
         internal System.Windows.Forms.Button btnModificar;
         internal System.Windows.Forms.Button btnEliminar;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label lblRegistros;
+        internal System.Windows.Forms.DataGridView dgvBibliotecario;
     }
 }
