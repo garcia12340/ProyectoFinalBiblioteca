@@ -26,24 +26,23 @@ namespace ProyectoFinalBiblioteca
 
         public void CargarListaBibliotecario()
         {
-            //{
-                int CantRegistros;
-                try
-                {
-                    dgvBibliotecario.DataSource = DBibliotecario.MostrarBibliotecarios();
-                    //dgvBibliotecario.SelectedColumns(0).Visible = false;
-                    CantRegistros = dgvBibliotecario.RowCount;
-                    lblRegistros.Text = Convert.ToString(CantRegistros);
-                }
-                catch (Exception ex)
-                {
-                    Interaction.MsgBox(ex.Message);
-                }
-                finally
-                {
-                    dgvBibliotecario.ClearSelection();
-                }
-            //}
+
+            int CantRegistros;
+            try
+            {
+                dgvBibliotecario.DataSource = DBibliotecario.MostrarBibliotecarios();
+                //dgvBibliotecario.SelectedColumns(0).Visible = false;
+                CantRegistros = dgvBibliotecario.RowCount;
+                lblRegistros.Text = Convert.ToString(CantRegistros);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.Message);
+            }
+            finally
+            {
+                dgvBibliotecario.ClearSelection();
+            }
         }
     }
 }

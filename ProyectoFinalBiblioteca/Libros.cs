@@ -13,6 +13,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Libros : Form
     {
+        DataView Busqueda = new DataView();
         public Libros()
         {
             InitializeComponent();
@@ -40,6 +41,33 @@ namespace ProyectoFinalBiblioteca
 
         private void CargarListaLibro()
         {
+            //int CantRegistros;
+            //try
+            //{
+            //    Busqueda = FuncLibro.MostrarLibros.DefaultView;
+
+            //    dgvLibro.DataSource = FuncLibro.MostrarLibros;
+            //    dgvLibro.DataSource = Busqueda;
+
+            //    dgvLibro.Columns(0).Visible = false;
+            //    dgvLibro.Columns(2).Visible = false;
+            //    dgvLibro.Columns(4).Visible = false;
+            //    dgvLibro.Columns(6).Visible = false;
+
+            //    CantRegistros = dgvLibro.RowCount;
+            //    lblRegistros.Text = Convert.ToString(CantRegistros);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Interaction.MsgBox(ex.Message);
+            //}
+            //finally
+            //{
+            //    dgvLibro.ClearSelection();
+            //    cboBusqueda.SelectedIndex = 0;
+            //    dgvLibro.Columns(8).Width = 60;
+            //    dgvLibro.Columns(9).Width = 50;
+            //}
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

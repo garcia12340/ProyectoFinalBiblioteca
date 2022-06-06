@@ -93,6 +93,7 @@ namespace ProyectoFinalBiblioteca
             this.dgvGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGenero.Size = new System.Drawing.Size(307, 244);
             this.dgvGenero.TabIndex = 1;
+            this.dgvGenero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenero_CellClick);
             // 
             // GroupBox2
             // 
@@ -128,6 +129,7 @@ namespace ProyectoFinalBiblioteca
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNGenero
             // 
@@ -163,6 +165,7 @@ namespace ProyectoFinalBiblioteca
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtMGenero
             // 
@@ -221,6 +224,7 @@ namespace ProyectoFinalBiblioteca
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtECodigo
             // 
@@ -250,6 +254,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.Label1);
             this.Name = "Genero";
             this.Text = "Genero";
+            this.Load += new System.EventHandler(this.Genero_Load);
             this.GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenero)).EndInit();
             this.GroupBox2.ResumeLayout(false);

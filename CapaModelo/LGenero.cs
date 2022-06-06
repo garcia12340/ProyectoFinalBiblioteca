@@ -8,17 +8,8 @@ namespace CapaModelo
 {
     public class LGenero
     {
-        public int CodGenero;
-        public string Genero;
-        public int _CodGenero
-        {
-            get { return CodGenero; }
-            set { CodGenero = value; }
-        }
-        public string _Genero
-        {
-            get { return Genero; }
-            set { Genero = value; }
-        }
+        public int CodGenero { get; set; }
+        public string Genero { get; set; }
+
     }
 }

@@ -10,105 +10,126 @@ using CapaModelo;
 
 namespace CapaDatos
 {
-    class DGenero
+    public class DGenero
     {
         private DConexion Conexion = new DConexion();
         private SqlCommand Comando = new SqlCommand();
         private SqlDataReader LeerFilas;
         private SqlDataReader dr;
 
-        public DataTable MostrarGenero()
+        public static List<LGenero> MostrarGenero()
         {
-            DataTable tablagenero = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "MostrarGenero";
-            Comando.CommandType = CommandType.StoredProcedure;
-            LeerFilas = Comando.ExecuteReader();
-            tablagenero.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return tablagenero;
-        }
-
-        public bool AgregarGenero(LGenero lgenero)
-        {
-            try
+            List<LGenero> rptListaGenero = new List<LGenero>();
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "AgregarGenero";
+                SqlCommand Comando = new SqlCommand("MostrarGenero", oConexion);
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@genero", lgenero._Genero);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    oConexion.Open();
+                    SqlDataReader dr = Comando.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rptListaGenero.Add(new LGenero()
+                        {
+                            CodGenero = Convert.ToInt32(dr["Codigo"].ToString()),
+                            Genero = dr["genero"].ToString()
+                        });
+                    }
+                    dr.Close();
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    return rptListaGenero;
+                }
+                catch (Exception ex)
+                {
+                    rptListaGenero = null;
+                    return rptListaGenero;
+                }
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
-
         }
 
-        public bool ModificarGenero(LGenero lgenero)
+        public static bool AgregarGenero(LGenero lgenero)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "ModificarGenero";
-                Comando.Parameters.AddWithValue("@codgenero", lgenero._CodGenero);
-                Comando.Parameters.AddWithValue("@genero", lgenero._Genero);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("AgregarGenero", oConexion);
+                    Comando.Parameters.AddWithValue("@genero", lgenero.Genero);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+                //finally
+                //{
+                //    oConexion.Close();
+                //}
+
+                return res;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+
         }
 
-        public bool EliminarGenero(LGenero lgenero)
+        public static bool ModificarGenero(LGenero lgenero)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "EliminarGenero";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codgenero", lgenero._CodGenero);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("ModificarGenero", oConexion);
+                    Comando.Parameters.AddWithValue("@codgenero", lgenero.CodGenero);
+                    Comando.Parameters.AddWithValue("@genero", lgenero.Genero);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+
         }
 
+        public static bool EliminarGenero(LGenero lgenero)
+        {
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            {
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("EliminarGenero", oConexion);
+                    Comando.Parameters.AddWithValue("@codgenero", lgenero.CodGenero);
+                    Comando.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                }
+
+            }
+
+            return respuesta;
+
+        }
+ 
     }
 }
 

@@ -228,10 +228,7 @@ namespace ProyectoFinalBiblioteca
                 txtMAutor.Text = dgvAutor.Rows[index].Cells["Autor"].Value.ToString();
                 txtECodigo.Text = dgvAutor.Rows[index].Cells["CodAutor"].Value.ToString();
             }
-            //txtMCodigo.Text = dgvAutor.SelectedCells.Item(0).Value;
-            //txtECodigo.Text = dgvAutor.SelectedCells.Item(1).Value;
-
-            //txt.Text = dgvAutor.SelectedCells.Item(0).Value;
+            
         }
     }
 }

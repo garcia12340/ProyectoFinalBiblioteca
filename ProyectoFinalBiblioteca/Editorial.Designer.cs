@@ -37,13 +37,13 @@ namespace ProyectoFinalBiblioteca
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNEditorial = new System.Windows.Forms.TextBox();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.BtnModificar = new System.Windows.Forms.Button();
             this.txtMEditorial = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
             this.txtMCodigo = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.BtnEliminar = new System.Windows.Forms.Button();
             this.txtECodigo = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
@@ -93,6 +93,7 @@ namespace ProyectoFinalBiblioteca
             this.dgvEditorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEditorial.Size = new System.Drawing.Size(307, 244);
             this.dgvEditorial.TabIndex = 1;
+            this.dgvEditorial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEditorial_CellClick);
             // 
             // GroupBox2
             // 
@@ -128,6 +129,7 @@ namespace ProyectoFinalBiblioteca
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNEditorial
             // 
@@ -138,7 +140,7 @@ namespace ProyectoFinalBiblioteca
             // 
             // GroupBox3
             // 
-            this.GroupBox3.Controls.Add(this.btnModificar);
+            this.GroupBox3.Controls.Add(this.BtnModificar);
             this.GroupBox3.Controls.Add(this.txtMEditorial);
             this.GroupBox3.Controls.Add(this.Label4);
             this.GroupBox3.Controls.Add(this.txtMCodigo);
@@ -150,19 +152,20 @@ namespace ProyectoFinalBiblioteca
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Modificar Editorial";
             // 
-            // btnModificar
+            // BtnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(10, 46);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(294, 22);
-            this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.BackColor = System.Drawing.Color.OrangeRed;
+            this.BtnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificar.ForeColor = System.Drawing.Color.White;
+            this.BtnModificar.Location = new System.Drawing.Point(10, 46);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(294, 22);
+            this.BtnModificar.TabIndex = 4;
+            this.BtnModificar.Text = "Modificar";
+            this.BtnModificar.UseVisualStyleBackColor = false;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // txtMEditorial
             // 
@@ -198,7 +201,7 @@ namespace ProyectoFinalBiblioteca
             // 
             // GroupBox4
             // 
-            this.GroupBox4.Controls.Add(this.btnEliminar);
+            this.GroupBox4.Controls.Add(this.BtnEliminar);
             this.GroupBox4.Controls.Add(this.txtECodigo);
             this.GroupBox4.Controls.Add(this.Label5);
             this.GroupBox4.Location = new System.Drawing.Point(341, 261);
@@ -208,19 +211,20 @@ namespace ProyectoFinalBiblioteca
             this.GroupBox4.TabStop = false;
             this.GroupBox4.Text = "Eliminar Editorial";
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(138, 28);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(161, 22);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.BackColor = System.Drawing.Color.OrangeRed;
+            this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminar.Location = new System.Drawing.Point(138, 28);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(161, 22);
+            this.BtnEliminar.TabIndex = 2;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // txtECodigo
             // 
@@ -250,6 +254,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.Label1);
             this.Name = "Editorial";
             this.Text = "FEditorial";
+            this.Load += new System.EventHandler(this.Editorial_Load);
             this.GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditorial)).EndInit();
             this.GroupBox2.ResumeLayout(false);
@@ -272,13 +277,13 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Button btnAgregar;
         internal System.Windows.Forms.TextBox txtNEditorial;
         internal System.Windows.Forms.GroupBox GroupBox3;
-        internal System.Windows.Forms.Button btnModificar;
+        internal System.Windows.Forms.Button BtnModificar;
         internal System.Windows.Forms.TextBox txtMEditorial;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.TextBox txtMCodigo;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.GroupBox GroupBox4;
-        internal System.Windows.Forms.Button btnEliminar;
+        internal System.Windows.Forms.Button BtnEliminar;
         internal System.Windows.Forms.TextBox txtECodigo;
         internal System.Windows.Forms.Label Label5;
     }

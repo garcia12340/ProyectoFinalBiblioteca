@@ -9,104 +9,118 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class DEditorial
+    public class DEditorial
     {
-        private DConexion Conexion = new DConexion();
-        private SqlCommand Comando = new SqlCommand();
-        private SqlDataReader LeerFilas;
-        private SqlDataReader dr;
-        public DataTable MostrarEditorial()
+        public static List<LEditorial> MostrarEditorial()
         {
-            DataTable tablaeditorial = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "MostrarEditorial";
-            Comando.CommandType = CommandType.StoredProcedure;
-            LeerFilas = Comando.ExecuteReader();
-            tablaeditorial.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return tablaeditorial;
-        }
-
-        public bool AgregarEditorial(LEditorial leditorial)
-        {
-            try
+            List<LEditorial> rptListaEditorial = new List<LEditorial>();
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "AgregarEditorial";
+                SqlCommand Comando = new SqlCommand("MostrarEditorial", oConexion);
                 Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@editorial", leditorial._Editorial);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    oConexion.Open();
+                    SqlDataReader dr = Comando.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        rptListaEditorial.Add(new LEditorial()
+                        {
+                            CodEditorial = Convert.ToInt32(dr["Codigo"].ToString()),
+                            Editorial = dr["editorial"].ToString()
+                        });
+                    }
+                    dr.Close();
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                   return rptListaEditorial;
+                }
+                catch (Exception ex)
+                {
+                    rptListaEditorial = null;
+                    return rptListaEditorial;
+                }
             }
-            catch (Exception)
+        }
+
+        public static bool AgregarEditorial(LEditorial leditorial)
+        {
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("AgregarEditorial", oConexion);
+                    Comando.Parameters.AddWithValue("@editorial", leditorial.Editorial);
+                    Comando.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
 
         }
 
-        public bool ModificarEditorial(LEditorial leditorial)
+        public static bool ModificarEditorial(LEditorial leditorial)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "ModificarEditorial";
-                Comando.Parameters.AddWithValue("@codeditorial", leditorial._CodEditorial);
-                Comando.Parameters.AddWithValue("@editorial", leditorial._Editorial);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("ModificarEditorial", oConexion);
+                    Comando.Parameters.AddWithValue("@codeditorial", leditorial.CodEditorial);
+                    Comando.Parameters.AddWithValue("@editorial", leditorial.Editorial);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+
         }
 
-        public bool EliminarEditorial(LEditorial leditorial)
+        public static bool EliminarEditorial(LEditorial leditorial)
         {
-            try
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "EliminarEditorial";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codeditorial", leditorial._CodEditorial);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("EliminarEditorial", oConexion);
+                    Comando.Parameters.AddWithValue("@codeditorial", leditorial.CodEditorial);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                }
+
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+
+            return respuesta;
+
         }
 
     }
+
 }
 
