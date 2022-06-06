@@ -16,60 +16,60 @@ namespace CapaDatos
         private SqlDataReader LeerFilas;
         private SqlDataReader dr;
 
-        public static bool /*int otra opcion*/AccederBibliotecario(LBibliotecario lbibliotecario)
-        {
-            bool respuesta = true;
-            //int respuesta = 0;
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-            {
-                try
-                {
-                    SqlCommand Comando = new SqlCommand("AccederBibliotecario", oConexion);
-                    Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
-                    Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
-                    Comando.CommandType = CommandType.StoredProcedure;
-
-                    oConexion.Open();
-
-                    Comando.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    //respuesta = 0;
-                    respuesta = false;
-                }
-
-            }
-
-            return respuesta;
-        }
-        //public bool AccederBibliotecario(LBibliotecario lbibliotecario)
+        //public static bool /*int otra opcion*/AccederBibliotecario(LBibliotecario lbibliotecario)
         //{
-        //    try
+        //    bool respuesta = true;
+        //    //int respuesta = 0;
+        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
         //    {
-        //        Comando.Connection = Conexion.AbrirConexion();
-        //        Comando.CommandText = "AccederBibliotecario";
-        //        //SqlCommand cmd = new SqlCommand("AccederBibliotecario");
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        Comando.Parameters.AddWithValue("@user", lbibliotecario._Nro_Carnet);
-        //        Comando.Parameters.AddWithValue("@clave", lbibliotecario._Contrasena);
-        //        Comando.ExecuteNonQuery();
-        //        dr = Comando.ExecuteReader();
+        //        try
+        //        {
+        //            SqlCommand Comando = new SqlCommand("AccederBibliotecario", oConexion);
+        //            Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
+        //            Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
+        //            Comando.CommandType = CommandType.StoredProcedure;
 
-        //        if (dr.HasRows)
-        //            return true;
-        //        else
-        //            return false;
+        //            oConexion.Open();
+
+        //            Comando.ExecuteNonQuery();
+        //        }
+        //        catch (Exception)
+        //        {
+        //            //respuesta = 0;
+        //            respuesta = false;
+        //        }
+
         //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        Conexion.CerrarConexion();
-        //    }
+
+        //    return respuesta;
         //}
+        public bool AccederBibliotecario(LBibliotecario lbibliotecario)
+        {
+            try
+            {
+                Comando.Connection = Conexion.AbrirConexion();
+                Comando.CommandText = "AccederBibliotecario";
+                //SqlCommand cmd = new SqlCommand("AccederBibliotecario");
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
+                Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
+                Comando.ExecuteNonQuery();
+                dr = Comando.ExecuteReader();
+
+                if (dr.HasRows)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
+            }
+        }
 
         public static List<LBibliotecario> GenerarCarnet()
         {

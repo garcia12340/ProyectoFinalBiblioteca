@@ -42,7 +42,7 @@ namespace CapaDatos
             return tablaprestamo;
         }
 
-        public static bool MostrarPrestamoDeuda(int CodLector)
+        public static bool MostrarPrestamoDeuda(LPrestamo lprestamo)
         {
             bool res = true;
             using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
@@ -50,7 +50,7 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", oConexion);
-                    Comando.Parameters.AddWithValue("codlector",CodLector);
+                    Comando.Parameters.AddWithValue("codlector", lprestamo.CodLector);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();

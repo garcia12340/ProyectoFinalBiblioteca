@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    class DAutor
+    public class DAutor
     {
         public static List<LAutor> MostrarAutor()
         {
@@ -26,8 +26,8 @@ namespace CapaDatos
                     {
                         rptListaAlumno.Add(new LAutor()
                         {
-                            Autor = dr["autor"].ToString(),
-                            CodAutor = Convert.ToInt32(dr["Codigo"].ToString())
+                            CodAutor= Convert.ToInt32(dr["Codigo"].ToString()),
+                            Autor = dr["autor"].ToString()
                         });
                     }
                     dr.Close();
@@ -75,8 +75,8 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("ModificarAutor", oConexion);
-                    Comando.Parameters.AddWithValue("@codautor", lautor._CodAutor);
-                    Comando.Parameters.AddWithValue("@autor", lautor._Autor);
+                    Comando.Parameters.AddWithValue("@codautor", lautor.CodAutor);
+                    Comando.Parameters.AddWithValue("@autor", lautor.Autor);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -93,7 +93,7 @@ namespace CapaDatos
 
         }
 
-        public static bool EliminarAutor(int CodAutor)
+        public static bool EliminarAutor(LAutor lautor)
         {
             bool respuesta = true;
             using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
@@ -101,7 +101,7 @@ namespace CapaDatos
                 try
                 {
                     SqlCommand Comando = new SqlCommand("EliminarAutor", oConexion);
-                    Comando.Parameters.AddWithValue("@codautor", CodAutor);
+                    Comando.Parameters.AddWithValue("@codautor", lautor.CodAutor);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();

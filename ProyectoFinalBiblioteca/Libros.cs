@@ -24,15 +24,18 @@ namespace ProyectoFinalBiblioteca
         }
         private void btnAutor_Click(object sender, EventArgs e)
         {
-
+            Autor FAutores = new Autor();
+            FAutores.ShowDialog();
         }
         private void btnGenero_Click(object sender, EventArgs e)
         {
-
+            Genero FAutores = new Genero();
+            FAutores.ShowDialog();
         }
         private void btnEditorial_Click(object sender, EventArgs e)
         {
-
+            Editorial FAutores = new Editorial();
+            FAutores.ShowDialog();
         }
 
         private void CargarListaLibro()

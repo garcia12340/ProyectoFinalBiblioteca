@@ -16,6 +16,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class DeudaAutor : Form
     {
+        LPrestamo DatPrestamo = new LPrestamo();
         public DeudaAutor()
         {
             InitializeComponent();
@@ -29,6 +30,21 @@ namespace ProyectoFinalBiblioteca
 
         public void CargarListaDeuda()
         {
+            try
+            {
+                if(String.IsNullOrEmpty(txtbusqueda.Text))
+                {
+                    dgvLector.DataSource = null;
+                    return;
+                }
+
+                DatPrestamo.CodLector = Convert.ToInt32(txtbusqueda.Text);
+                dgvLector.DataSource = DPrestamo.MostrarPrestamoDeuda(DatPrestamo);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.Message);
+            }
         }
 
         public void Mensaje()

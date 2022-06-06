@@ -35,7 +35,7 @@ namespace ProyectoFinalBiblioteca
                 lb1.Nro_Carnet = Convert.ToString(txtuser.Text);
                 lb1.Contrasena = Convert.ToString(txtclave.Text);
 
-                if (DBibliotecario.AccederBibliotecario(lb1))
+                if (db1.AccederBibliotecario(lb1))
                 {
                     this.Hide();
                     Interaction.MsgBox("Bienvenido al Sistema", MsgBoxStyle.Information, "Mensaje del Sistema");
@@ -56,7 +56,7 @@ namespace ProyectoFinalBiblioteca
 
         private void IniciarSesion_Load(object sender, EventArgs e)
         {
-
+            DBibliotecario fun = new DBibliotecario();
         }
 
         private void IniciarSesion_FormClosing(object sender, FormClosingEventArgs e)
@@ -65,6 +65,11 @@ namespace ProyectoFinalBiblioteca
             txtclave.Text = "";
             txtuser.Focus();
             this.Show();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

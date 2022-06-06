@@ -53,7 +53,7 @@ namespace ProyectoFinalBiblioteca
 
         private void lblSalir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("¿Desea Salir Del Sistema ? ", "Saliendo...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("¿Desea Salir Del Sistema ? ", "Saliendo...", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             Application.Exit();
         }
     }

@@ -100,6 +100,7 @@ namespace ProyectoFinalBiblioteca
             this.BtnSalir.TabIndex = 11;
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // pictureBox2
             // 

@@ -37,7 +37,6 @@ namespace ProyectoFinalBiblioteca
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNAutor = new System.Windows.Forms.TextBox();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnActualizar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtMAutor = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
@@ -94,6 +93,7 @@ namespace ProyectoFinalBiblioteca
             this.dgvAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAutor.Size = new System.Drawing.Size(307, 244);
             this.dgvAutor.TabIndex = 1;
+            this.dgvAutor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAutor_CellClick);
             // 
             // GroupBox2
             // 
@@ -129,6 +129,7 @@ namespace ProyectoFinalBiblioteca
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNAutor
             // 
@@ -139,7 +140,6 @@ namespace ProyectoFinalBiblioteca
             // 
             // GroupBox3
             // 
-            this.GroupBox3.Controls.Add(this.BtnActualizar);
             this.GroupBox3.Controls.Add(this.btnModificar);
             this.GroupBox3.Controls.Add(this.txtMAutor);
             this.GroupBox3.Controls.Add(this.Label4);
@@ -152,20 +152,6 @@ namespace ProyectoFinalBiblioteca
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Modificar Autor";
             // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(6, 48);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(121, 22);
-            this.BtnActualizar.TabIndex = 5;
-            this.BtnActualizar.Text = "Actualizar";
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.OrangeRed;
@@ -173,12 +159,13 @@ namespace ProyectoFinalBiblioteca
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(196, 46);
+            this.btnModificar.Location = new System.Drawing.Point(10, 46);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(103, 22);
+            this.btnModificar.Size = new System.Drawing.Size(294, 22);
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtMAutor
             // 
@@ -237,6 +224,7 @@ namespace ProyectoFinalBiblioteca
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtECodigo
             // 
@@ -266,6 +254,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.Label1);
             this.Name = "Autor";
             this.Text = "Autor";
+            this.Load += new System.EventHandler(this.Autor_Load);
             this.GroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutor)).EndInit();
             this.GroupBox2.ResumeLayout(false);
@@ -288,7 +277,6 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Button btnAgregar;
         internal System.Windows.Forms.TextBox txtNAutor;
         internal System.Windows.Forms.GroupBox GroupBox3;
-        internal System.Windows.Forms.Button BtnActualizar;
         internal System.Windows.Forms.Button btnModificar;
         internal System.Windows.Forms.TextBox txtMAutor;
         internal System.Windows.Forms.Label Label4;
