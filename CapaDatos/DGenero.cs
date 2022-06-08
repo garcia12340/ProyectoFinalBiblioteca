@@ -12,11 +12,6 @@ namespace CapaDatos
 {
     public class DGenero
     {
-        private DConexion Conexion = new DConexion();
-        private SqlCommand Comando = new SqlCommand();
-        private SqlDataReader LeerFilas;
-        private SqlDataReader dr;
-
         public static List<LGenero> MostrarGenero()
         {
             List<LGenero> rptListaGenero = new List<LGenero>();

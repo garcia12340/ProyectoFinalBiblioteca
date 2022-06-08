@@ -1,4 +1,5 @@
-﻿using CapaModelo;
+﻿using CapaDatos;
+using CapaModelo;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                //dgvGenero.DataSource = FuncGenero.MostrarGenero;
+                dgvGenero.DataSource = DGenero.MostrarGenero();
 
                 CantRegistros = dgvGenero.RowCount;
             }

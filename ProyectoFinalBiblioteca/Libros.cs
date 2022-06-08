@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using CapaDatos;
+using CapaModelo;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,7 @@ namespace ProyectoFinalBiblioteca
         {
             InitializeComponent();
         }
-
+       
         private void Libros_Load(object sender, EventArgs e)
         {
             CargarListaLibro();
@@ -41,12 +43,12 @@ namespace ProyectoFinalBiblioteca
 
         private void CargarListaLibro()
         {
+            //Ayuda mae xd
             //int CantRegistros;
             //try
             //{
-            //    Busqueda = FuncLibro.MostrarLibros.DefaultView;
-
-            //    dgvLibro.DataSource = FuncLibro.MostrarLibros;
+            //    Busqueda = DLibros.MostrarLibros().DefaultView();
+            //    dgvLibro.DataSource = DLibros.MostrarLibros();
             //    dgvLibro.DataSource = Busqueda;
 
             //    dgvLibro.Columns(0).Visible = false;

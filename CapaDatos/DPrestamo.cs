@@ -15,7 +15,6 @@ namespace CapaDatos
         private SqlCommand Comando = new SqlCommand();
         private SqlDataReader LeerFilas;
         private SqlDataReader dr;
-
         public DataTable MostrarPrestamo()
         {
             DataTable tablaprestamo = new DataTable();
