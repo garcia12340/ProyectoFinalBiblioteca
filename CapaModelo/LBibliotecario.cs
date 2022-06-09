@@ -17,11 +17,7 @@ namespace CapaModelo
         public int Dni { get; set; }
         public string Nro_Carnet { get; set; }
         public string Contrasena { get; set; }
-        //public string _Nombres
-        //{
-        //    get { return Nombres; }
-        //    set { Nombres = value; }
-        //}
+       
 
         //public string _Apellidos
         //{

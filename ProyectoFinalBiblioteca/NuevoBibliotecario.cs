@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,17 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalBiblioteca
 {
-    public partial class ModificarBibliotecario : Form
+    public partial class NuevoBibliotecario : Form
     {
-        public int CodBibliotecario;
         LBibliotecario Db = new LBibliotecario();
-        public ModificarBibliotecario()
+        DataTable tabla = new DataTable();
+        DBibliotecario r = new DBibliotecario();
+        public NuevoBibliotecario()
         {
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnagregar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -42,7 +44,7 @@ namespace ProyectoFinalBiblioteca
                 }
 
                 if (valordecajas)
-                    ModificarBibliotecarios();
+                    AgregarBibliotecario();
                 else
                     Interaction.MsgBox("Complete Todos los Datos", MsgBoxStyle.Information, "Mensaje del Sistema");
             }
@@ -52,22 +54,23 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        private void ModificarBibliotecarios()
+        private void AgregarBibliotecario()
         {
             try
             {
-                Db.CodBibliotecario = CodBibliotecario;
                 Db.Nombres = txtnombre.Text;
                 Db.Apellidos = txtapellido.Text;
                 Db.Direccion = txtdireccion.Text;
                 Db.Email = txtemail.Text;
                 Db.Telefono = Convert.ToInt32(txttelefono.Text);
                 Db.Dni = Convert.ToInt32(txtdni.Text);
+                Db.Nro_Carnet = txtnrocarnet.Text;
+                Db.Contrasena = txtclave.Text;
 
-                if (DBibliotecario.ModificarBibliotecario(Db))
+                if (DBibliotecario.AgregarBibliotecario(Db))
                     this.Close();
                 else
-                    Interaction.MsgBox("El Registro no fue Modificado", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
+                    Interaction.MsgBox("El Registro no fue Agregado", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
             }
             catch (Exception ex)
             {
@@ -75,9 +78,27 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        private void btncancelar_Click(object sender, EventArgs e)
+        private void btngenerarCarnet_Click(object sender, EventArgs e)
         {
-            this.Close();
+            GenerarCarnet();
+        }
+
+        private void GenerarCarnet()
+        {
+            try
+            {
+                DataTable tablacarnet;
+                tablacarnet = r.GenerarCarnet();
+
+                string carnet;
+                carnet = tablacarnet.Rows[0].ItemArray[0].ToString();
+                
+                txtnrocarnet.Text = carnet;
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.Message);
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ namespace ProyectoFinalBiblioteca
     public partial class Libros : Form
     {
         DataView Busqueda = new DataView();
+        DLibros c = new DLibros();
         public Libros()
         {
             InitializeComponent();
@@ -44,32 +45,32 @@ namespace ProyectoFinalBiblioteca
         private void CargarListaLibro()
         {
             //Ayuda mae xd
-            //int CantRegistros;
-            //try
-            //{
-            //    Busqueda = DLibros.MostrarLibros().DefaultView();
-            //    dgvLibro.DataSource = DLibros.MostrarLibros();
-            //    dgvLibro.DataSource = Busqueda;
+            int CantRegistros;
+            try
+            {
+                Busqueda = c.MostrarLibros().DefaultView;
+                dgvLibro.DataSource = c.MostrarLibros();
+                dgvLibro.DataSource = Busqueda;
 
-            //    dgvLibro.Columns(0).Visible = false;
-            //    dgvLibro.Columns(2).Visible = false;
-            //    dgvLibro.Columns(4).Visible = false;
-            //    dgvLibro.Columns(6).Visible = false;
+                dgvLibro.Columns[0].Visible = false;
+                dgvLibro.Columns[2].Visible = false;
+                dgvLibro.Columns[4].Visible = false;
+                dgvLibro.Columns[6].Visible = false;
 
-            //    CantRegistros = dgvLibro.RowCount;
-            //    lblRegistros.Text = Convert.ToString(CantRegistros);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Interaction.MsgBox(ex.Message);
-            //}
-            //finally
-            //{
-            //    dgvLibro.ClearSelection();
-            //    cboBusqueda.SelectedIndex = 0;
-            //    dgvLibro.Columns(8).Width = 60;
-            //    dgvLibro.Columns(9).Width = 50;
-            //}
+                CantRegistros = dgvLibro.RowCount;
+                lblRegistros.Text = Convert.ToString(CantRegistros);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.Message);
+            }
+            finally
+            {
+                dgvLibro.ClearSelection();
+                cboBusqueda.SelectedIndex = 0;
+                dgvLibro.Columns[8].Width = 60;
+                dgvLibro.Columns[9].Width = 50;
+            }
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

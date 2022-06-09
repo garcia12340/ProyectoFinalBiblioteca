@@ -141,6 +141,12 @@
     <Compile Include="ModificarBibliotecario.Designer.cs">
       <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoBibliotecario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoBibliotecario.Designer.cs">
+      <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Autor.resx">
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarBibliotecario.resx">
       <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoBibliotecario.resx">
+      <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

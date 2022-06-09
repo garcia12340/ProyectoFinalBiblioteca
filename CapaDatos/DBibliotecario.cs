@@ -16,40 +16,12 @@ namespace CapaDatos
         private SqlDataReader LeerFilas;
         private SqlDataReader dr;
 
-        //public static bool /*int otra opcion*/AccederBibliotecario(LBibliotecario lbibliotecario)
-        //{
-        //    bool respuesta = true;
-        //    //int respuesta = 0;
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        try
-        //        {
-        //            SqlCommand Comando = new SqlCommand("AccederBibliotecario", oConexion);
-        //            Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
-        //            Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
-        //            Comando.CommandType = CommandType.StoredProcedure;
-
-        //            oConexion.Open();
-
-        //            Comando.ExecuteNonQuery();
-        //        }
-        //        catch (Exception)
-        //        {
-        //            //respuesta = 0;
-        //            respuesta = false;
-        //        }
-
-        //    }
-
-        //    return respuesta;
-        //}
         public bool AccederBibliotecario(LBibliotecario lbibliotecario)
         {
             try
             {
                 Comando.Connection = Conexion.AbrirConexion();
                 Comando.CommandText = "AccederBibliotecario";
-                //SqlCommand cmd = new SqlCommand("AccederBibliotecario");
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
                 Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
@@ -71,49 +43,29 @@ namespace CapaDatos
             }
         }
 
-        public static List<LBibliotecario> GenerarCarnet()
+        public DataTable GenerarCarnet()
         {
-            List<LBibliotecario> generarCarnet = new List<LBibliotecario>();
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                SqlCommand Comando = new SqlCommand("NroCarnetBibliotecario", oConexion);
-                Comando.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    oConexion.Open();
-                    SqlDataReader dr = Comando.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        generarCarnet.Add(new LBibliotecario()
-                        {
-                            Nombres = dr["bibliotecario"].ToString(),//antiguocarnet
-                            Nro_Carnet = dr["Nro_Carnet"].ToString()
-                        });
-                    }
-                    dr.Close();
+                SqlCommand cmd = new SqlCommand("NroCarnetBibliotecario",Conexion.AbrirConexion());
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                DataTable tablagenerada = new DataTable();
+                
 
-                    return generarCarnet;
-                }
-                catch (Exception ex)
-                {
-                    generarCarnet = null;
-                    return generarCarnet;
-                }
+                SqlDataAdapter adaptar = new SqlDataAdapter(cmd);
+                adaptar.Fill(tablagenerada);
+                return tablagenerada;
+            }
+            catch (Exception )
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
             }
         }
-        //public DataTable GenerarCarnet() 
-        //{
-        //  DataTable tablagenerada = new DataTable();
-        //  Comando.Connection = Conexion.AbrirConexion();
-        //  Comando.CommandText = "NroCarnetBibliotecario";
-        //  Comando.CommandType = CommandType.StoredProcedure;
-        //  LeerFilas = Comando.ExecuteReader();
-        //  tablagenerada.Load(LeerFilas);
-        //  LeerFilas.Close();
-        //  Conexion.CerrarConexion();
-        // return tablagenerada;
-
-        //}
 
         public static List<LBibliotecario> MostrarBibliotecarios()
         {
@@ -130,7 +82,7 @@ namespace CapaDatos
                     {
                         mostrar.Add(new LBibliotecario()
                         {
-                            CodBibliotecario = Convert.ToInt32(dr["CodBibliotecario"].ToString()),
+                           CodBibliotecario = Convert.ToInt32(dr["CodBibliotecario"].ToString()),
                             Nombres = dr["Nombres"].ToString(),
                             Apellidos = dr["Apellidos"].ToString(),
                             Direccion = dr["Direccion"].ToString(),
@@ -183,39 +135,7 @@ namespace CapaDatos
                 return res;
             }
         }
-        //public bool AgregarBibliotecario(LBibliotecario lbibliotecario)
-        //{
-        //    try
-        //    {
-        //        Comando.Connection = Conexion.AbrirConexion();
-        //        Comando.CommandText = "AgregarBibliotecario";
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        Comando.Parameters.AddWithValue("@nombres", lbibliotecario._Nombres);
-        //        Comando.Parameters.AddWithValue("@apellidos", lbibliotecario._Apellidos);
-        //        Comando.Parameters.AddWithValue("@direccion", lbibliotecario._Direccion);
-        //        Comando.Parameters.AddWithValue("@email", lbibliotecario._Email);
-        //        Comando.Parameters.AddWithValue("@telefono", lbibliotecario._Telefono);
-        //        Comando.Parameters.AddWithValue("@dni", lbibliotecario._Dni);
-        //        Comando.Parameters.AddWithValue("@nro_carnet", lbibliotecario._Nro_Carnet);
-        //        Comando.Parameters.AddWithValue("@contrasena", lbibliotecario._Contrasena);
-        //        Comando.ExecuteNonQuery();
-        //        dr = Comando.ExecuteReader();
 
-        //        if (dr.HasRows)
-        //            return true;
-        //        else
-        //            return false;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        Conexion.CerrarConexion();
-        //    }
-
-        //}
         public static bool ModificarBibliotecario(LBibliotecario lbibliotecario)
         {
             bool res = true;
