@@ -56,5 +56,32 @@ namespace ProyectoFinalBiblioteca
             MessageBox.Show("¿Desea Salir Del Sistema ? ", "Saliendo...", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             Application.Exit();
         }
+
+        private void TSMINuevoPrestamo_Click(object sender, EventArgs e)
+        {
+            NuevoPrestamo m = new NuevoPrestamo();
+            //NuevoPrestamo.Cargarstocklibros();
+            //NuevoPrestamo.txtLector.Clear();
+            //NuevoPrestamo.txtLibro.Clear();
+            //NuevoPrestamo.txtCodLector.Clear();
+            //NuevoPrestamo.txtCodLibro.Clear();
+            m.ShowDialog();
+        }
+
+        private void TSMILibrosPrestados_Click(object sender, EventArgs e)
+        {
+            LibrosPrestados d = new LibrosPrestados();
+            //LibrosPrestados.CargarListaPrestamo();
+            //LibrosPrestados.txtBusqueda.Clear();
+            d.ShowDialog();
+        }
+
+        private void TSMILibrosDevueltos_Click(object sender, EventArgs e)
+        {
+            LibrosDevueltos a = new LibrosDevueltos();
+            //LibrosDevueltos.CargarListaPrestamo();
+            //LibrosDevueltos.txtBusqueda.Clear();
+            a.ShowDialog();
+        }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using CapaDatos;
-using CapaModelo;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,43 +11,28 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalBiblioteca
 {
-    public partial class Libros : Form
+    public partial class VistaLibros : Form
     {
+        DLibros FuncLibro = new DLibros();
         DataView Busqueda = new DataView();
-        DLibros c = new DLibros();
-        public Libros()
+        public VistaLibros()
         {
             InitializeComponent();
         }
-       
-        private void Libros_Load(object sender, EventArgs e)
+
+        private void VistaLibros_Load(object sender, EventArgs e)
         {
             CargarListaLibro();
-        }
-        private void btnAutor_Click(object sender, EventArgs e)
-        {
-            Autor FAutores = new Autor();
-            FAutores.ShowDialog();
-        }
-        private void btnGenero_Click(object sender, EventArgs e)
-        {
-            Genero FAutores = new Genero();
-            FAutores.ShowDialog();
-        }
-        private void btnEditorial_Click(object sender, EventArgs e)
-        {
-            Editorial FAutores = new Editorial();
-            FAutores.ShowDialog();
         }
 
         private void CargarListaLibro()
         {
-            //Ayuda mae xd
             int CantRegistros;
             try
             {
-                Busqueda = c.MostrarLibros().DefaultView;
-                dgvLibro.DataSource = c.MostrarLibros();
+                Busqueda = FuncLibro.MostrarLibros().DefaultView;
+
+                dgvLibro.DataSource = FuncLibro.MostrarLibros();
                 dgvLibro.DataSource = Busqueda;
 
                 dgvLibro.Columns[0].Visible = false;
@@ -58,11 +41,10 @@ namespace ProyectoFinalBiblioteca
                 dgvLibro.Columns[6].Visible = false;
 
                 CantRegistros = dgvLibro.RowCount;
-                lblRegistros.Text = Convert.ToString(CantRegistros);
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -73,24 +55,20 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        private void BtnNuevo_Click(object sender, EventArgs e)
+        private void dgvLibro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                Busqueda.RowFilter = cboBusqueda.Text + " like '" + txtBusqueda.Text + "%'";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

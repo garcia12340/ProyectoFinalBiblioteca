@@ -40,6 +40,7 @@ namespace ProyectoFinalBiblioteca
                     this.Hide();
                     Interaction.MsgBox("Bienvenido al Sistema", MsgBoxStyle.Information, "Mensaje del Sistema");
                     MenuPrincipal n = new MenuPrincipal();
+                    //Principal n = new Principal();
                     n.ShowDialog();
                 }
                 else

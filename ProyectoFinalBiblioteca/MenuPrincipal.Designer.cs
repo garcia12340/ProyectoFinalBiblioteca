@@ -110,24 +110,27 @@ namespace ProyectoFinalBiblioteca
             this.TSMINuevoPrestamo.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMINuevoPrestamo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMINuevoPrestamo.Name = "TSMINuevoPrestamo";
-            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(176, 22);
+            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(180, 22);
             this.TSMINuevoPrestamo.Text = "Nuevo Prestamo";
+            this.TSMINuevoPrestamo.Click += new System.EventHandler(this.TSMINuevoPrestamo_Click);
             // 
             // TSMILibrosPrestados
             // 
             this.TSMILibrosPrestados.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMILibrosPrestados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosPrestados.Name = "TSMILibrosPrestados";
-            this.TSMILibrosPrestados.Size = new System.Drawing.Size(176, 22);
+            this.TSMILibrosPrestados.Size = new System.Drawing.Size(180, 22);
             this.TSMILibrosPrestados.Text = "Libros Prestados";
+            this.TSMILibrosPrestados.Click += new System.EventHandler(this.TSMILibrosPrestados_Click);
             // 
             // TSMILibrosDevueltos
             // 
             this.TSMILibrosDevueltos.BackColor = System.Drawing.Color.SkyBlue;
             this.TSMILibrosDevueltos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosDevueltos.Name = "TSMILibrosDevueltos";
-            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(176, 22);
+            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(180, 22);
             this.TSMILibrosDevueltos.Text = "Libros Devueltos";
+            this.TSMILibrosDevueltos.Click += new System.EventHandler(this.TSMILibrosDevueltos_Click);
             // 
             // TSBlibros
             // 

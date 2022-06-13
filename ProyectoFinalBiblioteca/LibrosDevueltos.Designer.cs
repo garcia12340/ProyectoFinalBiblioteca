@@ -148,6 +148,7 @@ namespace ProyectoFinalBiblioteca
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(148, 20);
             this.txtBusqueda.TabIndex = 47;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // LibrosDevueltos
             // 
@@ -166,6 +167,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.Label1);
             this.Name = "LibrosDevueltos";
             this.Text = "LibrosDevueltos";
+            this.Load += new System.EventHandler(this.LibrosDevueltos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

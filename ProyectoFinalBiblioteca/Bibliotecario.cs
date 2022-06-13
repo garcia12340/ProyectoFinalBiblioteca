@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaModelo;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Bibliotecario : Form
     {
+        LBibliotecario c = new LBibliotecario();
         public Bibliotecario()
         {
             InitializeComponent();
@@ -54,9 +56,6 @@ namespace ProyectoFinalBiblioteca
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            //ModificarBibliotecario c = new ModificarBibliotecario();
-            //c.ShowDialog();
-            //CargarListaBibliotecario();
             try
             {
                 if (dgvBibliotecario.SelectedRows.Count > 0)
@@ -69,27 +68,13 @@ namespace ProyectoFinalBiblioteca
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void dgvBibliotecario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if(dgvBibliotecario.SelectedRows.Count > 0)
-            //{
-            //    ModificarBibliotecario FormModificar = new ModificarBibliotecario();
-
-            //    DataGridViewRow currentRow = dgvBibliotecario.SelectedRows[0];
-            //    int index = currentRow.Index;
-
-            //    FormModificar.CodBibliotecario = dgvBibliotecario.Rows[index].Cells["CodBibliotecario"].Value.ToString();
-            //    FormModificar.txtnombre.Text = dgvBibliotecario.Rows[index].Cells["Nombres"].Value.ToString();
-            //    FormModificar.txtapellido.Text = dgvBibliotecario.Rows[index].Cells["Apellidos"].Value.ToString();
-            //    FormModificar.txtdireccion.Text = dgvBibliotecario.Rows[index].Cells["Direccion"].Value.ToString();
-            //    FormModificar.txtemail.Text = dgvBibliotecario.Rows[index].Cells["Email"].Value.ToString();
-            //    FormModificar.txttelefono.Text = dgvBibliotecario.Rows[index].Cells["Telefono"].Value.ToString();
-            //    FormModificar.txtdni.Text = dgvBibliotecario.Rows[index].Cells["Dni"].Value.ToString();
-            //}
+            
         }
 
         private void ModificarBibliotecarios()
@@ -97,18 +82,59 @@ namespace ProyectoFinalBiblioteca
             try
             {
                 ModificarBibliotecario FormModificar = new ModificarBibliotecario();
-                FormModificar.CodBibliotecario = dgvBibliotecario.SelectedCells.Count;
-                //FormModificar.txtnombre.Text = dgvBibliotecario.SelectedCells.IsReadOnly[""].Value();
-                //FormModificar.txtapellido.Text = dgvBibliotecario.SelectedCells.Item(2).Value;
-                //FormModificar.txtdireccion.Text = dgvBibliotecario.SelectedCells.Item(3).Value;
-                //FormModificar.txtemail.Text = dgvBibliotecario.SelectedCells.Item(4).Value;
-                //FormModificar.txttelefono.Text = dgvBibliotecario.SelectedCells.Item(5).Value;
-                //FormModificar.txtdni.Text = dgvBibliotecario.SelectedCells.Item(6).Value;
+                FormModificar.CodBibliotecario = Convert.ToInt32(dgvBibliotecario.CurrentRow.Cells[0].Value);
+                FormModificar.txtnombre.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[1].Value);
+                FormModificar.txtapellido.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[2].Value);
+                FormModificar.txtdireccion.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[3].Value);
+                FormModificar.txtemail.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[4].Value);
+                FormModificar.txttelefono.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[5].Value);
+                FormModificar.txtdni.Text = Convert.ToString(dgvBibliotecario.CurrentRow.Cells[6].Value);
                 FormModificar.ShowDialog();
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvBibliotecario.SelectedRows.Count > 0)
+                {
+                    EliminarBibliotecario();
+                    CargarListaBibliotecario();
+                }
+                else
+                    Interaction.MsgBox("Seleccione un Registro", MsgBoxStyle.Information, "Mensaje del Sistema");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EliminarBibliotecario()
+        {
+            try
+            {
+                c.CodBibliotecario = Convert.ToInt32(dgvBibliotecario.CurrentRow.Cells[0].Value);
+                
+                if (Interaction.MsgBox("¿Desea Eliminar este Registro?", MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
+                {
+                    if (DBibliotecario.EliminarBibliotecario(c))
+                        Interaction.MsgBox("Registro eliminado Correctamente", MsgBoxStyle.Information, "Mensaje del Sistema");
+                    else
+                        Interaction.MsgBox("No se pudo eliminar el Registro", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
+                }
+                else
+                    return;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

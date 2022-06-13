@@ -96,6 +96,7 @@ namespace ProyectoFinalBiblioteca
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(148, 20);
             this.txtBusqueda.TabIndex = 31;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // Label3
             // 
@@ -151,6 +152,7 @@ namespace ProyectoFinalBiblioteca
             this.btnRetornar.TabIndex = 36;
             this.btnRetornar.Text = "&Retornar";
             this.btnRetornar.UseVisualStyleBackColor = false;
+            this.btnRetornar.Click += new System.EventHandler(this.btnRetornar_Click);
             // 
             // Label2
             // 

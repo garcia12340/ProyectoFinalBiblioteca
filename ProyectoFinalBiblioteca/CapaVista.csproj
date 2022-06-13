@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +49,9 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.WinForms.v12.12.0.0.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -147,8 +152,27 @@
     <Compile Include="NuevoBibliotecario.Designer.cs">
       <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoPrestamo.Designer.cs">
+      <DependentUpon>NuevoPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="VistaLectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaLectores.Designer.cs">
+      <DependentUpon>VistaLectores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaLibros.Designer.cs">
+      <DependentUpon>VistaLibros.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Autor.resx">
       <DependentUpon>Autor.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +215,9 @@
     <EmbeddedResource Include="NuevoBibliotecario.resx">
       <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevoPrestamo.resx">
+      <DependentUpon>NuevoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -201,6 +228,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VistaLectores.resx">
+      <DependentUpon>VistaLectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaLibros.resx">
+      <DependentUpon>VistaLibros.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -257,6 +290,22 @@
       <Project>{7f207dd6-e1e8-4fa3-9736-5a69ecb4f29a}</Project>
       <Name>CapaModelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\libros.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

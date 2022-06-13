@@ -25,7 +25,7 @@ namespace ProyectoFinalBiblioteca
         private void DeudaAutor_Load(object sender, EventArgs e)
         {
             CargarListaDeuda();
-            Mensaje();
+            mensaje();
         }
 
         public void CargarListaDeuda()
@@ -37,9 +37,10 @@ namespace ProyectoFinalBiblioteca
                     dgvLector.DataSource = null;
                     return;
                 }
-
-                DatPrestamo.CodLector = Convert.ToInt32(txtbusqueda.Text);
-                dgvLector.DataSource = DPrestamo.MostrarPrestamoDeuda(DatPrestamo);
+                    DatPrestamo.CodLector = Convert.ToInt32(txtbusqueda.Text);
+                    dgvLector.DataSource = DPrestamo.MostrarPrestamoDeuda(DatPrestamo);
+                
+                
             }
             catch (Exception ex)
             {
@@ -47,7 +48,7 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        public void Mensaje()
+        public void mensaje()
         {
             try
             {
@@ -67,7 +68,7 @@ namespace ProyectoFinalBiblioteca
             try
             {
                 CargarListaDeuda();
-                Mensaje();
+                mensaje();
             }
             catch (Exception ex)
             {

@@ -108,32 +108,56 @@ namespace CapaDatos
 
         }
 
-        public bool ModificarLibro(LPrestamo lprestamo)
+        public static bool ModificarLibro(LPrestamo lprestamo)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "ModificarPrestamoRetorno";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codprestamo", lprestamo.CodPrestamo);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("ModificarAutor", oConexion);
+                    Comando.Parameters.AddWithValue("@codprestamo", lprestamo.CodPrestamo);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
         }
+            //public bool ModificarLibro(LPrestamo lprestamo)
+            //{
+            //    try
+            //    {
+            //        Comando.Connection = Conexion.AbrirConexion();
+            //        Comando.CommandText = "ModificarPrestamoRetorno";
+            //        Comando.CommandType = CommandType.StoredProcedure;
+            //        
+            //        Comando.ExecuteNonQuery();
+            //        dr = Comando.ExecuteReader();
+
+            //        if (dr.HasRows)
+            //            return true;
+            //        else
+            //            return false;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        return false;
+            //    }
+            //    finally
+            //    {
+            //        Conexion.CerrarConexion();
+            //    }
+            //}
 
     }
+
 }
 
