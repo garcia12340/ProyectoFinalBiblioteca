@@ -166,38 +166,7 @@ namespace CapaDatos
             }
 
         }
-        //public bool ModificarBibliotecario(LBibliotecario lbibliotecario)
-        //{
-        //    try
-        //    {
-        //        Comando.Connection = Conexion.AbrirConexion();
-        //        Comando.CommandText = "ModificarBibliotecario";
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        Comando.Parameters.AddWithValue("@codbibliotecario", lbibliotecario._CodBibliotecario);
-        //        Comando.Parameters.AddWithValue("@nombres", lbibliotecario._Nombres);
-        //        Comando.Parameters.AddWithValue("@apellidos", lbibliotecario._Apellidos);
-        //        Comando.Parameters.AddWithValue("@direccion", lbibliotecario._Direccion);
-        //        Comando.Parameters.AddWithValue("@email", lbibliotecario._Email);
-        //        Comando.Parameters.AddWithValue("@telefono", lbibliotecario._Telefono);
-        //        Comando.Parameters.AddWithValue("@dni", lbibliotecario._Dni);
-        //        Comando.ExecuteNonQuery();
-        //        dr = Comando.ExecuteReader();
-
-        //        if (dr.HasRows)
-        //            return true;
-        //        else
-        //            return false;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        Conexion.CerrarConexion();
-        //    }
-        //}
-
+ 
         public static bool EliminarBibliotecario(LBibliotecario lbibliotecario)
         {
             bool respuesta = true;

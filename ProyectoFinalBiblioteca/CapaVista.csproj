@@ -35,20 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.VS2010.10.0.40219.1\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cquential.Microsoft.ReportViewer.DataVisualization.10.0.40219.1\lib\net35\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cquential.Microsoft.ReportViewer.ProcessingObjectModel.10.0.40219.1\lib\net35\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\MicosoftReportViewerWebForms_v11.1.0.1\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.v12.12.0.0.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -79,6 +82,11 @@
     </Compile>
     <Compile Include="Bibliotecario.Designer.cs">
       <DependentUpon>Bibliotecario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dbbibliotecaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbbibliotecaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DeudaAutor.cs">
       <SubType>Form</SubType>
@@ -146,11 +154,23 @@
     <Compile Include="ModificarBibliotecario.Designer.cs">
       <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarLector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarLector.Designer.cs">
+      <DependentUpon>ModificarLector.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevoBibliotecario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NuevoBibliotecario.Designer.cs">
       <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoLector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoLector.Designer.cs">
+      <DependentUpon>NuevoLector.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevoPrestamo.cs">
       <SubType>Form</SubType>
@@ -160,6 +180,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteLibros.Designer.cs">
+      <DependentUpon>ReporteLibros.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VistaLectores.cs">
       <SubType>Form</SubType>
@@ -212,8 +238,14 @@
     <EmbeddedResource Include="ModificarBibliotecario.resx">
       <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificarLector.resx">
+      <DependentUpon>ModificarLector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevoBibliotecario.resx">
       <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoLector.resx">
+      <DependentUpon>NuevoLector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoPrestamo.resx">
       <DependentUpon>NuevoPrestamo.cs</DependentUpon>
@@ -228,12 +260,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReporteLibros.resx">
+      <DependentUpon>ReporteLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteLibros.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportePrestamo.rdlc" />
     <EmbeddedResource Include="VistaLectores.resx">
       <DependentUpon>VistaLectores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaLibros.resx">
       <DependentUpon>VistaLibros.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dbbibliotecaDataSet.xsc">
+      <DependentUpon>dbbibliotecaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbbibliotecaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbbibliotecaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dbbibliotecaDataSet.xss">
+      <DependentUpon>dbbibliotecaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -248,9 +296,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\header.jpg" />
   </ItemGroup>

@@ -85,7 +85,7 @@ namespace ProyectoFinalBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 425);
+            this.ClientSize = new System.Drawing.Size(815, 422);
             this.Controls.Add(this.PictureBox3);
             this.Controls.Add(this.PictureBox2);
             this.Controls.Add(this.Label1);

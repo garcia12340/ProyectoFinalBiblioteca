@@ -15,8 +15,9 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Libros : Form
     {
-        DataView Busqueda = new DataView();
-        DLibros c = new DLibros();
+        //DataView Busqueda = new DataView();
+        private DataView Busqueda = new DataView();
+        DLibros FuncLibro = new DLibros();
         public Libros()
         {
             InitializeComponent();
@@ -42,14 +43,14 @@ namespace ProyectoFinalBiblioteca
             FAutores.ShowDialog();
         }
 
-        private void CargarListaLibro()
+        public void CargarListaLibro()
         {
             //Ayuda mae xd
             int CantRegistros;
             try
             {
-                Busqueda = c.MostrarLibros().DefaultView;
-                dgvLibro.DataSource = c.MostrarLibros();
+                Busqueda = FuncLibro.MostrarLibros().DefaultView;
+                dgvLibro.DataSource = FuncLibro.MostrarLibros();
                 dgvLibro.DataSource = Busqueda;
 
                 dgvLibro.Columns[0].Visible = false;
@@ -62,7 +63,7 @@ namespace ProyectoFinalBiblioteca
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -90,7 +91,29 @@ namespace ProyectoFinalBiblioteca
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                Busqueda.RowFilter = cboBusqueda.Text + " like '" + txtBusqueda.Text + "%'";
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReporteLibros z = new ReporteLibros();
+                z.Busqueda = Convert.ToString(txtBusqueda.Text);
+                z.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

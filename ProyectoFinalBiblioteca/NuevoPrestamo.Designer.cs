@@ -383,7 +383,6 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.Label Label7;
         internal System.Windows.Forms.Label Label9;
-        internal System.Windows.Forms.TextBox txtLector;
         internal System.Windows.Forms.TextBox txtLibro;
         internal System.Windows.Forms.DateTimePicker dtpFecEntrega;
         internal System.Windows.Forms.DateTimePicker dtpFecDevolucion;
@@ -400,5 +399,6 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Label Label11;
         internal System.Windows.Forms.Label Label12;
         internal System.Windows.Forms.DataGridView dgvLibro;
+        internal System.Windows.Forms.TextBox txtLector;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class VistaLectores : Form
     {
+        DLector FuncLector = new DLector();
         public VistaLectores()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                dgvLector.DataSource = DLector.MostrarLector();
+                dgvLector.DataSource = FuncLector.MostrarLector();
                 dgvLector.Columns[0].Visible = false;
             }
             catch (Exception ex)
@@ -42,6 +44,9 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvLector_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //NuevoPrestamo x = new NuevoPrestamo();
+            //x
+            
         }
     }
 }

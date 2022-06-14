@@ -41,43 +41,29 @@ namespace CapaDatos
             return tablaprestamo;
         }
 
-        public static bool MostrarPrestamoDeuda(LPrestamo lprestamo)
+        public DataTable MostrarPrestamoDeuda(LPrestamo lprestamo)
         {
-            bool res = true;
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                try
-                {
-                    SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", oConexion);
-                    Comando.Parameters.AddWithValue("codlector", lprestamo.CodLector);
-                    Comando.CommandType = CommandType.StoredProcedure;
+                SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", Conexion.AbrirConexion());
+                Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.ExecuteNonQuery();
 
-                    oConexion.Open();
-
-                    Comando.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    res = false;
-                }
+                DataTable tabladeuda = new DataTable();
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tabladeuda);
+                return tabladeuda;
             }
-
-            return res;
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
+            }
         }
-        //public DataTable MostrarPrestamoDeuda(LPrestamo lprestamo)
-        //{
-        //    DataTable tabladeuda = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "MostrarPrestamoDeudaLecor";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-        //    Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
-        //    Comando.ExecuteNonQuery();//Pendiente
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tabladeuda.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tabladeuda;
-        //}
 
         public bool AgregarPrestamo(LPrestamo lprestamo)
         {

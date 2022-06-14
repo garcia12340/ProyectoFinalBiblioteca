@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaModelo;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Lector : Form
     {
+        DLector FuncLector = new DLector();
+        LLector DatLector = new LLector();
         public Lector()
         {
             InitializeComponent();
@@ -29,8 +32,8 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                dgvLector.DataSource = DLector.MostrarLector();
-                //dgvLector.Columns(0).Visible = false;
+                dgvLector.DataSource = FuncLector.MostrarLector();
+                dgvLector.Columns[0].Visible = false;
                 CantRegistros = dgvLector.RowCount;
                 lblRegistros.Text = Convert.ToString(CantRegistros);
             }
@@ -46,7 +49,9 @@ namespace ProyectoFinalBiblioteca
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-
+            NuevoLector FormAgregar = new NuevoLector();
+            FormAgregar.ShowDialog();
+            CargarListaLector();
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
@@ -55,7 +60,7 @@ namespace ProyectoFinalBiblioteca
             {
                 if (dgvLector.SelectedRows.Count > 0)
                 {
-                    ModificarLector();
+                    ModificarLectores();
                     CargarListaLector();
                 }
                 else
@@ -67,23 +72,23 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        public void ModificarLector()
+        public void ModificarLectores()
         {
-            //try
-            //{
-            //    FMLector FormModificar = new FMLector();
-            //    FormModificar.CodLector = dgvLector.SelectedCells.Item(0).Value;
-            //    FormModificar.txtnombre.Text = dgvLector.SelectedCells.Item(1).Value;
-            //    FormModificar.txtapellido.Text = dgvLector.SelectedCells.Item(2).Value;
-            //    FormModificar.txtdireccion.Text = dgvLector.SelectedCells.Item(3).Value;
-            //    FormModificar.txtemail.Text = dgvLector.SelectedCells.Item(4).Value;
-            //    FormModificar.txttelefono.Text = dgvLector.SelectedCells.Item(5).Value;
-            //    FormModificar.ShowDialog();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Interaction.MsgBox(ex.Message);
-            //}
+            try
+            {
+                ModificarLector FormModificar = new ModificarLector();
+                FormModificar.CodLector = Convert.ToInt32(this.dgvLector.CurrentRow.Cells[0].Value);
+                FormModificar.txtnombre.Text = Convert.ToString(this.dgvLector.CurrentRow.Cells[1].Value);
+                FormModificar.txtapellido.Text = Convert.ToString(this.dgvLector.CurrentRow.Cells[2].Value);
+                FormModificar.txtdireccion.Text = Convert.ToString(this.dgvLector.CurrentRow.Cells[3].Value);
+                FormModificar.txtemail.Text = Convert.ToString(this.dgvLector.CurrentRow.Cells[4].Value);
+                FormModificar.txttelefono.Text = Convert.ToString(this.dgvLector.CurrentRow.Cells[5].Value);
+                FormModificar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -106,25 +111,25 @@ namespace ProyectoFinalBiblioteca
 
         public void EliminarLector()
         {
-            //try
-            //{
-            //    DatLector._CodLector = dgvLector.SelectedCells.Item(0).Value;
+            try
+            {
+                DatLector.CodLector = Convert.ToInt32(dgvLector.CurrentRow.Cells[0].Value);
 
-            //    if (Interaction.MsgBox("¿Desea Eliminar este Registro?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
-            //    {
-            //        if (FuncLector.EliminarLector(DatLector))
-            //            Interaction.MsgBox("Registro eliminado Correctamente", MsgBoxStyle.Information, "Mensaje del Sistema");
-            //        else
-            //            Interaction.MsgBox("No se pudo eliminar el Registro", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
-            //    }
-            //    else
-            //        return;
-            //}
+                if (Interaction.MsgBox("¿Desea Eliminar este Registro?", MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Ok)
+                {
+                    if (DLector.EliminarLector(DatLector))
+                        Interaction.MsgBox("Registro eliminado Correctamente", MsgBoxStyle.Information, "Mensaje del Sistema");
+                    else
+                        Interaction.MsgBox("No se pudo eliminar el Registro", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
+                }
+                else
+                    return;
+            }
 
-            //catch (Exception ex)
-            //{
-            //    Interaction.MsgBox(ex.Message);
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

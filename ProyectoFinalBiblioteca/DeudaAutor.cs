@@ -17,6 +17,7 @@ namespace ProyectoFinalBiblioteca
     public partial class DeudaAutor : Form
     {
         LPrestamo DatPrestamo = new LPrestamo();
+        DPrestamo FuncPrestamo = new DPrestamo();
         public DeudaAutor()
         {
             InitializeComponent();
@@ -37,14 +38,17 @@ namespace ProyectoFinalBiblioteca
                     dgvLector.DataSource = null;
                     return;
                 }
-                    DatPrestamo.CodLector = Convert.ToInt32(txtbusqueda.Text);
-                    dgvLector.DataSource = DPrestamo.MostrarPrestamoDeuda(DatPrestamo);
-                
-                
+
+                DatPrestamo.CodLector = Convert.ToInt32(txtbusqueda.Text);
+                dgvLector.DataSource = FuncPrestamo.MostrarPrestamoDeuda(DatPrestamo);
             }
             catch (Exception ex)
             {
                 Interaction.MsgBox(ex.Message);
+            }
+            finally
+            {
+                dgvLector.ClearSelection();
             }
         }
 

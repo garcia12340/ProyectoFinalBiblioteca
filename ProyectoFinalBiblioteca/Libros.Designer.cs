@@ -36,7 +36,7 @@ namespace ProyectoFinalBiblioteca
             this.lblRegistros = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgvLibro = new System.Windows.Forms.DataGridView();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.BtnImprimir = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -125,19 +125,20 @@ namespace ProyectoFinalBiblioteca
             this.dgvLibro.Size = new System.Drawing.Size(745, 267);
             this.dgvLibro.TabIndex = 33;
             // 
-            // btnImprimir
+            // BtnImprimir
             // 
-            this.btnImprimir.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(43, 404);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(105, 46);
-            this.btnImprimir.TabIndex = 34;
-            this.btnImprimir.Text = "&Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.BtnImprimir.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnImprimir.ForeColor = System.Drawing.Color.White;
+            this.BtnImprimir.Location = new System.Drawing.Point(43, 404);
+            this.BtnImprimir.Name = "BtnImprimir";
+            this.BtnImprimir.Size = new System.Drawing.Size(105, 46);
+            this.BtnImprimir.TabIndex = 34;
+            this.BtnImprimir.Text = "&Imprimir";
+            this.BtnImprimir.UseVisualStyleBackColor = false;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // BtnNuevo
             // 
@@ -277,7 +278,7 @@ namespace ProyectoFinalBiblioteca
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnNuevo);
-            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.dgvLibro);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.lblRegistros);
@@ -303,7 +304,7 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Label lblRegistros;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.DataGridView dgvLibro;
-        internal System.Windows.Forms.Button btnImprimir;
+        internal System.Windows.Forms.Button BtnImprimir;
         internal System.Windows.Forms.Button BtnNuevo;
         internal System.Windows.Forms.Button BtnModificar;
         internal System.Windows.Forms.Button BtnEliminar;

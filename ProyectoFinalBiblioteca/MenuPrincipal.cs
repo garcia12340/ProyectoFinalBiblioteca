@@ -21,15 +21,15 @@ namespace ProyectoFinalBiblioteca
         private void TSBInicio_Click(object sender, EventArgs e)
         {
             Inicio azaria = new Inicio();
-            azaria.ShowDialog();
+            azaria.Show();
 
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            Inicio azaria = new Inicio();
-            azaria.ShowDialog();
-            
+            //Inicio1 azaria = new Inicio1();
+            //azaria.Show();
+
         }
 
         private void TSBibliotecario_Click(object sender, EventArgs e)
@@ -83,5 +83,6 @@ namespace ProyectoFinalBiblioteca
             //LibrosDevueltos.txtBusqueda.Clear();
             a.ShowDialog();
         }
+
     }
 }
