@@ -80,7 +80,7 @@ namespace ProyectoFinalBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 308);
+            this.ClientSize = new System.Drawing.Size(642, 304);
             this.Controls.Add(this.dgvLector);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);

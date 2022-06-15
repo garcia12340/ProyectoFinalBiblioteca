@@ -61,6 +61,7 @@ namespace ProyectoFinalBiblioteca
             this.Label1.TabIndex = 11;
             this.Label1.Text = "Libros";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Label5
             // 

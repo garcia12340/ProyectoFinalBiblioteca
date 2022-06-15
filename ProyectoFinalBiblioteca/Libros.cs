@@ -115,5 +115,10 @@ namespace ProyectoFinalBiblioteca
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
