@@ -15,6 +15,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Editorial : Form
     {
+        DEditorial FunEditorial = new DEditorial();
         LEditorial DatEditorial = new LEditorial();
         public Editorial()
         {
@@ -31,7 +32,7 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                dgvEditorial.DataSource = DEditorial.MostrarEditorial();
+                dgvEditorial.DataSource = FunEditorial.MostrarEditorial();
 
                 CantRegistros = dgvEditorial.RowCount;
             }
@@ -221,15 +222,9 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvEditorial_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvEditorial.SelectedRows.Count > 0)
-            {
-                DataGridViewRow currentRow = dgvEditorial.SelectedRows[0];
-                int index = currentRow.Index;
-
-                txtMCodigo.Text = dgvEditorial.Rows[index].Cells["CodEditorial"].Value.ToString();
-                txtMEditorial.Text = dgvEditorial.Rows[index].Cells["Editorial"].Value.ToString();
-                txtECodigo.Text = dgvEditorial.Rows[index].Cells["CodEditorial"].Value.ToString();
-            }
+            txtMCodigo.Text = Convert.ToString(dgvEditorial.CurrentRow.Cells[0].Value);
+            txtMEditorial.Text = Convert.ToString(dgvEditorial.CurrentRow.Cells[1].Value);
+            txtECodigo.Text = Convert.ToString(dgvEditorial.CurrentRow.Cells[0].Value);
         }
     }
 }

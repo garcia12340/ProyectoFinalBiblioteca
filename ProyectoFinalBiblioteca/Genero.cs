@@ -15,6 +15,7 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Genero : Form
     {
+        DGenero FunGenero = new DGenero();
         LGenero DatGenero = new LGenero();
         public Genero()
         {
@@ -31,7 +32,7 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                dgvGenero.DataSource = DGenero.MostrarGenero();
+                dgvGenero.DataSource = FunGenero.MostrarGenero();
 
                 CantRegistros = dgvGenero.RowCount;
             }
@@ -223,15 +224,9 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvGenero_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvGenero.SelectedRows.Count > 0)
-            {
-                DataGridViewRow currentRow = dgvGenero.SelectedRows[0];
-                int index = currentRow.Index;
-
-                txtMCodigo.Text = dgvGenero.Rows[index].Cells["CodGenero"].Value.ToString();
-                txtMGenero.Text = dgvGenero.Rows[index].Cells["Genero"].Value.ToString();
-                txtECodigo.Text = dgvGenero.Rows[index].Cells["CodGenero"].Value.ToString();
-            }
+            txtMCodigo.Text = Convert.ToString(dgvGenero.CurrentRow.Cells[0].Value);
+            txtMGenero.Text = Convert.ToString(dgvGenero.CurrentRow.Cells[1].Value);
+            txtECodigo.Text = Convert.ToString(dgvGenero.CurrentRow.Cells[0].Value);
         }
     }
 }

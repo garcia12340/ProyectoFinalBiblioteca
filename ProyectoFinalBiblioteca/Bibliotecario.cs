@@ -15,7 +15,8 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Bibliotecario : Form
     {
-        LBibliotecario c = new LBibliotecario();
+        DBibliotecario FuncBibliotecario = new DBibliotecario();
+        LBibliotecario DatBibliotecario = new LBibliotecario();
         public Bibliotecario()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                dgvBibliotecario.DataSource = DBibliotecario.MostrarBibliotecarios();
+                dgvBibliotecario.DataSource = FuncBibliotecario.MostrarBibliotecarios();
                 //dgvBibliotecario.SelectedColumns.Visible = true;
                 CantRegistros = dgvBibliotecario.RowCount;
                 lblRegistros.Text = Convert.ToString(CantRegistros);
@@ -119,11 +120,11 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                c.CodBibliotecario = Convert.ToInt32(dgvBibliotecario.CurrentRow.Cells[0].Value);
+                DatBibliotecario.CodBibliotecario = Convert.ToInt32(dgvBibliotecario.CurrentRow.Cells[0].Value);
                 
                 if (Interaction.MsgBox("¿Desea Eliminar este Registro?", MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
                 {
-                    if (DBibliotecario.EliminarBibliotecario(c))
+                    if (DBibliotecario.EliminarBibliotecario(DatBibliotecario))
                         Interaction.MsgBox("Registro eliminado Correctamente", MsgBoxStyle.Information, "Mensaje del Sistema");
                     else
                         Interaction.MsgBox("No se pudo eliminar el Registro", MsgBoxStyle.Exclamation, "Mensaje del Sistema");

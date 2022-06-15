@@ -12,42 +12,6 @@ namespace CapaDatos
     public class DLector
     {
         private DConexion Conexion = new DConexion();
-        //public static List<LLector> MostrarLector()
-        //{
-        //    List<LLector> mostrar = new List<LLector>();
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        SqlCommand Comando = new SqlCommand("MostrarLectores", oConexion);
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        try
-        //        {
-        //            oConexion.Open();
-        //            SqlDataReader dr = Comando.ExecuteReader();
-        //            while (dr.Read())
-        //            {
-        //                mostrar.Add(new LLector()
-        //                {
-
-        //                    CodLector = Convert.ToInt32(dr["CodLector"].ToString()),
-        //                    Nombres = dr["Nombres"].ToString(),
-        //                    Apellidos = dr["Apellidos"].ToString(),
-        //                    Direccion = dr["Direccion"].ToString(),
-        //                    Email = dr["Email"].ToString(),
-        //                    Telefono = Convert.ToInt32(dr["Telefono"].ToString())
-        //                });
-        //            }
-        //            dr.Close();
-
-        //            return mostrar;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            mostrar = null;
-        //            return mostrar;
-        //        }
-        //    }
-        //}
-
         public DataTable MostrarLector()
         {
             try
@@ -71,19 +35,6 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public DataTable MostrarLector()
-        //{
-        //    DataTable tablalector = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "MostrarLectores";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tablalector.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tablalector;
-        //}
-
 
         public DataTable VerificarLector(LLector LLector)
         {

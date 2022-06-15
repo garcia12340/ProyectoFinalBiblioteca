@@ -11,36 +11,60 @@ namespace CapaDatos
 {
     public class DAutor
     {
-        public static List<LAutor> MostrarAutor()
+        private DConexion Conexion = new DConexion();
+        public DataTable MostrarAutor()
         {
-            List<LAutor> rptListaAlumno = new List<LAutor>();
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                SqlCommand Comando = new SqlCommand("MostrarAutor", oConexion);
+                SqlCommand Comando = new SqlCommand("MostrarAutor", Conexion.AbrirConexion());
                 Comando.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    oConexion.Open();
-                    SqlDataReader dr = Comando.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        rptListaAlumno.Add(new LAutor()
-                        {
-                            CodAutor= Convert.ToInt32(dr["Codigo"].ToString()),
-                            Autor = dr["autor"].ToString()
-                        });
-                    }
-                    dr.Close();
+                Comando.ExecuteNonQuery();
+                DataTable tablaautor = new DataTable();
 
-                    return rptListaAlumno;
-                }
-                catch (Exception ex)
-                {
-                    rptListaAlumno = null;
-                    return rptListaAlumno;
-                }
+
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablaautor);
+                return tablaautor;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
             }
         }
+        //public static List<LAutor> MostrarAutor()
+        //{
+        //    List<LAutor> rptListaAlumno = new List<LAutor>();
+        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+        //    {
+        //        SqlCommand Comando = new SqlCommand("MostrarAutor", oConexion);
+        //        Comando.CommandType = CommandType.StoredProcedure;
+        //        try
+        //        {
+        //            oConexion.Open();
+        //            SqlDataReader dr = Comando.ExecuteReader();
+        //            while (dr.Read())
+        //            {
+        //                rptListaAlumno.Add(new LAutor()
+        //                {
+        //                    CodAutor= Convert.ToInt32(dr["Codigo"].ToString()),
+        //                    Autor = dr["autor"].ToString()
+        //                });
+        //            }
+        //            dr.Close();
+
+        //            return rptListaAlumno;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            rptListaAlumno = null;
+        //            return rptListaAlumno;
+        //        }
+        //    }
+        //}
 
         public static bool AgregarAutor(LAutor lautor)
         {

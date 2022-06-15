@@ -11,36 +11,60 @@ namespace CapaDatos
 {
     public class DEditorial
     {
-        public static List<LEditorial> MostrarEditorial()
+        private DConexion Conexion = new DConexion();
+        public DataTable MostrarEditorial()
         {
-            List<LEditorial> rptListaEditorial = new List<LEditorial>();
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                SqlCommand Comando = new SqlCommand("MostrarEditorial", oConexion);
+                SqlCommand Comando = new SqlCommand("MostrarEditorial", Conexion.AbrirConexion());
                 Comando.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    oConexion.Open();
-                    SqlDataReader dr = Comando.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        rptListaEditorial.Add(new LEditorial()
-                        {
-                            CodEditorial = Convert.ToInt32(dr["Codigo"].ToString()),
-                            Editorial = dr["editorial"].ToString()
-                        });
-                    }
-                    dr.Close();
+                Comando.ExecuteNonQuery();
+                DataTable tablaeditorial = new DataTable();
 
-                   return rptListaEditorial;
-                }
-                catch (Exception ex)
-                {
-                    rptListaEditorial = null;
-                    return rptListaEditorial;
-                }
+
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablaeditorial);
+                return tablaeditorial;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
             }
         }
+        //public static List<LEditorial> MostrarEditorial()
+        //{
+        //    List<LEditorial> rptListaEditorial = new List<LEditorial>();
+        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+        //    {
+        //        SqlCommand Comando = new SqlCommand("MostrarEditorial", oConexion);
+        //        Comando.CommandType = CommandType.StoredProcedure;
+        //        try
+        //        {
+        //            oConexion.Open();
+        //            SqlDataReader dr = Comando.ExecuteReader();
+        //            while (dr.Read())
+        //            {
+        //                rptListaEditorial.Add(new LEditorial()
+        //                {
+        //                    CodEditorial = Convert.ToInt32(dr["Codigo"].ToString()),
+        //                    Editorial = dr["editorial"].ToString()
+        //                });
+        //            }
+        //            dr.Close();
+
+        //           return rptListaEditorial;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            rptListaEditorial = null;
+        //            return rptListaEditorial;
+        //        }
+        //    }
+        //}
 
         public static bool AgregarEditorial(LEditorial leditorial)
         {

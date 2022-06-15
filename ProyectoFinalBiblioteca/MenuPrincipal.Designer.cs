@@ -29,9 +29,11 @@ namespace ProyectoFinalBiblioteca
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Label1 = new System.Windows.Forms.Label();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.lblSalir = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TSBInicio = new System.Windows.Forms.ToolStripButton();
             this.TSBibliotecario = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButton3 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -40,25 +42,28 @@ namespace ProyectoFinalBiblioteca
             this.TSMILibrosDevueltos = new System.Windows.Forms.ToolStripMenuItem();
             this.TSBlibros = new System.Windows.Forms.ToolStripButton();
             this.TSBLectores = new System.Windows.Forms.ToolStripButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.ToolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Label1
             // 
-            this.Label1.BackColor = System.Drawing.Color.Firebrick;
+            this.Label1.BackColor = System.Drawing.Color.Goldenrod;
             this.Label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Label1.Font = new System.Drawing.Font("Agency FB", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.White;
             this.Label1.Location = new System.Drawing.Point(0, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(831, 71);
+            this.Label1.Size = new System.Drawing.Size(833, 71);
             this.Label1.TabIndex = 2;
             this.Label1.Text = "Sistema de Biblioteca";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ToolStrip1
             // 
-            this.ToolStrip1.BackColor = System.Drawing.Color.IndianRed;
+            this.ToolStrip1.BackColor = System.Drawing.Color.Gold;
             this.ToolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSBInicio,
@@ -68,14 +73,14 @@ namespace ProyectoFinalBiblioteca
             this.TSBLectores});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 71);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(831, 35);
+            this.ToolStrip1.Size = new System.Drawing.Size(833, 35);
             this.ToolStrip1.TabIndex = 5;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
             // lblSalir
             // 
             this.lblSalir.AutoSize = true;
-            this.lblSalir.BackColor = System.Drawing.Color.Firebrick;
+            this.lblSalir.BackColor = System.Drawing.Color.Goldenrod;
             this.lblSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalir.ForeColor = System.Drawing.Color.White;
@@ -85,6 +90,17 @@ namespace ProyectoFinalBiblioteca
             this.lblSalir.TabIndex = 6;
             this.lblSalir.Text = "Salir";
             this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::ProyectoFinalBiblioteca.Properties.Resources.Presentación;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(821, 461);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // TSBInicio
             // 
@@ -166,11 +182,29 @@ namespace ProyectoFinalBiblioteca
             this.TSBLectores.Text = "Lectores";
             this.TSBLectores.Click += new System.EventHandler(this.TSBLectores_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(602, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 30);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "label2";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 565);
+            this.ClientSize = new System.Drawing.Size(833, 565);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblSalir);
             this.Controls.Add(this.ToolStrip1);
             this.Controls.Add(this.Label1);
@@ -179,6 +213,7 @@ namespace ProyectoFinalBiblioteca
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.ToolStrip1.ResumeLayout(false);
             this.ToolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +232,8 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.ToolStripButton TSBlibros;
         internal System.Windows.Forms.ToolStripButton TSBLectores;
         internal System.Windows.Forms.Label lblSalir;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
     }
 }

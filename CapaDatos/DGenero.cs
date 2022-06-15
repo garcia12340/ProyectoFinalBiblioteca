@@ -12,36 +12,60 @@ namespace CapaDatos
 {
     public class DGenero
     {
-        public static List<LGenero> MostrarGenero()
+        private DConexion Conexion = new DConexion();
+        public DataTable MostrarGenero()
         {
-            List<LGenero> rptListaGenero = new List<LGenero>();
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                SqlCommand Comando = new SqlCommand("MostrarGenero", oConexion);
+                SqlCommand Comando = new SqlCommand("MostrarGenero", Conexion.AbrirConexion());
                 Comando.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    oConexion.Open();
-                    SqlDataReader dr = Comando.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        rptListaGenero.Add(new LGenero()
-                        {
-                            CodGenero = Convert.ToInt32(dr["Codigo"].ToString()),
-                            Genero = dr["genero"].ToString()
-                        });
-                    }
-                    dr.Close();
+                Comando.ExecuteNonQuery();
+                DataTable tablagenero = new DataTable();
 
-                    return rptListaGenero;
-                }
-                catch (Exception ex)
-                {
-                    rptListaGenero = null;
-                    return rptListaGenero;
-                }
+
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablagenero);
+                return tablagenero;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
             }
         }
+        //public static List<LGenero> MostrarGenero()
+        //{
+        //    List<LGenero> rptListaGenero = new List<LGenero>();
+        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+        //    {
+        //        SqlCommand Comando = new SqlCommand("MostrarGenero", oConexion);
+        //        Comando.CommandType = CommandType.StoredProcedure;
+        //        try
+        //        {
+        //            oConexion.Open();
+        //            SqlDataReader dr = Comando.ExecuteReader();
+        //            while (dr.Read())
+        //            {
+        //                rptListaGenero.Add(new LGenero()
+        //                {
+        //                    CodGenero = Convert.ToInt32(dr["Codigo"].ToString()),
+        //                    Genero = dr["genero"].ToString()
+        //                });
+        //            }
+        //            dr.Close();
+
+        //            return rptListaGenero;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            rptListaGenero = null;
+        //            return rptListaGenero;
+        //        }
+        //    }
+        //}
 
         public static bool AgregarGenero(LGenero lgenero)
         {

@@ -13,11 +13,12 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class MenuPrincipal : Form
     {
+        private int _ticks;
         public MenuPrincipal()
         {
             InitializeComponent();
         }
-        
+
         private void TSBInicio_Click(object sender, EventArgs e)
         {
             Inicio azaria = new Inicio();
@@ -53,10 +54,11 @@ namespace ProyectoFinalBiblioteca
 
         private void lblSalir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("¿Desea Salir Del Sistema ? ", "Saliendo...", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            Application.Exit();
+            if (Interaction.MsgBox("¿Desea Salir del Sistema?", MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
+                Application.Exit();
+            else
+                return;
         }
-
         private void TSMINuevoPrestamo_Click(object sender, EventArgs e)
         {
             NuevoPrestamo m = new NuevoPrestamo();
@@ -84,5 +86,9 @@ namespace ProyectoFinalBiblioteca
             a.ShowDialog();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }

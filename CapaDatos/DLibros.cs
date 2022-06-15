@@ -12,9 +12,9 @@ namespace CapaDatos
     public class DLibros
     {
         private DConexion Conexion = new DConexion();
-        private SqlCommand Comando = new SqlCommand();
-        private SqlDataReader LeerFilas;
-        private SqlDataReader dr;
+        //private SqlCommand Comando = new SqlCommand();
+        //private SqlDataReader LeerFilas;
+        //private SqlDataReader dr;
 
         public DataTable MostrarLibros()
         {
@@ -81,47 +81,29 @@ namespace CapaDatos
         //    return tablalector;
         //}
 
-        public static bool VerificarCantidadLibro(LLibros Llibro)
+        public DataTable VerificarCantidadLibro(LLibros Llibro)
         {
-            bool res = true;
-            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
+            try
             {
-                try
-                {
-                    SqlCommand Comando = new SqlCommand("VerificarCantidadLibro", oConexion);
-                    Comando.Parameters.AddWithValue("@codlibro", Llibro.Codlibro);
-                    Comando.CommandType = CommandType.StoredProcedure;
+                SqlCommand Comando = new SqlCommand("VerificarCantidadLibro", Conexion.AbrirConexion());
+                Comando.Parameters.AddWithValue("@codlibro", Llibro.Codlibro);
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.ExecuteNonQuery();
 
-                    oConexion.Open();
-
-                    Comando.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    res = false;
-                }
-                //finally
-                //{
-                //    oConexion.Close();
-                //}
-
-                return res;
+                DataTable tablalector = new DataTable();
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablalector);
+                return tablalector;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
             }
         }
-        //public DataTable VerificarCantidadLibro(LLibros Llibro)
-        //{
-        //    DataTable tablalector = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "VerificarCantidadLibro";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-        //    Comando.Parameters.AddWithValue("@codlibro", Llibro.Codlibro);
-        //    Comando.ExecuteNonQuery();//Pendiente
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tablalector.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tablalector;
-        //}
 
         public DataTable MostrarStockLibros()
         {
@@ -159,96 +141,92 @@ namespace CapaDatos
         //    return tablalibros;
         //}
 
-        public bool Agregarlibro(LLibros llibro)
+        public static bool Agregarlibro(LLibros llibro)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "AgregarLibro";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@titulo", llibro.Titulo);
-                Comando.Parameters.AddWithValue("@codautor", llibro.CodAutor);
-                Comando.Parameters.AddWithValue("@codgenero", llibro.CodGenero);
-                Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
-                Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
-                Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("AgregarLibro", oConexion);
+                    Comando.Parameters.AddWithValue("@titulo", llibro.Titulo);
+                    Comando.Parameters.AddWithValue("@codautor", llibro.CodAutor);
+                    Comando.Parameters.AddWithValue("@codgenero", llibro.CodGenero);
+                    Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
+                    Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
+                    Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
-            catch (Exception)
+        }
+
+        public static bool ModificarLibro(LLibros llibro)
+        {
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("ModificarLibro", oConexion);
+                    Comando.Parameters.AddWithValue("@codlibro", llibro.Codlibro);
+                    Comando.Parameters.AddWithValue("@titulo", llibro.Titulo);
+                    Comando.Parameters.AddWithValue("@codautor", llibro.CodAutor);
+                    Comando.Parameters.AddWithValue("@codgenero", llibro.CodGenero);
+                    Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
+                    Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
+                    Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
+                    Comando.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
             }
 
         }
 
-        public bool ModificarLibro(LLibros llibro)
+        public static bool EliminarLibro(LLibros llibro)
         {
-            try
+            bool respuesta = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "ModificarLibro";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codlibro", llibro.Codlibro);
-                Comando.Parameters.AddWithValue("@titulo", llibro.Titulo);
-                Comando.Parameters.AddWithValue("@codautor", llibro.CodAutor);
-                Comando.Parameters.AddWithValue("@codgenero", llibro.CodGenero);
-                Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
-                Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
-                Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("EliminarLibro", oConexion);
+                    Comando.Parameters.AddWithValue("@codlibro", llibro.Codlibro);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
-        }
+                    oConexion.Open();
 
-        public bool EliminarLibro(LLibros llibro)
-        {
-            try
-            {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "EliminarLibro";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codlibro", llibro.Codlibro);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    respuesta = false;
+                }
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+
+            return respuesta;
         }
 
     }
+ 
 }
 

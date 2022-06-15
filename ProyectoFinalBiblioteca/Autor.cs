@@ -16,6 +16,7 @@ namespace ProyectoFinalBiblioteca
     public partial class Autor : Form
     {
         LAutor DatAutor = new LAutor();
+        DAutor FunAutor = new DAutor();
         public Autor()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace ProyectoFinalBiblioteca
             int CantRegistros;
             try
             {
-                dgvAutor.DataSource = DAutor.MostrarAutor();
+                dgvAutor.DataSource = FunAutor.MostrarAutor();
 
                 CantRegistros = dgvAutor.RowCount;
             }
@@ -219,16 +220,9 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvAutor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvAutor.SelectedRows.Count > 0)
-            {
-                DataGridViewRow currentRow = dgvAutor.SelectedRows[0];
-                int index = currentRow.Index;
-
-                txtMCodigo.Text = dgvAutor.Rows[index].Cells["CodAutor"].Value.ToString();
-                txtMAutor.Text = dgvAutor.Rows[index].Cells["Autor"].Value.ToString();
-                txtECodigo.Text = dgvAutor.Rows[index].Cells["CodAutor"].Value.ToString();
-            }
-            
+            txtMCodigo.Text = Convert.ToString(dgvAutor.CurrentRow.Cells[0].Value);
+            txtMAutor.Text = Convert.ToString(dgvAutor.CurrentRow.Cells[1].Value);
+            txtECodigo.Text = Convert.ToString(dgvAutor.CurrentRow.Cells[0].Value);
         }
     }
 }

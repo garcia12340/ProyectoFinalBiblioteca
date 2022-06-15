@@ -100,17 +100,17 @@
     <Compile Include="Editorial.Designer.cs">
       <DependentUpon>Editorial.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditDeLibro.cs">
+    <Compile Include="Nuevo Libro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditDeLibro.Designer.cs">
-      <DependentUpon>EditDeLibro.cs</DependentUpon>
+    <Compile Include="Nuevo Libro.Designer.cs">
+      <DependentUpon>Nuevo Libro.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarEdit.cs">
+    <Compile Include="ModificarLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarEdit.Designer.cs">
-      <DependentUpon>ModificarEdit.cs</DependentUpon>
+    <Compile Include="ModificarLibro.Designer.cs">
+      <DependentUpon>ModificarLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -220,14 +220,14 @@
     <EmbeddedResource Include="DeudaAutor.resx">
       <DependentUpon>DeudaAutor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditDeLibro.resx">
-      <DependentUpon>EditDeLibro.cs</DependentUpon>
+    <EmbeddedResource Include="Nuevo Libro.resx">
+      <DependentUpon>Nuevo Libro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editorial.resx">
       <DependentUpon>Editorial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarEdit.resx">
-      <DependentUpon>ModificarEdit.cs</DependentUpon>
+    <EmbeddedResource Include="ModificarLibro.resx">
+      <DependentUpon>ModificarLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -357,6 +357,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\libros.jpg" />
+    <None Include="Resources\Presentación.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

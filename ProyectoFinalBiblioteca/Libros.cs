@@ -18,6 +18,7 @@ namespace ProyectoFinalBiblioteca
         //DataView Busqueda = new DataView();
         private DataView Busqueda = new DataView();
         DLibros FuncLibro = new DLibros();
+        LLibros DatLibros = new LLibros();
         public Libros()
         {
             InitializeComponent();
@@ -76,17 +77,90 @@ namespace ProyectoFinalBiblioteca
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-
+            NuevoLibro z = new NuevoLibro();
+            z.ShowDialog();
+            CargarListaLibro();
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-          
+            try
+            {
+                if (dgvLibro.SelectedRows.Count > 0)
+                {
+                    ModificarLibro();
+                    CargarListaLibro();
+                }
+                else
+                    Interaction.MsgBox("Seleccione un Registro", MsgBoxStyle.Information, "Mensaje del Sistema");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ModificarLibro()
+        {
+            try
+            {
+                ModificarLibro FormModificar = new ModificarLibro();
+                FormModificar.CodLibro = Convert.ToInt32(dgvLibro.CurrentRow.Cells[0].Value);
+                FormModificar.txtTitulo.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[1].Value);
+                FormModificar.CodAutor = Convert.ToInt32(dgvLibro.CurrentRow.Cells[2].Value);
+                FormModificar.CodGenero = Convert.ToInt32(dgvLibro.CurrentRow.Cells[4].Value);
+                FormModificar.CodEditorial = Convert.ToInt32(dgvLibro.CurrentRow.Cells[6].Value);
+
+                FormModificar.txtUbicacion.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[8].Value);
+                FormModificar.txtCantidad.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[9].Value);
+
+                FormModificar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.Message);
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (dgvLibro.SelectedRows.Count > 0)
+                {
+                    EliminarLibro();
+                    CargarListaLibro();
+                }
+                else
+                    Interaction.MsgBox("Seleccione un Registro", MsgBoxStyle.Information, "Mensaje del Sistema");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void EliminarLibro()
+        {
+            try
+            {
+                DatLibros.Codlibro = Convert.ToInt32(dgvLibro.CurrentRow.Cells[0].Value);
+
+                if (Interaction.MsgBox("¿Desea Eliminar este Registro?", MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
+                {
+                    if (DLibros.EliminarLibro(DatLibros))
+                        Interaction.MsgBox("Registro eliminado Correctamente", MsgBoxStyle.Information, "Mensaje del Sistema");
+                    else
+                        Interaction.MsgBox("No se pudo eliminar el Registro", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
+                }
+                else
+                    return;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
