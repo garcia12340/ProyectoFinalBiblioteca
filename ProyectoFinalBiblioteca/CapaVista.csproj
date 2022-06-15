@@ -198,6 +198,12 @@
     <Compile Include="ReporteLibros.Designer.cs">
       <DependentUpon>ReporteLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportePrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePrestamo.Designer.cs">
+      <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VistaLectores.cs">
       <SubType>Form</SubType>

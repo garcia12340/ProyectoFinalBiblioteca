@@ -35,37 +35,7 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public static List<LAutor> MostrarAutor()
-        //{
-        //    List<LAutor> rptListaAlumno = new List<LAutor>();
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        SqlCommand Comando = new SqlCommand("MostrarAutor", oConexion);
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        try
-        //        {
-        //            oConexion.Open();
-        //            SqlDataReader dr = Comando.ExecuteReader();
-        //            while (dr.Read())
-        //            {
-        //                rptListaAlumno.Add(new LAutor()
-        //                {
-        //                    CodAutor= Convert.ToInt32(dr["Codigo"].ToString()),
-        //                    Autor = dr["autor"].ToString()
-        //                });
-        //            }
-        //            dr.Close();
-
-        //            return rptListaAlumno;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            rptListaAlumno = null;
-        //            return rptListaAlumno;
-        //        }
-        //    }
-        //}
-
+ 
         public static bool AgregarAutor(LAutor lautor)
         {
             bool res = true;
@@ -133,7 +103,7 @@ namespace CapaDatos
                     Comando.ExecuteNonQuery();
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }

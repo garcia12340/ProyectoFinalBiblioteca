@@ -15,9 +15,9 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class LibrosPrestados : Form
     {
+        private DataView Busqueda = new DataView();
         DPrestamo FuncPrestamo = new DPrestamo();
         LPrestamo DatPrestamo = new LPrestamo();
-        DataView Busqueda;
         public LibrosPrestados()
         {
             InitializeComponent();
@@ -93,15 +93,30 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                DatPrestamo.CodPrestamo = Convert.ToInt32(dgvPrestamo.CurrentRow.Cells[0].Value);
+                DatPrestamo.CodPrestamo = Convert.ToInt32(dgvPrestamo.CurrentRow.Cells[0].Value.ToString());
 
-                if (Interaction.MsgBox("¿Desea retornar este libro?", MsgBoxStyle.Information, "Mensaje del Sistema") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox("¿Desea retornar este libro?",MsgBoxStyle.YesNo, "Mensaje del Sistema") == MsgBoxResult.Yes)
                 {
                     if (DPrestamo.ModificarLibro(DatPrestamo))
-                        Interaction.MsgBox("El libro ha sido devuelto exitosamente.", MsgBoxStyle.YesNo, "Mensaje del Sistema");
+                        Interaction.MsgBox("El libro ha sido devuelto exitosamente.", MsgBoxStyle.Information, "Mensaje del Sistema");
                     else
                         Interaction.MsgBox("La devolucón no se pudó realizar.", MsgBoxStyle.Exclamation, "Mensaje del Sistema");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportePrestamo z = new ReportePrestamo();
+                z.Busqueda = Convert.ToString(txtBusqueda.Text);
+                z.Show();
             }
             catch (Exception ex)
             {

@@ -57,6 +57,24 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvLibro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            NuevoPrestamo w = new NuevoPrestamo();
+            try
+            {
+                string libro;
+                string codigo;
+                libro = this.dgvLibro.CurrentRow.Cells[1].Value.ToString();
+                codigo = this.dgvLibro.CurrentRow.Cells[0].Value.ToString();
+
+                w.txtLibro.Text = libro;
+                w.txtCodLibro.Text = codigo;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            w.Show();
         }
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)

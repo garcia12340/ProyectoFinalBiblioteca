@@ -35,37 +35,7 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public static List<LEditorial> MostrarEditorial()
-        //{
-        //    List<LEditorial> rptListaEditorial = new List<LEditorial>();
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        SqlCommand Comando = new SqlCommand("MostrarEditorial", oConexion);
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        try
-        //        {
-        //            oConexion.Open();
-        //            SqlDataReader dr = Comando.ExecuteReader();
-        //            while (dr.Read())
-        //            {
-        //                rptListaEditorial.Add(new LEditorial()
-        //                {
-        //                    CodEditorial = Convert.ToInt32(dr["Codigo"].ToString()),
-        //                    Editorial = dr["editorial"].ToString()
-        //                });
-        //            }
-        //            dr.Close();
-
-        //           return rptListaEditorial;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            rptListaEditorial = null;
-        //            return rptListaEditorial;
-        //        }
-        //    }
-        //}
-
+ 
         public static bool AgregarEditorial(LEditorial leditorial)
         {
             bool res = true;
@@ -133,7 +103,7 @@ namespace CapaDatos
                     Comando.ExecuteNonQuery();
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }

@@ -12,33 +12,52 @@ namespace CapaDatos
     public class DPrestamo
     {
         private DConexion Conexion = new DConexion();
-        private SqlCommand Comando = new SqlCommand();
-        private SqlDataReader LeerFilas;
-        private SqlDataReader dr;
         public DataTable MostrarPrestamo()
         {
-            DataTable tablaprestamo = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "MostrarPrestamo";
-            Comando.CommandType = CommandType.StoredProcedure;
-            LeerFilas = Comando.ExecuteReader();
-            tablaprestamo.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return tablaprestamo;
+            try
+            {
+                SqlCommand Comando = new SqlCommand("MostrarPrestamo", Conexion.AbrirConexion());
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.ExecuteNonQuery();
+                DataTable tablaprestamo = new DataTable();
+
+
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablaprestamo);
+                return tablaprestamo;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
+            }
         }
 
         public DataTable MostrarPrestamoCancelado()
         {
-            DataTable tablaprestamo = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "MostrarPrestamoDevueltos";
-            Comando.CommandType = CommandType.StoredProcedure;
-            LeerFilas = Comando.ExecuteReader();
-            tablaprestamo.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return tablaprestamo;
+            try
+            {
+                SqlCommand Comando = new SqlCommand("MostrarPrestamoDevueltos", Conexion.AbrirConexion());
+                Comando.CommandType = CommandType.StoredProcedure;
+                Comando.ExecuteNonQuery();
+                DataTable tablaprestamo = new DataTable();
+
+
+                SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
+                adaptar.Fill(tablaprestamo);
+                return tablaprestamo;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                Conexion.CerrarConexion();
+            }
         }
 
         public DataTable MostrarPrestamoDeuda(LPrestamo lprestamo)
@@ -65,33 +84,30 @@ namespace CapaDatos
             }
         }
 
-        public bool AgregarPrestamo(LPrestamo lprestamo)
+        public static bool AgregarPrestamo(LPrestamo lprestamo)
         {
-            try
+            bool res = true;
+            using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "AgregarPrestamo";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
-                Comando.Parameters.AddWithValue("@codlibro", lprestamo.CodLibro);
-                Comando.Parameters.AddWithValue("@fec_devolucion", lprestamo.Fec_Devolucion);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
+                try
+                {
+                    SqlCommand Comando = new SqlCommand("AgregarPrestamo", oConexion);
+                    Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
+                    Comando.Parameters.AddWithValue("@codlibro", lprestamo.CodLibro);
+                    Comando.Parameters.AddWithValue("@fec_devolucion", lprestamo.Fec_Devolucion);
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
+                    oConexion.Open();
 
+                    Comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    res = false;
+                }
+
+                return res;
+            }
         }
 
         public static bool ModificarLibro(LPrestamo lprestamo)
@@ -101,7 +117,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand Comando = new SqlCommand("ModificarAutor", oConexion);
+                    SqlCommand Comando = new SqlCommand("ModificarPrestamoRetorno", oConexion);
                     Comando.Parameters.AddWithValue("@codprestamo", lprestamo.CodPrestamo);
                     Comando.CommandType = CommandType.StoredProcedure;
 
@@ -117,31 +133,6 @@ namespace CapaDatos
                 return res;
             }
         }
-            //public bool ModificarLibro(LPrestamo lprestamo)
-            //{
-            //    try
-            //    {
-            //        Comando.Connection = Conexion.AbrirConexion();
-            //        Comando.CommandText = "ModificarPrestamoRetorno";
-            //        Comando.CommandType = CommandType.StoredProcedure;
-            //        
-            //        Comando.ExecuteNonQuery();
-            //        dr = Comando.ExecuteReader();
-
-            //        if (dr.HasRows)
-            //            return true;
-            //        else
-            //            return false;
-            //    }
-            //    catch (Exception)
-            //    {
-            //        return false;
-            //    }
-            //    finally
-            //    {
-            //        Conexion.CerrarConexion();
-            //    }
-            //}
 
     }
 

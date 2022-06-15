@@ -13,7 +13,6 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class MenuPrincipal : Form
     {
-        private int _ticks;
         public MenuPrincipal()
         {
             InitializeComponent();

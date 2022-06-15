@@ -36,36 +36,6 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public static List<LGenero> MostrarGenero()
-        //{
-        //    List<LGenero> rptListaGenero = new List<LGenero>();
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        SqlCommand Comando = new SqlCommand("MostrarGenero", oConexion);
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        try
-        //        {
-        //            oConexion.Open();
-        //            SqlDataReader dr = Comando.ExecuteReader();
-        //            while (dr.Read())
-        //            {
-        //                rptListaGenero.Add(new LGenero()
-        //                {
-        //                    CodGenero = Convert.ToInt32(dr["Codigo"].ToString()),
-        //                    Genero = dr["genero"].ToString()
-        //                });
-        //            }
-        //            dr.Close();
-
-        //            return rptListaGenero;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            rptListaGenero = null;
-        //            return rptListaGenero;
-        //        }
-        //    }
-        //}
 
         public static bool AgregarGenero(LGenero lgenero)
         {
@@ -138,7 +108,7 @@ namespace CapaDatos
                     Comando.ExecuteNonQuery();
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }

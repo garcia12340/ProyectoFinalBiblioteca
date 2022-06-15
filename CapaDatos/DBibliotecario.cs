@@ -13,7 +13,6 @@ namespace CapaDatos
     {
         private DConexion Conexion = new DConexion();
         private SqlCommand Comando = new SqlCommand();
-        private SqlDataReader LeerFilas;
         private SqlDataReader dr;
 
         public bool AccederBibliotecario(LBibliotecario lbibliotecario)
@@ -90,43 +89,6 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public static List<LBibliotecario> MostrarBibliotecarios()
-        //{
-        //    List<LBibliotecario> mostrar = new List<LBibliotecario>();
-        //    using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
-        //    {
-        //        SqlCommand Comando = new SqlCommand("MostrarBibliotecarios", oConexion);
-        //        Comando.CommandType = CommandType.StoredProcedure;
-        //        try
-        //        {
-        //            oConexion.Open();
-        //            SqlDataReader dr = Comando.ExecuteReader();
-        //            while (dr.Read())
-        //            {
-        //                mostrar.Add(new LBibliotecario()
-        //                {
-        //                   CodBibliotecario = Convert.ToInt32(dr["CodBibliotecario"].ToString()),
-        //                    Nombres = dr["Nombres"].ToString(),
-        //                    Apellidos = dr["Apellidos"].ToString(),
-        //                    Direccion = dr["Direccion"].ToString(),
-        //                    Email = dr["Email"].ToString(),
-        //                    Telefono = Convert.ToInt32(dr["Telefono"].ToString()),
-        //                    Dni = Convert.ToInt32(dr["Dni"].ToString()),
-        //                    Nro_Carnet = dr["Nro_Carnet"].ToString(),
-        //                    Contrasena = dr["Clave"].ToString()
-        //                });
-        //            }
-        //            dr.Close();
-
-        //            return mostrar;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            mostrar = null;
-        //            return mostrar;
-        //        }
-        //    }
-        //}
 
         public static bool AgregarBibliotecario(LBibliotecario lbibliotecario)
         {

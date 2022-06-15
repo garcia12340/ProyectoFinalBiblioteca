@@ -12,9 +12,6 @@ namespace CapaDatos
     public class DLibros
     {
         private DConexion Conexion = new DConexion();
-        //private SqlCommand Comando = new SqlCommand();
-        //private SqlDataReader LeerFilas;
-        //private SqlDataReader dr;
 
         public DataTable MostrarLibros()
         {
@@ -49,11 +46,11 @@ namespace CapaDatos
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.ExecuteNonQuery();
 
-                DataTable tablalector = new DataTable();
+                DataTable tablalecto = new DataTable();
 
                 SqlDataAdapter adaptar = new SqlDataAdapter(Comando);
-                adaptar.Fill(tablalector);
-                return tablalector;
+                adaptar.Fill(tablalecto);
+                return tablalecto;
 
             }
             catch (Exception)
@@ -65,21 +62,6 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-
-        //public DataTable VerificarLibro(LLibros Llibro)
-        //{
-        //    DataTable tablalector = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "VerificarLibro";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-
-        //    Comando.ExecuteNonQuery();//Pendiente
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tablalector.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tablalector;
-        //}
 
         public DataTable VerificarCantidadLibro(LLibros Llibro)
         {
@@ -128,19 +110,7 @@ namespace CapaDatos
                 Conexion.CerrarConexion();
             }
         }
-        //public DataTable MostrarStockLibros()
-        //{
-        //    DataTable tablalibros = new DataTable();
-        //    Comando.Connection = Conexion.AbrirConexion();
-        //    Comando.CommandText = "MostrarLibrosStock";
-        //    Comando.CommandType = CommandType.StoredProcedure;
-        //    LeerFilas = Comando.ExecuteReader();
-        //    tablalibros.Load(LeerFilas);
-        //    LeerFilas.Close();
-        //    Conexion.CerrarConexion();
-        //    return tablalibros;
-        //}
-
+ 
         public static bool Agregarlibro(LLibros llibro)
         {
             bool res = true;

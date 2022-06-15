@@ -40,7 +40,7 @@ namespace CapaDatos
         {
             try
             {
-                SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", Conexion.AbrirConexion());
+                SqlCommand Comando = new SqlCommand("VerificarLector", Conexion.AbrirConexion());
                 Comando.Parameters.AddWithValue("@codlector", LLector.CodLector);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.ExecuteNonQuery();
@@ -125,7 +125,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand Comando = new SqlCommand("EliminarBibliotecario", oConexion);
+                    SqlCommand Comando = new SqlCommand("EliminarLector", oConexion);
                     Comando.Parameters.AddWithValue("@codlector", llector.CodLector);
                     Comando.CommandType = CommandType.StoredProcedure;
 

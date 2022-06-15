@@ -161,7 +161,7 @@ namespace ProyectoFinalBiblioteca
 
 
 
-                if (FuncPrestamo.AgregarPrestamo(DatPrestamo))
+                if (DPrestamo.AgregarPrestamo(DatPrestamo))
                 {
                     Interaction.MsgBox("Registro Fue Agregado", MsgBoxStyle.Information, "Mensaje del Sistema");
                     LimpiarDatos();
