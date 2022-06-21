@@ -57,7 +57,7 @@ namespace ProyectoFinalBiblioteca
             this.Label1.ForeColor = System.Drawing.Color.White;
             this.Label1.Location = new System.Drawing.Point(0, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(815, 52);
+            this.Label1.Size = new System.Drawing.Size(854, 52);
             this.Label1.TabIndex = 11;
             this.Label1.Text = "Libros";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -68,7 +68,7 @@ namespace ProyectoFinalBiblioteca
             this.Label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.Label5.Location = new System.Drawing.Point(0, 52);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(815, 44);
+            this.Label5.Size = new System.Drawing.Size(854, 44);
             this.Label5.TabIndex = 20;
             // 
             // Label3
@@ -104,7 +104,7 @@ namespace ProyectoFinalBiblioteca
             this.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Label2.Location = new System.Drawing.Point(40, 123);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(751, 273);
+            this.Label2.Size = new System.Drawing.Size(777, 273);
             this.Label2.TabIndex = 32;
             // 
             // dgvLibro
@@ -122,7 +122,7 @@ namespace ProyectoFinalBiblioteca
             this.dgvLibro.Name = "dgvLibro";
             this.dgvLibro.ReadOnly = true;
             this.dgvLibro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLibro.Size = new System.Drawing.Size(745, 267);
+            this.dgvLibro.Size = new System.Drawing.Size(770, 267);
             this.dgvLibro.TabIndex = 33;
             // 
             // BtnImprimir
@@ -234,7 +234,7 @@ namespace ProyectoFinalBiblioteca
             // 
             this.Label6.AutoSize = true;
             this.Label6.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.Label6.Location = new System.Drawing.Point(468, 68);
+            this.Label6.Location = new System.Drawing.Point(498, 68);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(61, 13);
             this.Label6.TabIndex = 41;
@@ -250,7 +250,7 @@ namespace ProyectoFinalBiblioteca
             "Autor",
             "Genero",
             "Editorial"});
-            this.cboBusqueda.Location = new System.Drawing.Point(532, 65);
+            this.cboBusqueda.Location = new System.Drawing.Point(565, 61);
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(121, 21);
             this.cboBusqueda.TabIndex = 42;
@@ -258,7 +258,7 @@ namespace ProyectoFinalBiblioteca
             // txtBusqueda
             // 
             this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBusqueda.Location = new System.Drawing.Point(659, 65);
+            this.txtBusqueda.Location = new System.Drawing.Point(694, 61);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(148, 20);
             this.txtBusqueda.TabIndex = 43;
@@ -268,7 +268,7 @@ namespace ProyectoFinalBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 459);
+            this.ClientSize = new System.Drawing.Size(854, 459);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cboBusqueda);
             this.Controls.Add(this.Label6);

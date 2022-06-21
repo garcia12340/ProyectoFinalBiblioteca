@@ -1,6 +1,5 @@
 ﻿using CapaDatos;
-using CapaModelo;
-using Microsoft.VisualBasic;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,64 +12,66 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalBiblioteca
 {
-    public partial class IniciarSesion : Form
+    public partial class IniciarSesion : MaterialSkin.Controls.MaterialForm
     {
-        LBibliotecario lb1 = new LBibliotecario();
-        DBibliotecario db1 = new DBibliotecario();
         public IniciarSesion()
         {
             InitializeComponent();
+            txtUsuario.Focus();
         }
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            try
+            ValidarCampos();
+            int IdUsuario = DUsuario.LoginUsuario(txtUsuario.Text, txtContraseña.Text);
+            if (IdUsuario != 0)
             {
-                if (txtclave.Text == "")
-                {
-                    Interaction.MsgBox("Complete los datos porfavor", MsgBoxStyle.Information, "Mensaje del Sistema");
-                    return;
-                }
-
-                lb1.Nro_Carnet = Convert.ToString(txtuser.Text);
-                lb1.Contrasena = Convert.ToString(txtclave.Text);
-
-                if (db1.AccederBibliotecario(lb1))
-                {
-                    this.Hide();
-                    Interaction.MsgBox("Bienvenido al Sistema", MsgBoxStyle.Information, "Mensaje del Sistema");
-                    MenuPrincipal n = new MenuPrincipal();
-                    //Principal n = new Principal();
-                    n.ShowDialog();
-                }
-                else
-                    Interaction.MsgBox("Carnet o contraseña incorrecta", MsgBoxStyle.Critical, "Mensaje del Sistema");
+                MDIMaster frm = new MDIMaster(IdUsuario);
+                frm.Show();
+                this.Hide();
+                frm.FormClosing += IniciarSesion_FormClosing;
             }
-            catch (Exception ex)
+            else
             {
-                Interaction.MsgBox(ex.Message);
-            }
-            finally
-            {
+                MessageBox.Show("No hay conexion con el servidor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //MessageBox.Show("No se econtraron coincidencias del usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void IniciarSesion_Load(object sender, EventArgs e)
+        private void ValidarCampos()
         {
-            DBibliotecario fun = new DBibliotecario();
+            if (String.IsNullOrEmpty(txtUsuario.Text))
+            {
+                MessageBox.Show("El campo de datos del Usuario no puede quedar vacío");
+            }
+            if (String.IsNullOrEmpty(txtContraseña.Text))
+            {
+                MessageBox.Show("El campo de datos de la Contraseña del Usuario no puede quedar vacío");
+            }
         }
 
         private void IniciarSesion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            txtuser.Text = "";
-            txtclave.Text = "";
-            txtuser.Focus();
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
+            //txtUsuario.Focus();
             this.Show();
         }
 
-        private void BtnSalir_Click(object sender, EventArgs e)
+        private void IniciarSesion_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void IniciarSesion_Load(object sender, EventArgs e)
+        {
+            SkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            SkinManager.ColorScheme = new ColorScheme(Primary.Blue900, Primary.Red900, Primary.Red900, Accent.Blue700, TextShade.WHITE);
         }
     }
 }

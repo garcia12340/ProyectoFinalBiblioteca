@@ -41,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion.cs" />
     <Compile Include="LAutor.cs" />
     <Compile Include="LBibliotecario.cs" />
     <Compile Include="LEditorial.cs" />
     <Compile Include="LGenero.cs" />
     <Compile Include="LLector.cs" />
     <Compile Include="LLibros.cs" />
+    <Compile Include="LMenu.cs" />
+    <Compile Include="LPermisos.cs" />
     <Compile Include="LPrestamo.cs" />
+    <Compile Include="LRol.cs" />
+    <Compile Include="LSubMenu.cs" />
+    <Compile Include="LUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

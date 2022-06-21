@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -83,6 +86,12 @@
     <Compile Include="Bibliotecario.Designer.cs">
       <DependentUpon>Bibliotecario.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearRol.Designer.cs">
+      <DependentUpon>CrearRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="dbbibliotecaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +109,19 @@
     <Compile Include="Editorial.Designer.cs">
       <DependentUpon>Editorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums\ComboBoxItem.cs" />
+    <Compile Include="IniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IniciarSesion.Designer.cs">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIMaster.Designer.cs">
+      <DependentUpon>MDIMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nuevo Libro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,23 +134,11 @@
     <Compile Include="ModificarLibro.Designer.cs">
       <DependentUpon>ModificarLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inicio.Designer.cs">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </Compile>
     <Compile Include="Genero.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Genero.Designer.cs">
       <DependentUpon>Genero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IniciarSesion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IniciarSesion.Designer.cs">
-      <DependentUpon>IniciarSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Lector.cs">
       <SubType>Form</SubType>
@@ -204,6 +214,12 @@
     <Compile Include="ReportePrestamo.Designer.cs">
       <DependentUpon>ReportePrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="RolPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RolPermiso.Designer.cs">
+      <DependentUpon>RolPermiso.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VistaLectores.cs">
       <SubType>Form</SubType>
@@ -223,8 +239,17 @@
     <EmbeddedResource Include="Bibliotecario.resx">
       <DependentUpon>Bibliotecario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrearRol.resx">
+      <DependentUpon>CrearRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeudaAutor.resx">
       <DependentUpon>DeudaAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciarSesion.resx">
+      <DependentUpon>IniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIMaster.resx">
+      <DependentUpon>MDIMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nuevo Libro.resx">
       <DependentUpon>Nuevo Libro.cs</DependentUpon>
@@ -235,14 +260,8 @@
     <EmbeddedResource Include="ModificarLibro.resx">
       <DependentUpon>ModificarLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio.resx">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Genero.resx">
       <DependentUpon>Genero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IniciarSesion.resx">
-      <DependentUpon>IniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lector.resx">
       <DependentUpon>Lector.cs</DependentUpon>
@@ -289,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteLibros.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePrestamo.rdlc" />
+    <EmbeddedResource Include="RolPermiso.resx">
+      <DependentUpon>RolPermiso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaLectores.resx">
       <DependentUpon>VistaLectores.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +386,13 @@
   <ItemGroup>
     <None Include="Resources\libros.jpg" />
     <None Include="Resources\Presentación.jpg" />
+    <None Include="Iconos\biblio.png" />
+    <Content Include="Iconos\icon_item.png" />
+    <None Include="Iconos\libros.jpg" />
+    <None Include="Iconos\lector.png" />
+    <Content Include="Iconos\Salir.png" />
+    <None Include="Iconos\transaccion.png" />
+    <Content Include="Iconos\Usuario.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

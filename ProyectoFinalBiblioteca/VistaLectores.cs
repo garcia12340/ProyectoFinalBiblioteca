@@ -44,34 +44,26 @@ namespace ProyectoFinalBiblioteca
 
         private void dgvLector_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            NuevoPrestamo a = new NuevoPrestamo();
-            //if (e.RowIndex == -1) return;
-            //DataGridViewRow row = dgvLector.CurrentRow;
-            //if (row != null)
-            //{
-            //    NuevoPrestamo a = new NuevoPrestamo();
-            //    a.txtLector.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
-            //    a.txtCodLector.Text = row.Cells[0].Value.ToString();
-            //    a.ShowDialog();
-            //}
             try
             {
-                string lector;
-                string codigo;
-                lector = this.dgvLector.CurrentRow.Cells[1].Value + " " + this.dgvLector.CurrentRow.Cells[2].Value;
-                codigo = this.dgvLector.CurrentRow.Cells[0].Value.ToString();
+                NuevoPrestamo Frm2 = new NuevoPrestamo();
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name == "NuevoPrestamo")
+                    {
+                        Frm2 = (NuevoPrestamo)form;
+                        Frm2.txtLector.Text = this.dgvLector.CurrentRow.Cells[1].Value.ToString() + " " + this.dgvLector.CurrentRow.Cells[2].Value.ToString();
+                        Frm2.txtCodLector.Text = this.dgvLector.CurrentRow.Cells[0].Value.ToString();
 
-
-                a.txtLector.Text = lector;
-                a.txtCodLector.Text = codigo;
-                this.Close();
+                        this.Close();
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                Interaction.MsgBox(ex.Message);
+                MessageBox.Show(ex.Message);
             }
-
-            a.Show();
         }
     }
 }

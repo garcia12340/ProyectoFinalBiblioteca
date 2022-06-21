@@ -32,8 +32,6 @@ namespace ProyectoFinalBiblioteca
             this.components = new System.ComponentModel.Container();
             this.Label1 = new System.Windows.Forms.Label();
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.lblSalir = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TSBInicio = new System.Windows.Forms.ToolStripButton();
             this.TSBibliotecario = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButton3 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -42,6 +40,8 @@ namespace ProyectoFinalBiblioteca
             this.TSMILibrosDevueltos = new System.Windows.Forms.ToolStripMenuItem();
             this.TSBlibros = new System.Windows.Forms.ToolStripButton();
             this.TSBLectores = new System.Windows.Forms.ToolStripButton();
+            this.lblSalir = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.ToolStrip1.SuspendLayout();
@@ -76,31 +76,6 @@ namespace ProyectoFinalBiblioteca
             this.ToolStrip1.Size = new System.Drawing.Size(833, 35);
             this.ToolStrip1.TabIndex = 5;
             this.ToolStrip1.Text = "ToolStrip1";
-            // 
-            // lblSalir
-            // 
-            this.lblSalir.AutoSize = true;
-            this.lblSalir.BackColor = System.Drawing.Color.Goldenrod;
-            this.lblSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalir.ForeColor = System.Drawing.Color.White;
-            this.lblSalir.Location = new System.Drawing.Point(791, 9);
-            this.lblSalir.Name = "lblSalir";
-            this.lblSalir.Size = new System.Drawing.Size(40, 20);
-            this.lblSalir.TabIndex = 6;
-            this.lblSalir.Text = "Salir";
-            this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::ProyectoFinalBiblioteca.Properties.Resources.Presentación;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 105);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(821, 461);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // TSBInicio
             // 
@@ -137,28 +112,28 @@ namespace ProyectoFinalBiblioteca
             // 
             // TSMINuevoPrestamo
             // 
-            this.TSMINuevoPrestamo.BackColor = System.Drawing.Color.SkyBlue;
+            this.TSMINuevoPrestamo.BackColor = System.Drawing.Color.Gold;
             this.TSMINuevoPrestamo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMINuevoPrestamo.Name = "TSMINuevoPrestamo";
-            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(176, 22);
+            this.TSMINuevoPrestamo.Size = new System.Drawing.Size(180, 22);
             this.TSMINuevoPrestamo.Text = "Nuevo Prestamo";
             this.TSMINuevoPrestamo.Click += new System.EventHandler(this.TSMINuevoPrestamo_Click);
             // 
             // TSMILibrosPrestados
             // 
-            this.TSMILibrosPrestados.BackColor = System.Drawing.Color.SkyBlue;
+            this.TSMILibrosPrestados.BackColor = System.Drawing.Color.Gold;
             this.TSMILibrosPrestados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosPrestados.Name = "TSMILibrosPrestados";
-            this.TSMILibrosPrestados.Size = new System.Drawing.Size(176, 22);
+            this.TSMILibrosPrestados.Size = new System.Drawing.Size(180, 22);
             this.TSMILibrosPrestados.Text = "Libros Prestados";
             this.TSMILibrosPrestados.Click += new System.EventHandler(this.TSMILibrosPrestados_Click);
             // 
             // TSMILibrosDevueltos
             // 
-            this.TSMILibrosDevueltos.BackColor = System.Drawing.Color.SkyBlue;
+            this.TSMILibrosDevueltos.BackColor = System.Drawing.Color.Gold;
             this.TSMILibrosDevueltos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSMILibrosDevueltos.Name = "TSMILibrosDevueltos";
-            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(176, 22);
+            this.TSMILibrosDevueltos.Size = new System.Drawing.Size(180, 22);
             this.TSMILibrosDevueltos.Text = "Libros Devueltos";
             this.TSMILibrosDevueltos.Click += new System.EventHandler(this.TSMILibrosDevueltos_Click);
             // 
@@ -181,6 +156,31 @@ namespace ProyectoFinalBiblioteca
             this.TSBLectores.Size = new System.Drawing.Size(88, 25);
             this.TSBLectores.Text = "Lectores";
             this.TSBLectores.Click += new System.EventHandler(this.TSBLectores_Click);
+            // 
+            // lblSalir
+            // 
+            this.lblSalir.AutoSize = true;
+            this.lblSalir.BackColor = System.Drawing.Color.Goldenrod;
+            this.lblSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalir.ForeColor = System.Drawing.Color.White;
+            this.lblSalir.Location = new System.Drawing.Point(791, 9);
+            this.lblSalir.Name = "lblSalir";
+            this.lblSalir.Size = new System.Drawing.Size(40, 20);
+            this.lblSalir.TabIndex = 6;
+            this.lblSalir.Text = "Salir";
+            this.lblSalir.Click += new System.EventHandler(this.lblSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::ProyectoFinalBiblioteca.Properties.Resources.Presentación;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(821, 461);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // timer1
             // 

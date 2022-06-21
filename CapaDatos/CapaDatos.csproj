@@ -48,7 +48,10 @@
     <Compile Include="DGenero.cs" />
     <Compile Include="DLector.cs" />
     <Compile Include="DLibros.cs" />
+    <Compile Include="DPermisos.cs" />
     <Compile Include="DPrestamo.cs" />
+    <Compile Include="DRol.cs" />
+    <Compile Include="DUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

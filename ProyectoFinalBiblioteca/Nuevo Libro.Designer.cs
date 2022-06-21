@@ -44,6 +44,10 @@ namespace ProyectoFinalBiblioteca
             this.cboEditorial = new System.Windows.Forms.ComboBox();
             this.btnagregar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEdicion = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAñoEdicion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -52,29 +56,29 @@ namespace ProyectoFinalBiblioteca
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(25, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 15);
+            this.label5.Size = new System.Drawing.Size(55, 15);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Editorial";
+            this.label5.Text = "Editorial:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 167);
+            this.label6.Location = new System.Drawing.Point(11, 165);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.Size = new System.Drawing.Size(65, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Ubicación";
+            this.label6.Text = "Ubicación:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 193);
+            this.label7.Location = new System.Drawing.Point(17, 191);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 15);
+            this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Cantidad";
+            this.label7.Text = "Cantidad:";
             // 
             // txtTitulo
             // 
@@ -179,7 +183,7 @@ namespace ProyectoFinalBiblioteca
             this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnagregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregar.ForeColor = System.Drawing.Color.White;
-            this.btnagregar.Location = new System.Drawing.Point(29, 234);
+            this.btnagregar.Location = new System.Drawing.Point(28, 289);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(100, 39);
             this.btnagregar.TabIndex = 42;
@@ -195,7 +199,7 @@ namespace ProyectoFinalBiblioteca
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.Color.White;
-            this.btncancelar.Location = new System.Drawing.Point(159, 234);
+            this.btncancelar.Location = new System.Drawing.Point(160, 289);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(100, 39);
             this.btncancelar.TabIndex = 43;
@@ -203,11 +207,48 @@ namespace ProyectoFinalBiblioteca
             this.btncancelar.UseVisualStyleBackColor = false;
             this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 217);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 15);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Nro Edicion:";
+            // 
+            // txtEdicion
+            // 
+            this.txtEdicion.Location = new System.Drawing.Point(87, 216);
+            this.txtEdicion.Name = "txtEdicion";
+            this.txtEdicion.Size = new System.Drawing.Size(189, 20);
+            this.txtEdicion.TabIndex = 45;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 247);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "AñoEdicion:";
+            // 
+            // txtAñoEdicion
+            // 
+            this.txtAñoEdicion.Location = new System.Drawing.Point(87, 244);
+            this.txtAñoEdicion.Name = "txtAñoEdicion";
+            this.txtAñoEdicion.Size = new System.Drawing.Size(189, 20);
+            this.txtAñoEdicion.TabIndex = 47;
+            // 
             // NuevoLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 291);
+            this.ClientSize = new System.Drawing.Size(286, 340);
+            this.Controls.Add(this.txtAñoEdicion);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtEdicion);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.cboEditorial);
@@ -247,5 +288,9 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.ComboBox cboEditorial;
         internal System.Windows.Forms.Button btnagregar;
         internal System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtEdicion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtAñoEdicion;
     }
 }

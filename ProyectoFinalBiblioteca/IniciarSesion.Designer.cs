@@ -4,14 +4,14 @@ namespace ProyectoFinalBiblioteca
     partial class IniciarSesion
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,124 +21,149 @@ namespace ProyectoFinalBiblioteca
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.Label1 = new System.Windows.Forms.Label();
-            this.txtuser = new System.Windows.Forms.TextBox();
-            this.txtclave = new System.Windows.Forms.TextBox();
-            this.BtnIngresar = new System.Windows.Forms.Button();
-            this.BtnSalir = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IniciarSesion));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtContraseña = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BtnIngresar = new MaterialSkin.Controls.MaterialFlatButton();
+            this.BtnCancelar = new MaterialSkin.Controls.MaterialFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Label1
+            // pictureBox1
             // 
-            this.Label1.BackColor = System.Drawing.Color.Firebrick;
-            this.Label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Label1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.ForeColor = System.Drawing.Color.White;
-            this.Label1.Location = new System.Drawing.Point(0, 0);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(280, 72);
-            this.Label1.TabIndex = 5;
-            this.Label1.Text = "Sistema de biblioteca";
-            this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 84);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
-            // txtuser
+            // materialLabel1
             // 
-            this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.Location = new System.Drawing.Point(99, 104);
-            this.txtuser.Multiline = true;
-            this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(145, 31);
-            this.txtuser.TabIndex = 8;
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.White;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(116, 94);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel1.TabIndex = 10;
+            this.materialLabel1.Text = "Usuario: ";
             // 
-            // txtclave
+            // materialLabel2
             // 
-            this.txtclave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtclave.Location = new System.Drawing.Point(99, 166);
-            this.txtclave.Multiline = true;
-            this.txtclave.Name = "txtclave";
-            this.txtclave.PasswordChar = '•';
-            this.txtclave.Size = new System.Drawing.Size(145, 31);
-            this.txtclave.TabIndex = 9;
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.BackColor = System.Drawing.Color.White;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(104, 124);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(94, 19);
+            this.materialLabel2.TabIndex = 11;
+            this.materialLabel2.Text = "Contraseña: ";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Depth = 0;
+            this.txtUsuario.Hint = "";
+            this.txtUsuario.Location = new System.Drawing.Point(218, 90);
+            this.txtUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.PasswordChar = '\0';
+            this.txtUsuario.SelectedText = "";
+            this.txtUsuario.SelectionLength = 0;
+            this.txtUsuario.SelectionStart = 0;
+            this.txtUsuario.Size = new System.Drawing.Size(193, 23);
+            this.txtUsuario.TabIndex = 12;
+            this.txtUsuario.UseSystemPasswordChar = false;
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Depth = 0;
+            this.txtContraseña.Hint = "";
+            this.txtContraseña.Location = new System.Drawing.Point(218, 124);
+            this.txtContraseña.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '\0';
+            this.txtContraseña.SelectedText = "";
+            this.txtContraseña.SelectionLength = 0;
+            this.txtContraseña.SelectionStart = 0;
+            this.txtContraseña.Size = new System.Drawing.Size(193, 23);
+            this.txtContraseña.TabIndex = 13;
+            this.txtContraseña.UseSystemPasswordChar = true;
             // 
             // BtnIngresar
             // 
-            this.BtnIngresar.BackColor = System.Drawing.Color.SlateGray;
-            this.BtnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIngresar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnIngresar.Location = new System.Drawing.Point(26, 223);
+            this.BtnIngresar.AutoSize = true;
+            this.BtnIngresar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnIngresar.Depth = 0;
+            this.BtnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BtnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BtnIngresar.Location = new System.Drawing.Point(133, 163);
+            this.BtnIngresar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtnIngresar.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtnIngresar.Name = "BtnIngresar";
-            this.BtnIngresar.Size = new System.Drawing.Size(224, 47);
-            this.BtnIngresar.TabIndex = 10;
+            this.BtnIngresar.Primary = false;
+            this.BtnIngresar.Size = new System.Drawing.Size(77, 36);
+            this.BtnIngresar.TabIndex = 14;
             this.BtnIngresar.Text = "Ingresar";
-            this.BtnIngresar.UseVisualStyleBackColor = false;
+            this.BtnIngresar.UseVisualStyleBackColor = true;
             this.BtnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
-            // BtnSalir
+            // BtnCancelar
             // 
-            this.BtnSalir.BackColor = System.Drawing.Color.SlateGray;
-            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnSalir.Location = new System.Drawing.Point(26, 286);
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(224, 47);
-            this.BtnSalir.TabIndex = 11;
-            this.BtnSalir.Text = "Salir";
-            this.BtnSalir.UseVisualStyleBackColor = false;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ProyectoFinalBiblioteca.Properties.Resources.pass;
-            this.pictureBox2.Location = new System.Drawing.Point(38, 157);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 44);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProyectoFinalBiblioteca.Properties.Resources.car;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 54);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.BtnCancelar.AutoSize = true;
+            this.BtnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnCancelar.Depth = 0;
+            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.BtnCancelar.Location = new System.Drawing.Point(241, 163);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Primary = false;
+            this.BtnCancelar.Size = new System.Drawing.Size(82, 36);
+            this.BtnCancelar.TabIndex = 15;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // IniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 349);
-            this.Controls.Add(this.BtnSalir);
+            this.ClientSize = new System.Drawing.Size(432, 222);
+            this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnIngresar);
-            this.Controls.Add(this.txtclave);
-            this.Controls.Add(this.txtuser);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Label1);
             this.Name = "IniciarSesion";
-            this.Text = "Form1";
+            this.Text = "IniciarSesion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IniciarSesion_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IniciarSesion_FormClosed);
             this.Load += new System.EventHandler(this.IniciarSesion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,13 +172,12 @@ namespace ProyectoFinalBiblioteca
 
         #endregion
 
-        internal System.Windows.Forms.Label Label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txtuser;
-        private System.Windows.Forms.TextBox txtclave;
-        private System.Windows.Forms.Button BtnIngresar;
-        private System.Windows.Forms.Button BtnSalir;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtUsuario;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtContraseña;
+        private MaterialSkin.Controls.MaterialFlatButton BtnIngresar;
+        private MaterialSkin.Controls.MaterialFlatButton BtnCancelar;
     }
 }
-

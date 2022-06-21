@@ -20,8 +20,8 @@ namespace ProyectoFinalBiblioteca
 
         private void TSBInicio_Click(object sender, EventArgs e)
         {
-            Inicio azaria = new Inicio();
-            azaria.Show();
+            //Inicio azaria = new Inicio();
+            //azaria.Show();
 
         }
 
