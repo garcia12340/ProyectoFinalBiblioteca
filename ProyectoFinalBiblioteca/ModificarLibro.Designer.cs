@@ -292,8 +292,8 @@ namespace ProyectoFinalBiblioteca
         internal System.Windows.Forms.Button btnAceptar;
         internal System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEdicion;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAñoEdicion;
+        internal System.Windows.Forms.TextBox txtEdicion;
+        internal System.Windows.Forms.TextBox txtAñoEdicion;
     }
 }

@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class DConexion
     {
-        static public string CadenaConexion = "Server=LAPTOP-GK4LE9BQ;DataBase=dbbiblioteca;Integrated Security=true";
+        static public string CadenaConexion = "Server=LAPTOP-GK4LE9BQ;DataBase=Biblioteca;Integrated Security=true";
         public SqlConnection Conexion = new SqlConnection(CadenaConexion);
         // public SqlConnection con = new SqlConnection("SERVER=LAPTOP-GK4LE9BQ; DATABASE=dbbiblioteca;Integrated Security = true;");
 

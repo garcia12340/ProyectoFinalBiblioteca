@@ -22,6 +22,7 @@ namespace ProyectoFinalBiblioteca
         public NuevoBibliotecario()
         {
             InitializeComponent();
+            //txtCedula.MaxLength = 25;
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -64,8 +65,8 @@ namespace ProyectoFinalBiblioteca
                 Db.Email = txtemail.Text;
                 Db.Telefono = Convert.ToInt32(txttelefono.Text);
                 Db.Dni = Convert.ToInt32(txtdni.Text);
-                Db.Nro_Carnet = txtnrocarnet.Text;
-                Db.Contrasena = txtclave.Text;
+               // Db.Nro_Carnet = txtCedula.Text;
+                Db.Nro_Cedula = txtCedula.Text;
 
                 if (DBibliotecario.AgregarBibliotecario(Db))
                     this.Close();
@@ -80,30 +81,31 @@ namespace ProyectoFinalBiblioteca
 
         private void btngenerarCarnet_Click(object sender, EventArgs e)
         {
-            GenerarCarnet();
+            //GenerarCarnet();
         }
 
-        private void GenerarCarnet()
-        {
-            try
-            {
-                DataTable tablacarnet;
-                tablacarnet = r.GenerarCarnet();
+        ////private void GenerarCarnet()
+        ////{
+        ////    try
+        ////    {
+        ////        DataTable tablacarnet;
+        ////        tablacarnet = r.GenerarCarnet();
 
-                string carnet;
-                carnet = tablacarnet.Rows[0].ItemArray[0].ToString();
+        ////        string carnet;
+        ////        carnet = tablacarnet.Rows[0].ItemArray[0].ToString();
                 
-                txtnrocarnet.Text = carnet;
-            }
-            catch (Exception ex)
-            {
-                Interaction.MsgBox(ex.Message);
-            }
-        }
+        ////        txtnrocarnet.Text = carnet;
+        ////    }
+        ////    catch (Exception ex)
+        ////    {
+        ////        Interaction.MsgBox(ex.Message);
+        ////    }
+        ////}
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

@@ -125,6 +125,8 @@ namespace CapaDatos
                     Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
                     Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
                     Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
+                    Comando.Parameters.AddWithValue("@nroEdicion", llibro.Nro_Edicion);
+                    Comando.Parameters.AddWithValue("@añoEdicion", llibro.AñoEdicion);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -155,6 +157,8 @@ namespace CapaDatos
                     Comando.Parameters.AddWithValue("@codeditorial", llibro.CodEditorial);
                     Comando.Parameters.AddWithValue("@ubicacion", llibro.Ubicacion);
                     Comando.Parameters.AddWithValue("@cantidad", llibro.Cantidad);
+                    Comando.Parameters.AddWithValue("@nroEdicion", llibro.Nro_Edicion);
+                    Comando.Parameters.AddWithValue("@añoEdicion", llibro.AñoEdicion);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();

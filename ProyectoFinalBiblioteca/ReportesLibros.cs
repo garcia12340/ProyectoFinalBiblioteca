@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalBiblioteca
 {
-    public partial class ReporteLibros : Form
+    public partial class ReportesLibros : Form
     {
         public string Busqueda;
-        public ReporteLibros()
+        public ReportesLibros()
         {
             InitializeComponent();
         }

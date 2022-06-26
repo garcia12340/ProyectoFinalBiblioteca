@@ -164,12 +164,6 @@
     <Compile Include="LibrosPrestados.Designer.cs">
       <DependentUpon>LibrosPrestados.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModificarBibliotecario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,17 +196,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporteLibros.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteLibros.Designer.cs">
-      <DependentUpon>ReporteLibros.cs</DependentUpon>
+    <Compile Include="ReportesLibros.Designer.cs">
+      <DependentUpon>ReportesLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportePrestamo.cs">
+    <Compile Include="ReportesPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportePrestamo.Designer.cs">
-      <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    <Compile Include="ReportesPrestamo.Designer.cs">
+      <DependentUpon>ReportesPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="RolPermiso.cs">
       <SubType>Form</SubType>
@@ -275,9 +274,6 @@
     <EmbeddedResource Include="LibrosPrestados.resx">
       <DependentUpon>LibrosPrestados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ModificarBibliotecario.resx">
       <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,16 +291,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="ReporteLibros.resx">
-      <DependentUpon>ReporteLibros.cs</DependentUpon>
+    <EmbeddedResource Include="ReportesLibros.resx">
+      <DependentUpon>ReportesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesPrestamo.resx">
+      <DependentUpon>ReportesPrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteLibros.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePrestamo.rdlc" />
@@ -344,36 +338,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\header.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\car.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pass.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Inicio.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\biblio.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\transaccion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\libros.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lector.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lector1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lector2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
       <Project>{2b8cb7a0-02f6-49df-9360-da462615941e}</Project>
       <Name>CapaDatos</Name>
@@ -384,15 +348,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\libros.jpg" />
-    <None Include="Resources\Presentación.jpg" />
     <None Include="Iconos\biblio.png" />
     <Content Include="Iconos\icon_item.png" />
     <None Include="Iconos\libros.jpg" />
     <None Include="Iconos\lector.png" />
+    <Content Include="Iconos\Reporte.png" />
     <Content Include="Iconos\Salir.png" />
     <None Include="Iconos\transaccion.png" />
-    <Content Include="Iconos\Usuario.png" />
+    <Content Include="Iconos\Usuarios.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -15,8 +15,7 @@ namespace CapaModelo
         public string Email { get; set; }
         public int Telefono { get; set; }
         public int Dni { get; set; }
-        public string Nro_Carnet { get; set; }
-        public string Contrasena { get; set; }
+        public string Nro_Cedula { get; set; }
     }
 }
 

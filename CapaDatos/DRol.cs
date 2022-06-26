@@ -16,7 +16,7 @@ namespace CapaDatos
             List<LRol> rptListaRol = new List<LRol>();
             using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("usp_ObtenerRoles", oConexion);
+                SqlCommand cmd = new SqlCommand("ObtenerRoles", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 try
@@ -53,7 +53,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_RegistrarRol", oConexion);
+                    SqlCommand cmd = new SqlCommand("RegistrarRol", oConexion);
                     cmd.Parameters.AddWithValue("Descripcion", oRol.Descripcion);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -80,7 +80,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_ModificarRol", oConexion);
+                    SqlCommand cmd = new SqlCommand("ModificarRol", oConexion);
                     cmd.Parameters.AddWithValue("IdRol", oRol.IdRol);
                     cmd.Parameters.AddWithValue("Descripcion", oRol.Descripcion);
                     cmd.Parameters.AddWithValue("Activo", oRol.Activo);
@@ -113,7 +113,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_EliminarRol", oConexion);
+                    SqlCommand cmd = new SqlCommand("EliminarRol", oConexion);
                     cmd.Parameters.AddWithValue("IdRol", IdRol);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;

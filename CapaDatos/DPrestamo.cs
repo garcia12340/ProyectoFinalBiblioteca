@@ -64,7 +64,7 @@ namespace CapaDatos
         {
             try
             {
-                SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLecor", Conexion.AbrirConexion());
+                SqlCommand Comando = new SqlCommand("MostrarPrestamoDeudaLector", Conexion.AbrirConexion());
                 Comando.Parameters.AddWithValue("@codlector", lprestamo.CodLector);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.ExecuteNonQuery();

@@ -15,8 +15,6 @@ namespace ProyectoFinalBiblioteca
 {
     public partial class Bibliotecario : Form
     {
-        private bool IsNuevo = false;
-        private bool IsEditar = false;
         DBibliotecario FuncBibliotecario = new DBibliotecario();
         LBibliotecario DatBibliotecario = new LBibliotecario();
         public Bibliotecario()
@@ -27,30 +25,6 @@ namespace ProyectoFinalBiblioteca
         private void Bibliotecario_Load(object sender, EventArgs e)
         {
             CargarListaBibliotecario();
-            Botones();
-        }
-
-        private void Botones()
-        {
-            if (this.IsNuevo || this.IsEditar)//Alt + 124
-            {
-                this.Habilitar(true);
-                this.BtnNuevo.Enabled = false;
-                this.BtnModificar.Enabled = false;
-                this.BtnNuevo.Enabled = false;
-            }
-            else
-            {
-                this.Habilitar(false);
-                this.BtnNuevo.Enabled = true;
-                this.BtnModificar.Enabled = false;
-                this.BtnEliminar.Enabled = false;
-            }
-        }
-
-        private void Habilitar(bool valor)
-        {
-            this.dgvBibliotecario.ReadOnly = !valor;
         }
 
         public void CargarListaBibliotecario()

@@ -72,6 +72,8 @@ namespace ProyectoFinalBiblioteca
                 cboBusqueda.SelectedIndex = 0;
                 dgvLibro.Columns[8].Width = 60;
                 dgvLibro.Columns[9].Width = 50;
+                dgvLibro.Columns[10].Width = 40;
+                dgvLibro.Columns[11].Width = 65;
             }
         }
 
@@ -113,6 +115,8 @@ namespace ProyectoFinalBiblioteca
 
                 FormModificar.txtUbicacion.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[8].Value);
                 FormModificar.txtCantidad.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[9].Value);
+                FormModificar.txtEdicion.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[10].Value);
+                FormModificar.txtAñoEdicion.Text = Convert.ToString(dgvLibro.CurrentRow.Cells[11].Value);
 
                 FormModificar.ShowDialog();
             }
@@ -179,7 +183,7 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                ReporteLibros z = new ReporteLibros();
+                ReportesLibros z = new ReportesLibros();
                 z.Busqueda = Convert.ToString(txtBusqueda.Text);
                 z.Show();
 

@@ -120,6 +120,8 @@ namespace ProyectoFinalBiblioteca
                 DatLibro.CodEditorial = Convert.ToInt32(cboEditorial.SelectedValue.ToString());
                 DatLibro.Ubicacion = txtUbicacion.Text;
                 DatLibro.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                DatLibro.Nro_Edicion = Convert.ToInt32(txtEdicion.Text);
+                DatLibro.AñoEdicion = Convert.ToInt32(txtAñoEdicion.Text);
 
                 if (DLibros.Agregarlibro(DatLibro))
                     this.Close();

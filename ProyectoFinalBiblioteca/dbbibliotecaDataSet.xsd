@@ -2,14 +2,15 @@
 <xs:schema id="dbbibliotecaDataSet" targetNamespace="http://tempuri.org/dbbibliotecaDataSet.xsd" xmlns:mstns="http://tempuri.org/dbbibliotecaDataSet.xsd" xmlns="http://tempuri.org/dbbibliotecaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbbibliotecaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbbibliotecaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoFinalBiblioteca.Properties.Settings.GlobalReference.Default.dbbibliotecaConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BibliotecaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BibliotecaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoFinalBiblioteca.Properties.Settings.GlobalReference.Default.BibliotecaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReporteLibrosTableAdapter" GeneratorDataComponentClassName="ReporteLibrosTableAdapter" Name="ReporteLibros" UserDataComponentName="ReporteLibrosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="dbbibliotecaConnectionString (Settings)" DbObjectName="dbbiblioteca.dbo.ReporteLibros" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BibliotecaConnectionString (Settings)" DbObjectName="Biblioteca.dbo.ReporteLibros" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ReporteLibros</CommandText>
@@ -29,6 +30,8 @@
               <Mapping SourceColumn="Editorial" DataSetColumn="Editorial" />
               <Mapping SourceColumn="Ubicacion" DataSetColumn="Ubicacion" />
               <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="NroEdicion" DataSetColumn="NroEdicion" />
+              <Mapping SourceColumn="AñoEdicion" DataSetColumn="AñoEdicion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -40,7 +43,7 @@
   <xs:element name="dbbibliotecaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dbbibliotecaDataSet" msprop:Generator_UserDSName="dbbibliotecaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ReporteLibros" msprop:Generator_TableClassName="ReporteLibrosDataTable" msprop:Generator_TableVarName="tableReporteLibros" msprop:Generator_TablePropName="ReporteLibros" msprop:Generator_RowDeletingName="ReporteLibrosRowDeleting" msprop:Generator_RowChangingName="ReporteLibrosRowChanging" msprop:Generator_RowEvHandlerName="ReporteLibrosRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteLibrosRowDeleted" msprop:Generator_UserTableName="ReporteLibros" msprop:Generator_RowChangedName="ReporteLibrosRowChanged" msprop:Generator_RowEvArgName="ReporteLibrosRowChangeEvent" msprop:Generator_RowClassName="ReporteLibrosRow">
+        <xs:element name="ReporteLibros" msprop:Generator_TableClassName="ReporteLibrosDataTable" msprop:Generator_TableVarName="tableReporteLibros" msprop:Generator_RowChangedName="ReporteLibrosRowChanged" msprop:Generator_TablePropName="ReporteLibros" msprop:Generator_RowDeletingName="ReporteLibrosRowDeleting" msprop:Generator_RowChangingName="ReporteLibrosRowChanging" msprop:Generator_RowEvHandlerName="ReporteLibrosRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteLibrosRowDeleted" msprop:Generator_RowClassName="ReporteLibrosRow" msprop:Generator_UserTableName="ReporteLibros" msprop:Generator_RowEvArgName="ReporteLibrosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodLibro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnCodLibro" msprop:Generator_ColumnPropNameInRow="CodLibro" msprop:Generator_ColumnPropNameInTable="CodLibroColumn" msprop:Generator_UserColumnName="CodLibro" type="xs:int" />
@@ -80,6 +83,8 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="NroEdicion" msprop:Generator_ColumnVarNameInTable="columnNroEdicion" msprop:Generator_ColumnPropNameInRow="NroEdicion" msprop:Generator_ColumnPropNameInTable="NroEdicionColumn" msprop:Generator_UserColumnName="NroEdicion" type="xs:int" minOccurs="0" />
+              <xs:element name="AñoEdicion" msprop:Generator_ColumnVarNameInTable="columnAñoEdicion" msprop:Generator_ColumnPropNameInRow="AñoEdicion" msprop:Generator_ColumnPropNameInTable="AñoEdicionColumn" msprop:Generator_UserColumnName="AñoEdicion" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

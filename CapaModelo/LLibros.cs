@@ -14,6 +14,8 @@ namespace CapaModelo
         public int CodEditorial { get; set; }
         public string Ubicacion { get; set; }
         public int Cantidad { get; set; }
+        public int Nro_Edicion { get; set; }
+        public int AñoEdicion { get; set; }
         public int Codlibro { get; set; }
     }
 }

@@ -149,7 +149,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvBibliotecario.MultiSelect = false;
             this.dgvBibliotecario.Name = "dgvBibliotecario";
             this.dgvBibliotecario.ReadOnly = true;
-            this.dgvBibliotecario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBibliotecario.Size = new System.Drawing.Size(745, 290);
             this.dgvBibliotecario.TabIndex = 18;
             this.dgvBibliotecario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBibliotecario_CellClick);

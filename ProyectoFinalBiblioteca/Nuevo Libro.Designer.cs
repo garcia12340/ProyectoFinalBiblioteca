@@ -110,7 +110,7 @@ namespace ProyectoFinalBiblioteca
             this.Label1.ForeColor = System.Drawing.Color.White;
             this.Label1.Location = new System.Drawing.Point(0, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(286, 39);
+            this.Label1.Size = new System.Drawing.Size(295, 39);
             this.Label1.TabIndex = 22;
             this.Label1.Text = "Nuevo Libro";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,7 +183,7 @@ namespace ProyectoFinalBiblioteca
             this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnagregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregar.ForeColor = System.Drawing.Color.White;
-            this.btnagregar.Location = new System.Drawing.Point(28, 289);
+            this.btnagregar.Location = new System.Drawing.Point(28, 297);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(100, 39);
             this.btnagregar.TabIndex = 42;
@@ -199,7 +199,7 @@ namespace ProyectoFinalBiblioteca
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.Color.White;
-            this.btncancelar.Location = new System.Drawing.Point(160, 289);
+            this.btncancelar.Location = new System.Drawing.Point(160, 297);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(100, 39);
             this.btncancelar.TabIndex = 43;
@@ -244,7 +244,7 @@ namespace ProyectoFinalBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 340);
+            this.ClientSize = new System.Drawing.Size(295, 348);
             this.Controls.Add(this.txtAñoEdicion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtEdicion);

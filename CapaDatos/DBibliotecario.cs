@@ -14,34 +14,6 @@ namespace CapaDatos
         private DConexion Conexion = new DConexion();
         private SqlCommand Comando = new SqlCommand();
         private SqlDataReader dr;
-
-        public bool AccederBibliotecario(LBibliotecario lbibliotecario)
-        {
-            try
-            {
-                Comando.Connection = Conexion.AbrirConexion();
-                Comando.CommandText = "AccederBibliotecario";
-                Comando.CommandType = CommandType.StoredProcedure;
-                Comando.Parameters.AddWithValue("@user", lbibliotecario.Nro_Carnet);
-                Comando.Parameters.AddWithValue("@clave", lbibliotecario.Contrasena);
-                Comando.ExecuteNonQuery();
-                dr = Comando.ExecuteReader();
-
-                if (dr.HasRows)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                Conexion.CerrarConexion();
-            }
-        }
-
         public DataTable GenerarCarnet()
         {
             try
@@ -104,8 +76,7 @@ namespace CapaDatos
                     Comando.Parameters.AddWithValue("@email", lbibliotecario.Email);
                     Comando.Parameters.AddWithValue("@telefono", lbibliotecario.Telefono);
                     Comando.Parameters.AddWithValue("@dni", lbibliotecario.Dni);
-                    Comando.Parameters.AddWithValue("@nro_carnet", lbibliotecario.Nro_Carnet);
-                    Comando.Parameters.AddWithValue("@contrasena", lbibliotecario.Contrasena);
+                    Comando.Parameters.AddWithValue("@nro_cedula", lbibliotecario.Nro_Cedula);
                     Comando.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();

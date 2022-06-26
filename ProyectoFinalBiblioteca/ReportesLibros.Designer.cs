@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoFinalBiblioteca
 {
-    partial class ReporteLibros
+    partial class ReportesLibros
     {
         /// <summary>
         /// Required designer variable.
@@ -68,14 +68,14 @@ namespace ProyectoFinalBiblioteca
             // 
             this.ReporteLibrosTableAdapter.ClearBeforeFill = true;
             // 
-            // ReporteLibros
+            // ReportesLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 472);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "ReporteLibros";
-            this.Text = "ReporteLibros";
+            this.Name = "ReportesLibros";
+            this.Text = "ReportesLibros";
             this.Load += new System.EventHandler(this.ReporteLibros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ReporteLibrosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbbibliotecaDataSet)).EndInit();

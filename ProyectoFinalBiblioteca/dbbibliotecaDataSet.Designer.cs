@@ -293,6 +293,10 @@ namespace ProyectoFinalBiblioteca {
             
             private global::System.Data.DataColumn columnCantidad;
             
+            private global::System.Data.DataColumn columnNroEdicion;
+            
+            private global::System.Data.DataColumn columnAñoEdicion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ReporteLibrosDataTable() {
@@ -384,6 +388,22 @@ namespace ProyectoFinalBiblioteca {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NroEdicionColumn {
+                get {
+                    return this.columnNroEdicion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AñoEdicionColumn {
+                get {
+                    return this.columnAñoEdicion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +439,7 @@ namespace ProyectoFinalBiblioteca {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ReporteLibrosRow AddReporteLibrosRow(string Titulo, string Autor, string Genero, string Editorial, string Ubicacion, int Cantidad) {
+            public ReporteLibrosRow AddReporteLibrosRow(string Titulo, string Autor, string Genero, string Editorial, string Ubicacion, int Cantidad, int NroEdicion, int AñoEdicion) {
                 ReporteLibrosRow rowReporteLibrosRow = ((ReporteLibrosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -428,7 +448,9 @@ namespace ProyectoFinalBiblioteca {
                         Genero,
                         Editorial,
                         Ubicacion,
-                        Cantidad};
+                        Cantidad,
+                        NroEdicion,
+                        AñoEdicion};
                 rowReporteLibrosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteLibrosRow);
                 return rowReporteLibrosRow;
@@ -465,6 +487,8 @@ namespace ProyectoFinalBiblioteca {
                 this.columnEditorial = base.Columns["Editorial"];
                 this.columnUbicacion = base.Columns["Ubicacion"];
                 this.columnCantidad = base.Columns["Cantidad"];
+                this.columnNroEdicion = base.Columns["NroEdicion"];
+                this.columnAñoEdicion = base.Columns["AñoEdicion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,6 +508,10 @@ namespace ProyectoFinalBiblioteca {
                 base.Columns.Add(this.columnUbicacion);
                 this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCantidad);
+                this.columnNroEdicion = new global::System.Data.DataColumn("NroEdicion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNroEdicion);
+                this.columnAñoEdicion = new global::System.Data.DataColumn("AñoEdicion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAñoEdicion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodLibro}, true));
                 this.columnCodLibro.AutoIncrement = true;
@@ -744,6 +772,38 @@ namespace ProyectoFinalBiblioteca {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int NroEdicion {
+                get {
+                    try {
+                        return ((int)(this[this.tableReporteLibros.NroEdicionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NroEdicion\' de la tabla \'ReporteLibros\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteLibros.NroEdicionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AñoEdicion {
+                get {
+                    try {
+                        return ((int)(this[this.tableReporteLibros.AñoEdicionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'AñoEdicion\' de la tabla \'ReporteLibros\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteLibros.AñoEdicionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTituloNull() {
                 return this.IsNull(this.tableReporteLibros.TituloColumn);
             }
@@ -812,6 +872,30 @@ namespace ProyectoFinalBiblioteca {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCantidadNull() {
                 this[this.tableReporteLibros.CantidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNroEdicionNull() {
+                return this.IsNull(this.tableReporteLibros.NroEdicionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNroEdicionNull() {
+                this[this.tableReporteLibros.NroEdicionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAñoEdicionNull() {
+                return this.IsNull(this.tableReporteLibros.AñoEdicionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAñoEdicionNull() {
+                this[this.tableReporteLibros.AñoEdicionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -981,6 +1065,8 @@ namespace ProyectoFinalBiblioteca.dbbibliotecaDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Editorial", "Editorial");
             tableMapping.ColumnMappings.Add("Ubicacion", "Ubicacion");
             tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
+            tableMapping.ColumnMappings.Add("NroEdicion", "NroEdicion");
+            tableMapping.ColumnMappings.Add("AñoEdicion", "AñoEdicion");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -988,7 +1074,7 @@ namespace ProyectoFinalBiblioteca.dbbibliotecaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ProyectoFinalBiblioteca.Properties.Settings.Default.dbbibliotecaConnectionString;
+            this._connection.ConnectionString = global::ProyectoFinalBiblioteca.Properties.Settings.Default.BibliotecaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

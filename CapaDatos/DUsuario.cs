@@ -21,7 +21,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_LoginUsuario", oConexion);
+                    SqlCommand cmd = new SqlCommand("LoginUsuario", oConexion);
                     cmd.Parameters.AddWithValue("Usuario", Usuario);
                     cmd.Parameters.AddWithValue("Clave", Clave);
                     cmd.Parameters.Add("IdUsuario", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -52,7 +52,7 @@ namespace CapaDatos
             List<LUsuario> rptListaUsuario = new List<LUsuario>();
             using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("usp_ObtenerUsuario", oConexion);
+                SqlCommand cmd = new SqlCommand("ObtenerUsuario", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 try
@@ -97,7 +97,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_RegistrarUsuario", oConexion);
+                    SqlCommand cmd = new SqlCommand("RegistrarUsuario", oConexion);
                     cmd.Parameters.AddWithValue("Nombres", oUsuario.Nombres);
                     cmd.Parameters.AddWithValue("Apellidos", oUsuario.Apellidos);
                     cmd.Parameters.AddWithValue("IdRol", oUsuario.IdRol);
@@ -131,7 +131,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_ModificarUsuario", oConexion);
+                    SqlCommand cmd = new SqlCommand("ModificarUsuario", oConexion);
                     cmd.Parameters.AddWithValue("IdUsuario", oUsuario.IdUsuario);
                     cmd.Parameters.AddWithValue("Nombres", oUsuario.Nombres);
                     cmd.Parameters.AddWithValue("Apellidos", oUsuario.Apellidos);
@@ -168,7 +168,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("usp_EliminarUsuario", oConexion);
+                    SqlCommand cmd = new SqlCommand("EliminarUsuario", oConexion);
                     cmd.Parameters.AddWithValue("IdUsuario", IdUsuario);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -196,7 +196,7 @@ namespace CapaDatos
             LUsuario rptUsuario = new LUsuario();
             using (SqlConnection oConexion = new SqlConnection(DConexion.CadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("usp_ObtenerDetalleUsuario", oConexion);
+                SqlCommand cmd = new SqlCommand("ObtenerDetalleUsuario", oConexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
 
