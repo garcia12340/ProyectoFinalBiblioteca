@@ -135,7 +135,7 @@ GO
 CREATE PROC ObtenerUsuario
 as
 begin
- select u.IdUsuario,u.Nombres,u.Apellidos,u.LoginUsuario,u.LoginClave,u.IdRol,u.Activo,u.DescripcionReferencia,r.Descripcion[DescripcionRol],u.Activo from USUARIO u
+ select u.IdUsuario,u.Nombres,u.Apellidos,u.LoginUsuario,u.LoginClave,u.IdRol,u.Activo,r.Descripcion[DescripcionRol],u.Activo from USUARIO u
  inner join ROL r on r.IdRol = u.IdRol
 end
 
@@ -164,33 +164,28 @@ CREATE PROC RegistrarUsuario(
 @IdRol int,
 @Usuario varchar(50),
 @Clave varchar(50),
-@DescripcionReferencia varchar(50),
-@IdReferencia int,
 @Resultado bit output
-)as
-begin
+)AS
+BEGIN
 	SET @Resultado = 1
 	IF NOT EXISTS (SELECT * FROM USUARIO WHERE LoginUsuario = @Usuario)
 
-		insert into USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave,DescripcionReferencia,IdReferencia) values (
-		@Nombres,@Apellidos,@IdRol,@Usuario,@Clave,@DescripcionReferencia,@IdReferencia)
+		INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave) VALUES (
+		@Nombres,@Apellidos,@IdRol,@Usuario,@Clave)
 	ELSE
 		SET @Resultado = 0
 	
-end
+END
 GO
 
 --PROCEDIMIENTO PARA MODIFICAR USUARIO
-CREATE PROC ModificarUsuario(
+ALTER PROC ModificarUsuario(
 @IdUsuario int,
 @Nombres varchar(50),
 @Apellidos varchar(50),
 @IdRol int,
 @Usuario varchar(50),
 @Clave varchar(50),
-@DescripcionReferencia varchar(50),
-@IdReferencia int,
-@Activo bit,
 @Resultado bit output
 )
 as
@@ -203,10 +198,7 @@ begin
 		Apellidos = @Apellidos,
 		IdRol = @IdRol,
 		LoginUsuario = @Usuario,
-		LoginClave = @Clave,
-		DescripcionReferencia = @DescripcionReferencia,
-		IdReferencia = @IdReferencia,
-		Activo = @Activo
+		LoginClave = @Clave
 		where IdUsuario = @IdUsuario
 
 	ELSE

@@ -87,7 +87,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvPrestamo.MultiSelect = false;
             this.dgvPrestamo.Name = "dgvPrestamo";
             this.dgvPrestamo.ReadOnly = true;
-            this.dgvPrestamo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrestamo.Size = new System.Drawing.Size(745, 293);
             this.dgvPrestamo.TabIndex = 41;
             // 
@@ -149,6 +148,7 @@ namespace ProyectoFinalBiblioteca
             this.txtBusqueda.Size = new System.Drawing.Size(148, 20);
             this.txtBusqueda.TabIndex = 47;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
             // 
             // LibrosDevueltos
             // 

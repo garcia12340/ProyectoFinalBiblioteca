@@ -17,7 +17,6 @@ namespace ProyectoFinalBiblioteca
         public IniciarSesion()
         {
             InitializeComponent();
-            txtUsuario.Focus();
         }
 
         private void BtnIngresar_Click(object sender, EventArgs e)
@@ -33,9 +32,16 @@ namespace ProyectoFinalBiblioteca
             }
             else
             {
-                MessageBox.Show("No hay conexion con el servidor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //MessageBox.Show("No se econtraron coincidencias del usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //MessageBox.Show("No hay conexion con el servidor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No se econtraron coincidencias del usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtUsuario.Clear();
+            txtContraseña.Clear();
         }
 
         private void ValidarCampos()
@@ -54,7 +60,7 @@ namespace ProyectoFinalBiblioteca
         {
             txtUsuario.Text = "";
             txtContraseña.Text = "";
-            //txtUsuario.Focus();
+            txtUsuario.Focus();
             this.Show();
         }
 
@@ -62,10 +68,10 @@ namespace ProyectoFinalBiblioteca
         {
             Application.Exit();
         }
-
+         
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void IniciarSesion_Load(object sender, EventArgs e)

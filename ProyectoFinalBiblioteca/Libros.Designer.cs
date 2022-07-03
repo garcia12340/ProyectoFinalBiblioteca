@@ -121,7 +121,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvLibro.MultiSelect = false;
             this.dgvLibro.Name = "dgvLibro";
             this.dgvLibro.ReadOnly = true;
-            this.dgvLibro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLibro.Size = new System.Drawing.Size(770, 267);
             this.dgvLibro.TabIndex = 33;
             // 
@@ -263,6 +262,7 @@ namespace ProyectoFinalBiblioteca
             this.txtBusqueda.Size = new System.Drawing.Size(148, 20);
             this.txtBusqueda.TabIndex = 43;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
             // 
             // Libros
             // 

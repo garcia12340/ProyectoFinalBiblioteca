@@ -77,7 +77,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvLector.MultiSelect = false;
             this.dgvLector.Name = "dgvLector";
             this.dgvLector.ReadOnly = true;
-            this.dgvLector.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLector.Size = new System.Drawing.Size(745, 290);
             this.dgvLector.TabIndex = 20;
             // 

@@ -11,8 +11,8 @@ namespace CapaModelo
         public int IdUsuario { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        public string DescripcionReferencia { get; set; }
-        public int IdReferencia { get; set; }
+      //  public string DescripcionReferencia { get; set; }
+       // public int IdReferencia { get; set; }
         public string LoginUsuario { get; set; }
         public string Clave { get; set; }
         public int IdRol { get; set; }

@@ -194,7 +194,7 @@ namespace ProyectoFinalBiblioteca
             }
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

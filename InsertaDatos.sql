@@ -52,7 +52,7 @@ GO
 --MENU LIBROS
 INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Mostrar Libros','Libros'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Nuevo Libros','Nuevo Libro'),
+ ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Nuevo Libros','NuevoLibro'),
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Modificar Libros','ModificarLibro'),
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Opciones Autor','Autor'),
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Opciones Genero','Genero'),
@@ -68,16 +68,16 @@ INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
   SELECT * FROM SUBMENU
 
 --INSERTAR USUARIO
-INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave,DescripcionReferencia,IdReferencia)
-VALUES('Ricardo','Garcia',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'garcia2020','Managua2022','NINGUNA',0)
+INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
+VALUES('Ricardo','Garcia',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'garcia2020','Managua2022')
 GO
 
-INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave,DescripcionReferencia,IdReferencia)
-VALUES('Eduardo','Obando',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'BIBLIOTECARIO'),'eduardo2020','Sistemas123','NINGUNA',0)
+INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
+VALUES('Eduardo','Obando',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'BIBLIOTECARIO'),'eduardo2020','Sistemas123')
 GO
 
-INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave,DescripcionReferencia,IdReferencia)
-VALUES('Elvis','Gomez',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'elvis2020','Nicaragua2022','NINGUNA',0)
+INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
+VALUES('Elvis','Gomez',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'elvis2020','Nicaragua2022')
 GO
 
 SELECT * FROM USUARIO

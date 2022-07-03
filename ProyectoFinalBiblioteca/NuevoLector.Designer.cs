@@ -147,6 +147,7 @@ namespace ProyectoFinalBiblioteca
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(169, 21);
             this.txtnombre.TabIndex = 39;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // txtapellido
             // 
@@ -155,6 +156,7 @@ namespace ProyectoFinalBiblioteca
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(169, 21);
             this.txtapellido.TabIndex = 40;
+            this.txtapellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtapellido_KeyPress);
             // 
             // txtdireccion
             // 
@@ -171,6 +173,7 @@ namespace ProyectoFinalBiblioteca
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(169, 21);
             this.txtemail.TabIndex = 42;
+            this.txtemail.Leave += new System.EventHandler(this.txtemail_Leave);
             // 
             // txttelefono
             // 
@@ -180,6 +183,7 @@ namespace ProyectoFinalBiblioteca
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(169, 21);
             this.txttelefono.TabIndex = 43;
+            this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
             // NuevoLector
             // 

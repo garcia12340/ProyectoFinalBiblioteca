@@ -21,13 +21,14 @@ namespace ProyectoFinalBiblioteca
         private void ReporteLibros_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dbbibliotecaDataSet.ReporteLibros' Puede moverla o quitarla según sea necesario.
-            this.ReporteLibrosTableAdapter.Fill(this.dbbibliotecaDataSet.ReporteLibros, Busqueda);
+            
+        }
 
-            //this.ReportViewer1.RefreshReport();
-             //this.reportViewer1.RefreshReport();
+        private void BtnReporte_Click(object sender, EventArgs e)
+        {
+            this.ReporteLibrosTableAdapter.Fill(this.dbbibliotecaDataSet.ReporteLibros, Busqueda );
             this.reportViewer1.RefreshReport();
         }
     }
              
-    
 }

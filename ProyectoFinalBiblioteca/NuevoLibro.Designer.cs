@@ -86,6 +86,7 @@ namespace ProyectoFinalBiblioteca
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(189, 20);
             this.txtTitulo.TabIndex = 16;
+            this.txtTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTitulo_KeyPress);
             // 
             // txtUbicacion
             // 
@@ -93,6 +94,7 @@ namespace ProyectoFinalBiblioteca
             this.txtUbicacion.Name = "txtUbicacion";
             this.txtUbicacion.Size = new System.Drawing.Size(189, 20);
             this.txtUbicacion.TabIndex = 17;
+            this.txtUbicacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUbicacion_KeyPress);
             // 
             // txtCantidad
             // 
@@ -100,6 +102,7 @@ namespace ProyectoFinalBiblioteca
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(189, 20);
             this.txtCantidad.TabIndex = 18;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // Label1
             // 
@@ -223,6 +226,7 @@ namespace ProyectoFinalBiblioteca
             this.txtEdicion.Name = "txtEdicion";
             this.txtEdicion.Size = new System.Drawing.Size(189, 20);
             this.txtEdicion.TabIndex = 45;
+            this.txtEdicion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdicion_KeyPress);
             // 
             // label9
             // 
@@ -239,6 +243,7 @@ namespace ProyectoFinalBiblioteca
             this.txtAñoEdicion.Name = "txtAñoEdicion";
             this.txtAñoEdicion.Size = new System.Drawing.Size(189, 20);
             this.txtAñoEdicion.TabIndex = 47;
+            this.txtAñoEdicion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAñoEdicion_KeyPress);
             // 
             // NuevoLibro
             // 

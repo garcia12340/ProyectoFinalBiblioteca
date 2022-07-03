@@ -46,15 +46,15 @@ FechaRegistro datetime default getdate()
 GO
 
 --(5) TABLA USUARIO
-create table USUARIO(
+Create table USUARIO(
 IdUsuario int primary key identity(1,1),
 Nombres varchar(100),
 Apellidos varchar(100),
 IdRol int references ROL(IdRol),
 LoginUsuario varchar(50),
 LoginClave varchar(50),
-DescripcionReferencia varchar(50),
-IdReferencia int,
+--DescripcionReferencia varchar(50),
+--IdReferencia int,
 Activo bit default 1,
 FechaRegistro datetime default getdate()
 )

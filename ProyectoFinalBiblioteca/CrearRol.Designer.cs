@@ -100,6 +100,7 @@ namespace ProyectoFinalBiblioteca
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(219, 20);
             this.txtdescripcion.TabIndex = 0;
+            this.txtdescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdescripcion_KeyPress);
             // 
             // label1
             // 
@@ -226,6 +227,7 @@ namespace ProyectoFinalBiblioteca
             this.txtFilter.Size = new System.Drawing.Size(153, 20);
             this.txtFilter.TabIndex = 21;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
             // cboFiltro
             // 
@@ -258,7 +260,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
-            this.dgvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdata.Size = new System.Drawing.Size(359, 198);
             this.dgvdata.TabIndex = 18;
             // 

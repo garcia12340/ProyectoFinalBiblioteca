@@ -71,7 +71,7 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                if (String.IsNullOrEmpty(txtCodLector.Text) | String.IsNullOrEmpty(txtCodLibro.Text))
+                if (String.IsNullOrEmpty(txtCodLector.Text) | String.IsNullOrEmpty(txtCodLibro.Text) /*| String.IsNullOrEmpty(txtCodBibliotecario.Text)*/)
                 {
                     Interaction.MsgBox("Faltan Completar Datos", MsgBoxStyle.Information, "Mensaje del Sistema");
                     return;

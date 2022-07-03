@@ -90,7 +90,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvGenero.MultiSelect = false;
             this.dgvGenero.Name = "dgvGenero";
             this.dgvGenero.ReadOnly = true;
-            this.dgvGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGenero.Size = new System.Drawing.Size(307, 244);
             this.dgvGenero.TabIndex = 1;
             this.dgvGenero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenero_CellClick);
@@ -133,10 +132,12 @@ namespace ProyectoFinalBiblioteca
             // 
             // txtNGenero
             // 
-            this.txtNGenero.Location = new System.Drawing.Point(50, 37);
+            this.txtNGenero.Location = new System.Drawing.Point(51, 37);
             this.txtNGenero.Name = "txtNGenero";
+            this.txtNGenero.ShortcutsEnabled = false;
             this.txtNGenero.Size = new System.Drawing.Size(250, 20);
             this.txtNGenero.TabIndex = 0;
+            this.txtNGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNGenero_KeyPress);
             // 
             // GroupBox3
             // 
@@ -171,8 +172,10 @@ namespace ProyectoFinalBiblioteca
             // 
             this.txtMGenero.Location = new System.Drawing.Point(138, 20);
             this.txtMGenero.Name = "txtMGenero";
+            this.txtMGenero.ShortcutsEnabled = false;
             this.txtMGenero.Size = new System.Drawing.Size(166, 20);
             this.txtMGenero.TabIndex = 3;
+            this.txtMGenero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMGenero_KeyPress);
             // 
             // Label4
             // 
@@ -187,8 +190,10 @@ namespace ProyectoFinalBiblioteca
             // 
             this.txtMCodigo.Location = new System.Drawing.Point(50, 20);
             this.txtMCodigo.Name = "txtMCodigo";
+            this.txtMCodigo.ShortcutsEnabled = false;
             this.txtMCodigo.Size = new System.Drawing.Size(41, 20);
             this.txtMCodigo.TabIndex = 1;
+            this.txtMCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMCodigo_KeyPress);
             // 
             // Label3
             // 
@@ -230,8 +235,10 @@ namespace ProyectoFinalBiblioteca
             // 
             this.txtECodigo.Location = new System.Drawing.Point(59, 30);
             this.txtECodigo.Name = "txtECodigo";
+            this.txtECodigo.ShortcutsEnabled = false;
             this.txtECodigo.Size = new System.Drawing.Size(68, 20);
             this.txtECodigo.TabIndex = 1;
+            this.txtECodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtECodigo_KeyPress);
             // 
             // Label5
             // 

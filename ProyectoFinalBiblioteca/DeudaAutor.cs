@@ -82,17 +82,23 @@ namespace ProyectoFinalBiblioteca
 
         private void txtbusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                if (char.IsNumber(e.KeyChar) | char.IsControl(e.KeyChar))
-                    e.Handled = false;
-                else
-                    e.Handled = true;
+                MessageBox.Show("Solo números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
-            catch (Exception ex)
-            {
-                Interaction.MsgBox(ex.Message);
-            }
+            //try
+            //{
+            //    if (char.IsNumber(e.KeyChar) | char.IsControl(e.KeyChar))
+            //        e.Handled = false;
+            //    else
+            //        e.Handled = true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

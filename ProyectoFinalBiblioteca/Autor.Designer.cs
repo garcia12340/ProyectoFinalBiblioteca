@@ -90,7 +90,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvAutor.MultiSelect = false;
             this.dgvAutor.Name = "dgvAutor";
             this.dgvAutor.ReadOnly = true;
-            this.dgvAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAutor.Size = new System.Drawing.Size(307, 244);
             this.dgvAutor.TabIndex = 1;
             this.dgvAutor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAutor_CellClick);
@@ -137,6 +136,7 @@ namespace ProyectoFinalBiblioteca
             this.txtNAutor.Name = "txtNAutor";
             this.txtNAutor.Size = new System.Drawing.Size(253, 20);
             this.txtNAutor.TabIndex = 0;
+            this.txtNAutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNAutor_KeyPress);
             // 
             // GroupBox3
             // 
@@ -173,6 +173,7 @@ namespace ProyectoFinalBiblioteca
             this.txtMAutor.Name = "txtMAutor";
             this.txtMAutor.Size = new System.Drawing.Size(176, 20);
             this.txtMAutor.TabIndex = 3;
+            this.txtMAutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMAutor_KeyPress);
             // 
             // Label4
             // 
@@ -189,6 +190,7 @@ namespace ProyectoFinalBiblioteca
             this.txtMCodigo.Name = "txtMCodigo";
             this.txtMCodigo.Size = new System.Drawing.Size(41, 20);
             this.txtMCodigo.TabIndex = 1;
+            this.txtMCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMCodigo_KeyPress);
             // 
             // Label3
             // 
@@ -232,6 +234,7 @@ namespace ProyectoFinalBiblioteca
             this.txtECodigo.Name = "txtECodigo";
             this.txtECodigo.Size = new System.Drawing.Size(68, 20);
             this.txtECodigo.TabIndex = 1;
+            this.txtECodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtECodigo_KeyPress);
             // 
             // Label5
             // 

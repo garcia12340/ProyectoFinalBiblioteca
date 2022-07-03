@@ -13,7 +13,7 @@ namespace CapaDatos
 {
     public class DUsuario
     {
-        // private DConexion dconexion = new DConexion();
+        private DConexion Conexion = new DConexion();
         public static int LoginUsuario(string Usuario, string Clave)
         {
             int respuesta = 0;
@@ -34,7 +34,7 @@ namespace CapaDatos
                     respuesta = Convert.ToInt32(cmd.Parameters["IdUsuario"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = 0;
                 }
@@ -44,8 +44,6 @@ namespace CapaDatos
             return respuesta;
 
         }
-
-
 
         public static List<LUsuario> ObtenerUsuarios()
         {
@@ -72,7 +70,6 @@ namespace CapaDatos
                             IdRol = Convert.ToInt32(dr["IdRol"].ToString()),
                             oRol = new LRol() { Descripcion = dr["DescripcionRol"].ToString() },
                             Activo = Convert.ToBoolean(dr["Activo"]),
-                            DescripcionReferencia = dr["DescripcionReferencia"].ToString()
                         });
                     }
                     dr.Close();
@@ -88,7 +85,6 @@ namespace CapaDatos
             }
         }
 
-
         public static bool RegistrarUsuario(LUsuario oUsuario)
         {
 
@@ -103,8 +99,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdRol", oUsuario.IdRol);
                     cmd.Parameters.AddWithValue("Usuario", oUsuario.LoginUsuario);
                     cmd.Parameters.AddWithValue("Clave", oUsuario.Clave);
-                    cmd.Parameters.AddWithValue("DescripcionReferencia", oUsuario.DescripcionReferencia);
-                    cmd.Parameters.AddWithValue("IdReferencia", oUsuario.IdReferencia);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
                     oConexion.Open();
@@ -113,7 +107,7 @@ namespace CapaDatos
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }
@@ -138,9 +132,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdRol", oUsuario.IdRol);
                     cmd.Parameters.AddWithValue("Usuario", oUsuario.LoginUsuario);
                     cmd.Parameters.AddWithValue("Clave", oUsuario.Clave);
-                    cmd.Parameters.AddWithValue("DescripcionReferencia", oUsuario.DescripcionReferencia);
-                    cmd.Parameters.AddWithValue("IdReferencia", oUsuario.IdReferencia);
-                    cmd.Parameters.AddWithValue("Activo", oUsuario.Activo);
+                    //cmd.Parameters.AddWithValue("Activo", oUsuario.Activo);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -151,7 +143,7 @@ namespace CapaDatos
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }
@@ -180,7 +172,7 @@ namespace CapaDatos
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     respuesta = false;
                 }
@@ -215,9 +207,9 @@ namespace CapaDatos
                                               {
                                                   IdUsuario = int.Parse(dato.Element("IdUsuario").Value),
                                                   Nombres = dato.Element("Nombres").Value,
-                                                  Apellidos = dato.Element("Apellidos").Value,
-                                                  DescripcionReferencia = dato.Element("DescripcionReferencia").Value,
-                                                  IdReferencia = int.Parse(dato.Element("IdReferencia").Value)
+                                                  Apellidos = dato.Element("Apellidos").Value
+                                                  //DescripcionReferencia = dato.Element("DescripcionReferencia").Value,
+                                                  //IdReferencia = int.Parse(dato.Element("IdReferencia").Value)
 
                                               }).FirstOrDefault();
                                 rptUsuario.oRol = doc.Element("Usuario").Elements("DetalleRol") == null ? new LRol() : (from dato in doc.Element("Usuario").Elements("DetalleRol")
@@ -253,7 +245,7 @@ namespace CapaDatos
 
                     return rptUsuario;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     rptUsuario = null;
                     return rptUsuario;

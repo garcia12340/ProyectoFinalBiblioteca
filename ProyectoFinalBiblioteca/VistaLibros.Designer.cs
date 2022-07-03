@@ -84,7 +84,6 @@ namespace ProyectoFinalBiblioteca
             this.dgvLibro.MultiSelect = false;
             this.dgvLibro.Name = "dgvLibro";
             this.dgvLibro.ReadOnly = true;
-            this.dgvLibro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLibro.Size = new System.Drawing.Size(622, 267);
             this.dgvLibro.TabIndex = 25;
             this.dgvLibro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibro_CellDoubleClick);
