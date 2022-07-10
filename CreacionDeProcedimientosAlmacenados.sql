@@ -261,54 +261,6 @@ end
 
 GO
 
- /*CREAMOS UN PROCEDIMIENTO PARA MOSTRAR BIBLIOTECARIOS SEGUN FILTROS*/
- CREATE PROC MostrarBibliotecarios
- AS
- BEGIN
-	SELECT CodBibliotecario, Nombres, Apellidos,Direccion,Email,Telefono,Dni,Nro_Carnet FROM bibliotecario
- END
-GO
-
- /*CREAMOS UN PROCEDIMIENTO PARA AGREGAR BIBLIOTECARIO*/
- CREATE PROC AgregarBibliotecario
- @nombres varchar(50),
- @apellidos varchar(50),
- @direccion varchar(100),
- @email varchar(60),
- @telefono int,
- @dni int,
- @nro_Cedula varchar(20),
- AS
- BEGIN
- INSERT INTO bibliotecario VALUES (@nombres,@apellidos,@direccion,@email,@telefono,@dni,@nro_Cedula)
- END
- GO
-
- /*CREAMOS UN PROCEDIMIENTO PARA MODIFICAR BIBLIOTECARIO*/
- CREATE PROC ModificarBibliotecario
- @codbibliotecario int,
- @nombres varchar(50),
- @apellidos varchar(50),
- @direccion varchar(100),
- @email varchar(60),
- @telefono int,
- @dni int
- AS
- BEGIN
- UPDATE bibliotecario SET Nombres = @nombres, Apellidos = @apellidos, Direccion = @direccion, Email= @email, Telefono = @telefono, Dni = @dni
- WHERE CodBibliotecario = @codbibliotecario
- END
- GO
-
-  /*CREAMOS UN PROCEDIMIENTO PARA ELIMINAR BIBLIOTECARIO*/
-  CREATE PROC EliminarBibliotecario
-  @codbibliotecario int
-  AS
-  BEGIN
-  DELETE FROM bibliotecario WHERE CodBibliotecario = @codbibliotecario
-  END
-  GO
-
   /*---------------------------------------------PROCEDIMIENTOS PARA LECTOR---------------------------------------------*/
  /*CREAMOS UN PROCEDIMIENTO PARA MOSTRAR LECTORES SEGUN FILTROS*/
  /*PROCEDIMIENTO PARA VERIFICAR LECTORES*/

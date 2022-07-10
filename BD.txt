@@ -1,4 +1,0 @@
-insert into prestamo values(2,3,'2017-04-20','2017-05-12','2017-05-10','Pendiente')
-insert into prestamo values(1,4,'2017-05-20','2017-05-25','2017-05-22','Pendiente')
-insert into prestamo values(3,6,'2017-05-17','2017-05-25','2017-05-24','Pendiente')
-insert into prestamo values(4,2,'2017-05-21','2017-06-20','2017-06-19','Pendiente')

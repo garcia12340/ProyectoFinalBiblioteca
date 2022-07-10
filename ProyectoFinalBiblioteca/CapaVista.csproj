@@ -80,12 +80,6 @@
     <Compile Include="Autor.Designer.cs">
       <DependentUpon>Autor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bibliotecario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bibliotecario.Designer.cs">
-      <DependentUpon>Bibliotecario.cs</DependentUpon>
-    </Compile>
     <Compile Include="CrearRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,23 +164,11 @@
     <Compile Include="LibrosPrestados.Designer.cs">
       <DependentUpon>LibrosPrestados.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarBibliotecario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModificarBibliotecario.Designer.cs">
-      <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
-    </Compile>
     <Compile Include="ModificarLector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModificarLector.Designer.cs">
       <DependentUpon>ModificarLector.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevoBibliotecario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevoBibliotecario.Designer.cs">
-      <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevoLector.cs">
       <SubType>Form</SubType>
@@ -241,9 +223,6 @@
     <EmbeddedResource Include="Autor.resx">
       <DependentUpon>Autor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bibliotecario.resx">
-      <DependentUpon>Bibliotecario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CrearRol.resx">
       <DependentUpon>CrearRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,14 +262,8 @@
     <EmbeddedResource Include="LibrosPrestados.resx">
       <DependentUpon>LibrosPrestados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarBibliotecario.resx">
-      <DependentUpon>ModificarBibliotecario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ModificarLector.resx">
       <DependentUpon>ModificarLector.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevoBibliotecario.resx">
-      <DependentUpon>NuevoBibliotecario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoLector.resx">
       <DependentUpon>NuevoLector.cs</DependentUpon>

@@ -12,9 +12,7 @@ USE MASTER
 
 INSERT INTO MENU(Nombre,Icono) VALUES 
  ('Usuario','\Iconos\Usuarios.png'),
- ('Bibliotecario','\Iconos\biblio.png'),
  ('Transacciones','\Iconos\transaccion.png'),
- ('Reportes','\Iconos\Reportes.png'),
  ('Libros','\Iconos\libros.png'),
  ('Lector','\Iconos\lector.png')
  GO
@@ -29,13 +27,6 @@ INSERT INTO MENU(Nombre,Icono) VALUES
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Usuarios'),'Asignar Rol Permisos','RolPermiso')
  GO
 
-  --MENU Bibliotecario
- INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Bibliotecario'),'Mostrar Bibliotecario','Bibliotecario'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Bibliotecario'),'Nuevo Bibliotecario','NuevoBibliotecario'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Bibliotecario'),'Modificar Bibliotecario','ModificarBibliotecario')
- GO
-
   --MENU TRANSACCIONES
  INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Transacciones'),'Regristro Prestamo','NuevoPrestamo'),
@@ -43,28 +34,15 @@ INSERT INTO MENU(Nombre,Icono) VALUES
  ((SELECT IdMenu FROM MENU WHERE Nombre = 'Transacciones'),'Libros Devueltos','LibrosDevueltos')
 GO
 
---MENU REPORTES
-INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Reportes'),'Reportes Libros','ReportesLibros'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Reportes'),'Reportes Prestamo','ReportesPrestamo')
-GO
 
 --MENU LIBROS
 INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Mostrar Libros','Libros'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Nuevo Libros','NuevoLibro'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Modificar Libros','ModificarLibro'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Opciones Autor','Autor'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Opciones Genero','Genero'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Opciones Editorial','Editorial')
+ ((SELECT IdMenu FROM MENU WHERE Nombre = 'Libros'),'Mostrar Libros','Libros')
 GO
 
 --MENU LECTOR
 INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Lector'),'Mostrar Lector','Lector'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Bibliotecario'),'Nuevo Lector','NuevoLector'),
- ((SELECT IdMenu FROM MENU WHERE Nombre = 'Bibliotecario'),'Modificar Lector','ModificarLector')
- GO
+ ((SELECT IdMenu FROM MENU WHERE Nombre = 'Lector'),'Mostrar Lector','Lector')
   SELECT * FROM SUBMENU
 
 --INSERTAR USUARIO
@@ -92,12 +70,6 @@ SELECT (select TOP 1 IdRol from ROL where Descripcion = 'BIBLIOTECARIO'),IdSubMe
 GO
 
 SELECT * FROM PERMISOS
-
---update p set p.Activo = 1 from PERMISOS p
---inner join SUBMENU sm on sm.IdSubMenu = p.IdSubMenu
---where sm.NombreFormulario in ('frmNuevoPrestamo','frmLibrosDevueltos') and p.IdRol = (select TOP 1 IdRol from ROL where Descripcion = 'DOCENTE')
---GO
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 INSERT INTO editorial VALUES('Navarrete')

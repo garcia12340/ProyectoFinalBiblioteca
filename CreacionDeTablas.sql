@@ -60,19 +60,6 @@ FechaRegistro datetime default getdate()
 )
 GO
 
-/* CREAMOS LA TABLA BIBLIOTECARIO*/
-CREATE TABLE bibliotecario(
-CodBibliotecario int identity primary key,
-Nombres varchar(50),
-Apellidos varchar(50),
-Direccion varchar(100),
-Email varchar(60),
-Telefono int,
-Dni int,
-Nro_Cedula varchar(6),
-)
-GO
-
 /* CREAMOS LA TABLA LECTOR*/
 CREATE TABLE lector(
 CodLector int primary key identity,

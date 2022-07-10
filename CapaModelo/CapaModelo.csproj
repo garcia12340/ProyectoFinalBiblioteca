@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
     <Compile Include="LAutor.cs" />
-    <Compile Include="LBibliotecario.cs" />
     <Compile Include="LEditorial.cs" />
     <Compile Include="LGenero.cs" />
     <Compile Include="LLector.cs" />

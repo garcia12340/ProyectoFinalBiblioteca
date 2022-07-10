@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAutor.cs" />
-    <Compile Include="DBibliotecario.cs" />
     <Compile Include="DConexion.cs" />
     <Compile Include="DEditorial.cs" />
     <Compile Include="DGenero.cs" />
