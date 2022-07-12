@@ -30,7 +30,7 @@ namespace ProyectoFinalBiblioteca
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.ReporteLibrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbbibliotecaDataSet = new ProyectoFinalBiblioteca.dbbibliotecaDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -52,17 +52,15 @@ namespace ProyectoFinalBiblioteca
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.ReporteLibrosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.ReporteLibrosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ProyectoFinalBiblioteca.Reportes.ReporteLibros.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(-3, -30);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(820, 480);
+            this.reportViewer1.Size = new System.Drawing.Size(820, 492);
             this.reportViewer1.TabIndex = 0;
             // 
             // ReporteLibrosTableAdapter

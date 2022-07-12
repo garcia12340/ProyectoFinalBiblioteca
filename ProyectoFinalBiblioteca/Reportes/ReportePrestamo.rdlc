@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.76682cm</Width>
+              <Width>1.66431cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.32631cm</Width>
+              <Width>3.88014cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.02236cm</Width>
+              <Width>4.30279cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.61465cm</Width>
+              <Width>4.80619cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.61465cm</Width>
+              <Width>4.56402cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.61465cm</Width>
+              <Width>2.95411cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -372,6 +372,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value xml:space="preserve">  </Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Fec_Devolucion.Value</Value>
                               <Style />
                             </TextRun>
@@ -449,9 +453,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.23757cm</Top>
-        <Left>0.48454cm</Left>
+        <Left>0.35284cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.95946cm</Width>
+        <Width>22.17156cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -462,7 +466,7 @@
     <Height>0.67708in</Height>
     <Style />
   </Body>
-  <Width>8.1875in</Width>
+  <Width>8.97917in</Width>
   <Page>
     <PageHeader>
       <Height>3.70417cm</Height>
@@ -490,7 +494,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>  Sistema de Biblioteca</Value>
+                  <Value>Sistema de Biblioteca</Value>
                   <Style>
                     <FontFamily>Agency FB</FontFamily>
                     <FontSize>48pt</FontSize>
@@ -503,10 +507,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>0.52903cm</Top>
-          <Left>4.71847cm</Left>
+          <Top>0.51952cm</Top>
+          <Left>6.23529cm</Left>
           <Height>1.90569cm</Height>
-          <Width>14.34911cm</Width>
+          <Width>13.2114cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -520,9 +524,9 @@
         </Textbox>
         <Line Name="Line1">
           <Top>2.56632cm</Top>
-          <Left>4.6391cm</Left>
+          <Left>5.75904cm</Left>
           <Height>0cm</Height>
-          <Width>13.6525cm</Width>
+          <Width>14.12875cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -590,7 +594,7 @@
           <Top>2.85736cm</Top>
           <Left>16.14847cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.03036cm</Width>
+          <Width>3.73932cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>

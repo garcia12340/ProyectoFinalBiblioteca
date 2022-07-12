@@ -114,7 +114,7 @@ namespace ProyectoFinalBiblioteca
         {
             try
             {
-                ReportesPrestamo z = new ReportesPrestamo();
+                ReportePrestamos z = new ReportePrestamos();
                 z.Busqueda = Convert.ToString(txtBusqueda.Text);
                 z.Show();
             }

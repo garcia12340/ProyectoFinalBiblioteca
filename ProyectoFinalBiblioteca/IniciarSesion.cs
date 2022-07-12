@@ -77,7 +77,7 @@ namespace ProyectoFinalBiblioteca
         private void IniciarSesion_Load(object sender, EventArgs e)
         {
             SkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            SkinManager.ColorScheme = new ColorScheme(Primary.Blue900, Primary.Red900, Primary.Red900, Accent.Blue700, TextShade.WHITE);
+            SkinManager.ColorScheme = new ColorScheme(Primary.Orange900, Primary.LightGreen900, Primary.LightGreen900, Accent.Green700, TextShade.WHITE);
         }
     }
 }
