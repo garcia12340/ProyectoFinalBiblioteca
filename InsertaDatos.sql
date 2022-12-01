@@ -47,16 +47,13 @@ INSERT INTO SUBMENU(IdMenu,Nombre,NombreFormulario) VALUES
 
 --INSERTAR USUARIO
 INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
-VALUES('Ricardo','Garcia',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'garcia2020','Managua2022')
+VALUES('Alvin','Gutierrez',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'alvin2020','Managua2022')
 GO
 
 INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
-VALUES('Eduardo','Obando',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'BIBLIOTECARIO'),'eduardo2020','Sistemas123')
+VALUES('Emely','Flores',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'BIBLIOTECARIO'),'emely2020','Sistemas123')
 GO
 
-INSERT INTO USUARIO(Nombres,Apellidos,IdRol,LoginUsuario,LoginClave)
-VALUES('Elvis','Gomez',(SELECT TOP 1 IdRol FROM ROL WHERE Descripcion = 'ADMINISTRADOR'),'elvis2020','Nicaragua2022')
-GO
 
 SELECT * FROM USUARIO
 
@@ -102,14 +99,14 @@ INSERT INTO genero VALUES('Lírico')
 GO
 SELECT * FROM genero
 
-INSERT INTO libros VALUES ('Los perros y la ciudad',4,1,1,'Seccion L',100)
-INSERT INTO libros VALUES ('Cien Años de Soledad',4,1,4,'Seccion C',80)
-INSERT INTO libros VALUES ('La Fiesta del Chivo',4,4,5,'Seccion L',90)
-INSERT INTO libros VALUES ('Yo el Sumpremo',6,4,6,'Seccion Y',95)
-INSERT INTO libros VALUES ('La Guerra del Fin del Mundo',5,5,5,'Seccion L',75)
-INSERT INTO libros VALUES ('La Muerte de Artemio Cruz',6,1,7,'Seccion L',96)
-INSERT INTO libros VALUES ('Como Agua para Chocolate',7,6,7,'Seccion C',84)
-INSERT INTO libros VALUES ('Los Heraldos Negros',1,6,8,'Seccion L',56)
+INSERT INTO libros VALUES ('Los perros y la ciudad',4,1,1,'Seccion L',100,5,1999)
+INSERT INTO libros VALUES ('Cien Años de Soledad',4,1,4,'Seccion C',80,3,2000)
+INSERT INTO libros VALUES ('La Fiesta del Chivo',4,4,5,'Seccion L',90,4,1995)
+INSERT INTO libros VALUES ('Yo el Sumpremo',6,4,6,'Seccion Y',95,6,2001)
+INSERT INTO libros VALUES ('La Guerra del Fin del Mundo',5,5,5,'Seccion L',75,1,2003)
+INSERT INTO libros VALUES ('La Muerte de Artemio Cruz',6,1,7,'Seccion L',96,7,2004)
+INSERT INTO libros VALUES ('Como Agua para Chocolate',7,6,7,'Seccion C',84,2,1998)
+INSERT INTO libros VALUES ('Los Heraldos Negros',1,6,8,'Seccion L',56,6,2000)
 GO
 SELECT * FROM libros
 
@@ -123,9 +120,11 @@ INSERT INTO lector VALUES ('Pamela','Taipe','Av. Buena Vista','taipe@gmail.com',
 GO
 SELECT * FROM lector
 
-INSERT INTO prestamo VALUES(2,50,'2017-04-20','2017-05-12',null,'Pendiente')
-INSERT INTO prestamo VALUES(1,50,'2017-05-20','2017-05-25',null,'Pendiente')
-INSERT INTO prestamo VALUES(3,55,'2017-05-17','2017-05-25',null,'Pendiente')
-INSERT INTO prestamo VALUES(4,54,'2017-05-21','2017-06-20',null,'Pendiente')
+INSERT INTO prestamo VALUES(2,1,'2022-11-20','2022-11-28','2022-11-22','Entregado')
+INSERT INTO prestamo VALUES(3,2,'2022-11-18','2022-11-22','2022-11-20','Entregado')
+INSERT INTO prestamo VALUES(4,3,'2022-11-20','2022-11-30','2022-11-25','Entregado')
+INSERT INTO prestamo VALUES(5,4,'2022-05-21','2022-05-28','2022-05-25','Entregado')
 GO
 SELECT * FROM prestamo
+
+delete from prestamo --Sirve para borrar los registros de una tabla determinada

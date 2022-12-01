@@ -179,7 +179,7 @@ END
 GO
 
 --PROCEDIMIENTO PARA MODIFICAR USUARIO
-ALTER PROC ModificarUsuario(
+CREATE PROC ModificarUsuario(
 @IdUsuario int,
 @Nombres varchar(50),
 @Apellidos varchar(50),
@@ -449,11 +449,11 @@ GO
  GO
 
  /*-----------------------PROCEDIMIENTO ALMACENADO PARA LOS REPORTES DE LOS LIBROS---------------------------------*/
- CREATE PROC ReporteLibros
+ ALTER PROC ReporteLibros
  @busqueda varchar(100)
  AS
  BEGIN
-	SELECT LI.CodLibro, LI.Titulo,AU.Autor, GE.Genero, ED.Editorial, LI.Ubicacion, LI.Cantidad
+	SELECT LI.CodLibro, LI.Titulo,AU.Autor, GE.Genero, ED.Editorial, LI.Ubicacion, LI.Cantidad,LI.NroEdicion,LI.AñoEdicion
 	FROM libros LI
 	INNER JOIN autor AU ON AU.CodAutor = LI.CodAutor
 	INNER JOIN genero GE ON GE.CodGenero = LI.CodGenero
@@ -518,7 +518,7 @@ GO
  @codgenero int,
  @codeditorial int,
  @ubicacion varchar(50),
- @cantidad int
+ @cantidad int,
  @nroEdicion int,--Esperando...
  @añoEdicion int
  AS
